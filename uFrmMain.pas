@@ -673,10 +673,10 @@ begin
     cbLanguage.Items.AddObject(LangManager.LanguageNames[i], Pointer(LangManager.LanguageIDs[i]));
 
   //ToDo: !!! TMP WIP - hardcoded rus lang
-  LangManager.LanguageID := 1049;
-
-   // Index=0 always means the default language
-  cbLanguage.ItemIndex := 1;
+  //LangManager.LanguageID := 1049;
+  //ToDo: сделать авто поиск языка?
+  LangManager.LanguageID := 0;
+  cbLanguage.ItemIndex := 0;
 
   // регаем нотификацию "вставки" устройства
   NF.dbcc_size:=sizeof(TDEV_BROADCAST_DEVICEINTERFACE);
