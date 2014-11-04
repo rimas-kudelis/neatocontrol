@@ -1,0 +1,1 @@
+{$I h:\DeL\Unit\SetupAPI.pas}
