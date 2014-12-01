@@ -64,6 +64,10 @@ The management interface will be updated.
 Changes
 =========
 
+       1.6
+       BotVac support.
+       Auto detect language.
+
        1.5
        Improve translate. Thanx Yuval Kohavi.
 
