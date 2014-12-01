@@ -22,8 +22,8 @@ object frmMain: TfrmMain
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 733
-    Height = 500
+    Width = 725
+    Height = 491
     ActivePage = TabSheet3
     Align = alClient
     TabOrder = 0
@@ -415,13 +415,13 @@ object frmMain: TfrmMain
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 725
-        Height = 472
+        Width = 717
+        Height = 463
         Align = alClient
         TabOrder = 0
         DesignSize = (
-          721
-          468)
+          713
+          459)
         object Label2: TLabel
           Left = 7
           Top = 111
@@ -751,6 +751,7 @@ object frmMain: TfrmMain
       'Thursda = Thursday'
       'Tuesday = Tuesday'
       'Wednesday = Wednesday')
+    OnLanguageChanged = LngLanguageChanged
     Left = 452
     LangData = {
       070066726D4D61696E010100000001000000070043617074696F6E014C000000

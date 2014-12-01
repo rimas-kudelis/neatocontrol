@@ -144,6 +144,7 @@ type
     procedure actChrEnableBrushExecute(Sender: TObject);
     procedure mnCopyClick(Sender: TObject);
     procedure actChrCheck(Sender: TObject);
+    procedure LngLanguageChanged(Sender: TObject);
   private
     { Private declarations }
   public
@@ -656,28 +657,67 @@ begin
   r.Free;
 end;
 
-//// //// //// //// //// //// //// ////  //// //// //// //// //// //// //// ////
+// lib
+function GetMyVersion(VerCount: Byte = 4):string;
+type
+  TVerInfo=packed record
+    Nevazhno: array[0..47] of byte; // ненужные нам 48 байт
+    Minor,Major,Build,Release: word; // а тут версия
+  end;
+var
+  s:TResourceStream;
+  v:TVerInfo;
+begin
+  result := '';
+  try
+    s:=TResourceStream.Create(HInstance,'#1',RT_VERSION); // достаём ресурс
+    if s.Size>0 then begin
+      s.Read(v,SizeOf(v)); // читаем нужные нам байты
+      // версия:
+      if VerCount >= 1 then
+        Result := Result + IntToStr(v.Major);
+      if VerCount >= 2 then
+        Result := Result + '.' + IntToStr(v.Minor);
+      if VerCount >= 3 then
+        Result := Result + '.' + IntToStr(v.Release);
+      if VerCount >= 4 then
+        Result := Result + '.' + IntToStr(v.Build);
+    end;
+    s.Free;
+  except;
+  end;
+end;
 
+function GetSystemDefaultUILanguage: UINT; stdcall; external kernel32 name 'GetSystemDefaultUILanguage';
+function GetSysLang: Integer;
+begin
+  Result := GetSystemDefaultUILanguage;
+end;
+
+//// //// //// //// //// //// //// ////  //// //// //// //// //// //// //// ////
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 var
   NF:TDEV_BROADCAST_DEVICEINTERFACE;
-  i: Integer;
+  i, t: Integer;
 begin
   PageControl1.ActivePageIndex := 0;
 
    // Scan for language files in the app directory and register them in the LangManager object
   LangManager.ScanForLangFiles(ExtractFileDir(ParamStr(0)), '*.lng', False);
-   // Fill cbLanguage with available languages
+
+  // авто поиск языка
+  LangManager.LanguageID := GetSysLang();
+
+  // Fill cbLanguage with available languages
   for i := 0 to LangManager.LanguageCount-1 do
-    cbLanguage.Items.AddObject(LangManager.LanguageNames[i], Pointer(LangManager.LanguageIDs[i]));
+  begin
+    t := cbLanguage.Items.AddObject(LangManager.LanguageNames[i], Pointer(LangManager.LanguageIDs[i]));
+    if LangManager.LanguageIDs[i] = LangManager.LanguageID then
+      cbLanguage.ItemIndex := t;
+  end;
 
-  //ToDo: !!! TMP WIP - hardcoded rus lang
-  //LangManager.LanguageID := 1049;
-  //ToDo: сделать авто поиск языка?
-  LangManager.LanguageID := 0;
-  cbLanguage.ItemIndex := 0;
-
+  
   // регаем нотификацию "вставки" устройства
   NF.dbcc_size:=sizeof(TDEV_BROADCAST_DEVICEINTERFACE);
   NF.dbcc_devicetype:=DBT_DEVTYP_DEVICEINTERFACE;
@@ -694,6 +734,11 @@ begin
   Connected := false;
 
   actLangLoad.Execute;
+end;
+
+procedure TfrmMain.LngLanguageChanged(Sender: TObject);
+begin
+  Caption := Caption + '   ver ' + GetMyVersion(2);
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
@@ -890,7 +935,11 @@ begin
   begin
     if chAutoDetectPort.Checked then
     begin
+      // Neato XV-21, XV-12
       N := FindCOMPort($2108, $780B);
+      if N='' then
+        // Neato BotVac
+        N := FindCOMPort($2108, $780C);
       textComPortN.Text := N;
     end else
     begin
