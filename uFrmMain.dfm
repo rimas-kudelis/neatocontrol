@@ -326,7 +326,7 @@ object frmMain: TfrmMain
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 725
+        Width = 717
         Height = 41
         Align = alTop
         TabOrder = 0
@@ -356,8 +356,8 @@ object frmMain: TfrmMain
       object listSensors: TValueListEditor
         Left = 0
         Top = 41
-        Width = 725
-        Height = 431
+        Width = 717
+        Height = 422
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking]
         PopupMenu = PopupMenu1
@@ -370,7 +370,7 @@ object frmMain: TfrmMain
         OnDrawCell = listSensorsDrawCell
         ColWidths = (
           181
-          538)
+          530)
       end
     end
     object TabSheet1: TTabSheet
@@ -378,14 +378,14 @@ object frmMain: TfrmMain
       object Image1: TImage
         Left = 0
         Top = 33
-        Width = 725
-        Height = 439
+        Width = 717
+        Height = 430
         Align = alClient
       end
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 725
+        Width = 717
         Height = 33
         Align = alTop
         TabOrder = 0
@@ -609,6 +609,33 @@ object frmMain: TfrmMain
         end
       end
     end
+    object TabSheet6: TTabSheet
+      Caption = 'Commands'
+      ImageIndex = 4
+      object ScrollBox2: TScrollBox
+        Left = 0
+        Top = 0
+        Width = 717
+        Height = 463
+        Align = alClient
+        TabOrder = 0
+        object Label7: TLabel
+          Left = 16
+          Top = 24
+          Width = 32
+          Height = 13
+          Caption = 'Label7'
+        end
+        object Edit1: TEdit
+          Left = 64
+          Top = 24
+          Width = 121
+          Height = 21
+          TabOrder = 0
+          Text = 'Edit1'
+        end
+      end
+    end
     object TabSheet5: TTabSheet
       Caption = 'About'
       ImageIndex = 4
@@ -754,7 +781,7 @@ object frmMain: TfrmMain
     OnLanguageChanged = LngLanguageChanged
     Left = 452
     LangData = {
-      070066726D4D61696E010100000001000000070043617074696F6E014C000000
+      070066726D4D61696E010100000001000000070043617074696F6E0151000000
       0C0050616765436F6E74726F6C31000009005461625368656574330101000000
       03000000070043617074696F6E00090047726F7570426F783201010000000400
       0000070043617074696F6E000700427574746F6E320101000000060000000700
@@ -816,7 +843,11 @@ object frmMain: TfrmMain
       617074696F6E0005004D656D6F3501010000005C00000005004C696E65730005
       004D656D6F3401010000005D00000005004C696E65730010006C625761726E4C
       6F77566F6C7461676501010000005E000000070043617074696F6E0005004D65
-      6D6F3601010000005F00000005004C696E657300}
+      6D6F3601010000005F00000005004C696E657300090054616253686565743601
+      0100000060000000070043617074696F6E000A005363726F6C6C426F78320000
+      050045646974310101000000610000000400546578740006004C6162656C3701
+      0100000062000000070043617074696F6E000B0058504D616E69666573743100
+      00}
   end
   object TimerGetTime: TTimer
     OnTimer = TimerGetTimeTimer
@@ -829,5 +860,8 @@ object frmMain: TfrmMain
       Caption = 'Copy'
       OnClick = mnCopyClick
     end
+  end
+  object XPManifest1: TXPManifest
+    Left = 636
   end
 end

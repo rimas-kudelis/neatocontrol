@@ -10,7 +10,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
-  DKLang, Gauges, Menus, Clipbrd;
+  DKLang, Gauges, Menus, Clipbrd, XPMan;
 
 type
   Float = Real;
@@ -107,6 +107,11 @@ type
     Memo4: TMemo;
     lbWarnLowVoltage: TPanel;
     Memo6: TMemo;
+    TabSheet6: TTabSheet;
+    ScrollBox2: TScrollBox;
+    Edit1: TEdit;
+    Label7: TLabel;
+    XPManifest1: TXPManifest;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
