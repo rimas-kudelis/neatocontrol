@@ -1,0 +1,67 @@
+TargetApplication=NeatoControl
+Author=Uranus-13
+LANGID=1036
+
+[frmMain]
+00000001=Neato Control
+00000003=Paramètres
+00000004=Suiveur de mur:
+00000006=On.
+00000007=OFF.
+00000008=Planning et heure
+00000011=Horaire:
+00000018=Activé
+00000019=Désactivé
+00000020=Connect
+00000021=le prenom port COM:
+00000025=Détection du N°de port
+00000026=Détection lors de la connexion
+00000028=Version:
+00000031=Capteurs
+00000035=Capteur\nValeur\n
+00000036=Scanner
+00000037=boutons de contrôle
+00000042=Connecter
+00000043=Déconnecter
+00000044=Langue:
+00000046=Sauver planning
+00000047=Lire planning
+00000048=Définir le planning du NEATO à partir de l'ordinateur
+00000049=propos
+00000057=Scanner LIDAR
+00000060=Contrôle à distance (appuyez sur les flèches)
+00000061=Temps de recharge
+00000062=propos
+00000080=Emuler charge de 100%
+00000081=Allumer le moteur de l'aspirateur et débrancher
+00000082=Allumer le moteur de la brosse et débrancher
+00000067=Heure Robot :
+00000068=00: 00: 00
+00000069=Étape 1:
+00000070=Étape 2:
+00000071=Étape 3:
+00000072=Étape 4:
+00000073=Étape 5:
+00000084=AVERTISSEMENT: \nToutes les actions sont effectuées par vous à vos propres risques et périls. \nSi vous ne voulez pas risquer NE PAS utiliser ce mode - acheter de nouvelles batteries \nprogram NavTor ne garantit rien \nméthode Ne ne garantit pas un succès... \n de batteries accumulation. Nécessaire si votre robot est retiré 10-20 minutes et déchargée. Pour restaurer BATTERIE systématiquement suivi les instructions des étapes, si à l'étape un bouton, appuyez dessus. \nSi après la connexion dans la fenêtre apparue une boîte rouge avec le mot «Batt V <11 V" stop "accumulation" et de mettre immédiatement un robot sur la tarification. Vous pouvez essayer de répéter deux fois pour corriger l'effet.
+00000085=Allumez le robot de nettoyage, attendre la décharge.
+00000086=Cliquez sur ce bouton, puis allumez le robot de nettoyage, attendre la décharge. (~10,5 minutes)
+00000092=Allumer le robot, et aussi rapidement que possible, cliquez sur "Connect".Ensuite, appuyez sur le bouton - Allumer le moteur d'aspirateur. Attendez que le robot s'éteint lui-même. (~ 30 minutes)
+00000093=Allumer le robot, et aussi rapidement que possible, cliquez sur "Connect". Ensuite, appuyez sur le bouton - Allumer le moteur de la brosse. Attendez que le robot s'éteint lui-même. (~ 30 minutes)
+00000095=Connectez le robot à la charge\nNécessairement faire "Service" -.> "New Battery». Attendre pour une charge complète.\nFaire plusieurs nettoyages avant de juger du résultat.
+
+[$CONSTANTES]
+ErrorCantOpenPortCOM=Impossible d'ouvrir le port COM - quelqu'un l'a pris. Peut-être que ce n'est pas le port ou le programme est déjà en cours d'exécution.
+ErrorComPortNotDetect=port COM n'a pas été trouvé. Il suffit de rebrancher surle robot. Vérifiez la disponibilité de "Neato Robotics USB Port" dans le Gestionnaire de périphériques sous "Ports". Vérifiez la connexion.
+ErrorSetPortState=erreur de réglage Etat du port (SetCommState)
+ErrorEvent=WaitCommEvent IOResult=EV_ERR
+ErrorClearPort=Erreur port de compensation. (ClearCommError)
+ErrorInvalidComPortNumber=mauvais numéro port COM
+Sunday=dimanche
+Monday=lundi
+Tuesday=mardi
+Wednesday=mercredi
+Thursday=jeudi
+Friday=vendredi
+Saturday=samedi
+textEnabled=On.
+textDisabled=Off.

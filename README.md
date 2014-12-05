@@ -11,7 +11,8 @@ Features are quite simple: to see the state of the sensors to change the schedul
 Use
 -------------
 Place the driver - by downloading the firmware update program (Neato Updater Tool) to [Off Site] (http://www.neatorobotics.com/support/software-update/step-one/).
-Connect the robot to a computer, and then click Connect.
+Connect the robot to a computer, and then click "Connect".
+Do not forget to push "disconnect" button the software before you disconnect the USB cord from the unit.
 
 Download
 -------
