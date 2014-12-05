@@ -10,6 +10,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
+  uArrayAsPHP,
   DKLang, Gauges, Menus, Clipbrd, XPMan;
 
 type
@@ -72,7 +73,6 @@ type
     Lng: TDKLanguageController;
     cbLanguage: TComboBox;
     lblLang: TLabel;
-    actLangLoad: TAction;
     actSetSchedule: TAction;
     actGetSchedule: TAction;
     actSetCurrentTime: TAction;
@@ -109,9 +109,12 @@ type
     Memo6: TMemo;
     TabSheet6: TTabSheet;
     ScrollBox2: TScrollBox;
+    XPManifest1: TXPManifest;
+    paintSpectre: TPaintBox;
+    memoConsole: TMemo;
+    Panel3: TPanel;
     Edit1: TEdit;
     Label7: TLabel;
-    XPManifest1: TXPManifest;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -132,7 +135,6 @@ type
     procedure actConnectUpdate(Sender: TObject);
     procedure chAutoDetectPortClick(Sender: TObject);
     procedure cbLanguageChange(Sender: TObject);
-    procedure actLangLoadExecute(Sender: TObject);
     procedure actGetScheduleExecute(Sender: TObject);
     procedure actSetScheduleExecute(Sender: TObject);
     procedure actScanLDSExecute(Sender: TObject);
@@ -150,6 +152,7 @@ type
     procedure mnCopyClick(Sender: TObject);
     procedure actChrCheck(Sender: TObject);
     procedure LngLanguageChanged(Sender: TObject);
+    procedure paintSpectrePaint(Sender: TObject);
   private
     { Private declarations }
   public
@@ -164,6 +167,7 @@ type
     RemoteControl: boolean;
     Speed: Integer;
     State: (stStop, stForward, stLeft, stRight, stBack);
+    ScanData: Array [0..359] of ArrOfStr;
 
     procedure SetPoint(X, Y: integer; C: TColor = clBlack);
     procedure ControlRobot(Key: Word);
@@ -181,7 +185,6 @@ uses
   DateUtils,
   RegExpr,
   uMathLib,
-  uArrayAsPHP,
   uVectors, StrUtils;
 
   {
@@ -722,7 +725,6 @@ begin
       cbLanguage.ItemIndex := t;
   end;
 
-  
   // регаем нотификацию "вставки" устройства
   NF.dbcc_size:=sizeof(TDEV_BROADCAST_DEVICEINTERFACE);
   NF.dbcc_devicetype:=DBT_DEVTYP_DEVICEINTERFACE;
@@ -737,12 +739,18 @@ begin
   Port := INVALID_HANDLE_VALUE;
   ScanRun := false;
   Connected := false;
-
-  actLangLoad.Execute;
 end;
 
 procedure TfrmMain.LngLanguageChanged(Sender: TObject);
 begin
+  listSchedule.ItemProps['Sun'].KeyDesc := LangManager.ConstantValue['Sunday'];
+  listSchedule.ItemProps['Mon'].KeyDesc := LangManager.ConstantValue['Monday'];
+  listSchedule.ItemProps['Tue'].KeyDesc := LangManager.ConstantValue['Tuesday'];
+  listSchedule.ItemProps['Wed'].KeyDesc := LangManager.ConstantValue['Wednesday'];
+  listSchedule.ItemProps['Thu'].KeyDesc := LangManager.ConstantValue['Thursda'];
+  listSchedule.ItemProps['Fri'].KeyDesc := LangManager.ConstantValue['Friday'];
+  listSchedule.ItemProps['Sat'].KeyDesc := LangManager.ConstantValue['Saturday'];
+  listSchedule.Refresh;
   Caption := Caption + '   ver ' + GetMyVersion(2);
 end;
 
@@ -761,14 +769,13 @@ end;
 procedure TfrmMain.cbLanguageChange(Sender: TObject);
 begin
   LangManager.LanguageID := DWORD(cbLanguage.Items.Objects[cbLanguage.ItemIndex]);
-  actLangLoad.Execute;
 end;
 
 procedure TfrmMain.actScanExecute(Sender: TObject);
 var
   str: string;
   strs, strs_line: ArrOfStr;
-  i: integer;
+  i, aint: integer;
   a, r, x, y: double;
 begin
   if Connected then
@@ -786,23 +793,34 @@ begin
     EasyFade(Image1.Picture.Bitmap, 16);
 
     SetLength(strs, 0);
+    // нарезали на строчки
     strs := explode(#13#10, str);
     SetLength(strs_line, 0);
     for i := Low(strs) to High(strs) do
     begin
+      // нарезали строчку на элементы
       strs_line := explode(',', strs[i]);
       if Length(strs_line) = 4 then
         if StrToIntDef(strs_line[0], -1) <> -1 then
         begin
-          a := DegreeToRadian(StrToInt(strs_line[0]));
-          r := StrToInt(strs_line[1]) / 10;
-          PolarToDescart(r, a, x, y);
-          x := x + Image1.Width div 2;
-          y := Image1.Height div 2 - y;
-          SetPoint(round(x), round(y), clGreen);
+          aint := StrToIntDef(strs_line[0], -1);
+          if (aint>=0) and (aint<=359) then
+          begin
+            a := DegreeToRadian(aint);
+            r := StrToInt(strs_line[1]) / 10;
+            PolarToDescart(r, a, x, y);
+            x := x + Image1.Width div 2;
+            y := Image1.Height div 2 - y;
+            SetPoint(round(x), round(y), clGreen);
+
+            // заполняем 'спектр'
+            ScanData[aint]:=strs_line;
+          end;
         end;
     end;
+    // центр - точка робота
     SetPoint(Image1.Width div 2, Image1.Height div 2, clRed);
+    paintSpectre.Repaint;
   end;
 end;
 
@@ -1012,17 +1030,6 @@ begin
   textComPortN.Enabled := not chAutoDetectPort.Checked;
 end;
 
-procedure TfrmMain.actLangLoadExecute(Sender: TObject);
-begin
-  listSchedule.ItemProps['Sun'].KeyDesc := LangManager.ConstantValue['Sunday'];
-  listSchedule.ItemProps['Mon'].KeyDesc := LangManager.ConstantValue['Monday'];
-  listSchedule.ItemProps['Tue'].KeyDesc := LangManager.ConstantValue['Tuesday'];
-  listSchedule.ItemProps['Wed'].KeyDesc := LangManager.ConstantValue['Wednesday'];
-  listSchedule.ItemProps['Thu'].KeyDesc := LangManager.ConstantValue['Thursda'];
-  listSchedule.ItemProps['Fri'].KeyDesc := LangManager.ConstantValue['Friday'];
-  listSchedule.ItemProps['Sat'].KeyDesc := LangManager.ConstantValue['Saturday'];
-end;
-
 procedure TfrmMain.actGetScheduleExecute(Sender: TObject);
 var
   tmpStr: TStrings;
@@ -1066,7 +1073,8 @@ begin
   listSchedule.Strings.Text := tmpStr.Text;
   btnSetSchedule.Enabled := true;
 
-  actLangLoad.Execute();
+  // обновить перевод расписания
+  LngLanguageChanged(nil);
 
   tmpStr.Free;
   r.Free;
@@ -1281,6 +1289,41 @@ end;
 procedure TfrmMain.actChrCheck(Sender: TObject);
 begin
   (Sender as TAction).Enabled := BattV_Nornal and Connected;
+end;
+
+procedure TfrmMain.paintSpectrePaint(Sender: TObject);
+var
+  i, inten: integer;
+  pixwidht: float;
+begin
+  // AngleInDegrees, DistInMM, Intensity,ErrorCodeHEX
+  // 0,              221,      1400,     0
+
+  paintSpectre.Canvas.Pen.Style := psClear;
+  paintSpectre.Canvas.Brush.Style := bsSolid;
+  pixwidht := paintSpectre.ClientWidth / 360;
+  // рисуем 'спектр'
+  for i:=0 to 359 do
+  begin
+    if Length(ScanData[i])=0 then
+      paintSpectre.Canvas.Brush.Color := clWhite;
+    if Length(ScanData[i])=4 then
+    begin
+      inten := StrToIntDef(ScanData[i][2], 0);
+      // рисуем интенсивность
+      if (inten > 0) then
+        paintSpectre.Canvas.Brush.Color := RGB(0, inten, 0);
+
+      // если есть ошибка
+      if (ScanData[i][3] <> '0') then
+        paintSpectre.Canvas.Brush.Color := clRed;
+
+      paintSpectre.Canvas.Rectangle(round(i*pixwidht), 0, round((i+1)*pixwidht), paintSpectre.ClientHeight);
+    end else
+      paintSpectre.Canvas.Brush.Color := clMaroon;
+    if (pixwidht > 2.8) then
+      paintSpectre.Canvas.Pixels[round(i*pixwidht), 0] := clBlack;
+  end;
 end;
 
 end.
