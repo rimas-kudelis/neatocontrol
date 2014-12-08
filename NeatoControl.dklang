@@ -40,21 +40,21 @@ actChrSet100PercentBattery.Caption=00000080,Set 100% Battery
 actChrEnableVaccum.Caption=00000081,Enable Vaccum Motor and Disconnect
 actChrEnableBrush.Caption=00000082,Enable Brush Motor and Disconnect
 mnCopy.Caption=00000083,Copy
-Memo2.Lines=00000084,CAUTION:\nAll actions are performed by you at your own risk, at your peril.\nIf you do not want to risk DO NOT use this mode - just buy new batteries.\nAuthor of this program does not guarantee anything. This method does not guarantee a successful outcome.\nThe buildup of the batteries. Need if your robot is removed 10-20 minutes and discharged.\nTo restore akkumy consistently follow the steps instructions if there is a button in step click it.\nYou can try to repeat twice to strengthen the effect.\nIf, after connecting in the window appeared red rectangle labeled "Batt V <12 V" stop "swinging" and immediately \nput the robot on charging.\n
+Memo2.Lines=00000084,CAUTION:\nAll actions are performed by you at your own risk, at your peril.\nIf you do not want to risk DO NOT use this mode - just buy new batteries.\nAuthor of this program does not guarantee anything. This method does not \nguarantee a successful outcome.\nThe buildup of the batteries. Need if your robot is removed 10-20 minutes and \ndischarged.\nTo restore akkumy consistently follow the steps instructions if there is a button in \nstep click it.\nYou can try to repeat twice to strengthen the effect.\nIf, after connecting in the window appeared red rectangle labeled "Batt V <12 V" \nstop "swinging" and immediately \nput the robot on charging.\n
 Memo1.Lines=00000085,Turn on the robot for cleaning and wait until discharge.\n
-Memo3.Lines=00000086,Click this button, then turn on the cleaning robot, wait until discharge. (~ \n10.5 minutes)\n
+Memo3.Lines=00000086,Click this button, then turn on the \ncleaning robot, wait until discharge. (~ \n10.5 minutes)\n
 Label2.Caption=00000087,Step 1:
 Label3.Caption=00000088,Step 2:
 Label4.Caption=00000089,Step 3:
 Label5.Caption=00000090,Step 4:
 Label6.Caption=00000091,Step 5:
-Memo5.Lines=00000092,Turn on the robot, and as quickly as possible, click "Connect."\nPress - turns on the motor brushes. Wait until the robot switches itself off. \n(~ 30 minutes)\n
-Memo4.Lines=00000093,Turn on the robot, and as quickly as possible, click "Connect."\nThen press the button - turns the vacuum cleaner motor. Wait until the \nrobot switches itself off. (~ 30 minutes)\n
+Memo5.Lines=00000092,Turn on the robot, and as quickly as \npossible, click "Connect."\nPress - turns on the motor brushes. Wait \nuntil the robot switches itself off. \n(~ 30 minutes)\n
+Memo4.Lines=00000093,Turn on the robot, and as quickly as \npossible, click "Connect."\nThen press the button - turns the vacuum \ncleaner motor. Wait until the \nrobot switches itself off. (~ 30 minutes)\n
 lbWarnLowVoltage.Caption=00000094,Batt V < 12 V
 Memo6.Lines=00000095,Connect the robot to the charge.\nBe sure to make "Service" -> "New Battery". Wait for a full charge.\nMake cleaning a few times before you judge the result.\n
 TabSheet6.Caption=00000096,Commands
-Edit1.Text=00000097,Edit1
-Label7.Caption=00000098,Label7
+Edit1.Text=00000100,Edit1
+Label7.Caption=00000101,F1
 
 [$CONSTANTS]
 ErrorCantOpenPortCOM=Can't open port COM

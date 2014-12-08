@@ -109,15 +109,9 @@ DebugCWD=
 IncludeVerInfo=1
 AutoIncBuild=1
 MajorVer=1
-<<<<<<< HEAD
-MinorVer=6
+MinorVer=7
 Release=0
-Build=56
-=======
-MinorVer=5
-Release=0
-Build=55
->>>>>>> 42f128bc36c25b62ecaa80c661a2ffe2537b5832
+Build=57
 Debug=0
 PreRelease=0
 Special=0
@@ -128,17 +122,13 @@ CodePage=1251
 [Version Info Keys]
 CompanyName=heX
 FileDescription=
-<<<<<<< HEAD
-FileVersion=1.6.0.56
-=======
-FileVersion=1.5.0.55
->>>>>>> 42f128bc36c25b62ecaa80c661a2ffe2537b5832
+FileVersion=1.7.0.57
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=1.3
+ProductVersion=
 Comments=
 [Excluded Packages]
 c:\program files (x86)\borland\delphi7\Bin\dclite70.bpl=Borland Integrated Translation Environment

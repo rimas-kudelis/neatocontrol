@@ -11,7 +11,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
   uArrayAsPHP,
-  DKLang, Gauges, Menus, Clipbrd, XPMan;
+  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList;
 
 type
   Float = Real;
@@ -115,6 +115,7 @@ type
     Panel3: TPanel;
     Edit1: TEdit;
     Label7: TLabel;
+    ImageListNeato: TImageList;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -153,6 +154,7 @@ type
     procedure actChrCheck(Sender: TObject);
     procedure LngLanguageChanged(Sender: TObject);
     procedure paintSpectrePaint(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   private
     { Private declarations }
   public
@@ -168,6 +170,8 @@ type
     Speed: Integer;
     State: (stStop, stForward, stLeft, stRight, stBack);
     ScanData: Array [0..359] of ArrOfStr;
+
+    ScanParseError: boolean;
 
     procedure SetPoint(X, Y: integer; C: TColor = clBlack);
     procedure ControlRobot(Key: Word);
@@ -730,15 +734,13 @@ begin
   NF.dbcc_devicetype:=DBT_DEVTYP_DEVICEINTERFACE;
   RegisterDeviceNotification(Handle,@NF,DEVICE_NOTIFY_ALL_INTERFACE_CLASSES);
 
-  // картинка сканера
-  Image1.Picture.Bitmap.Height := Image1.Height;
-  Image1.Picture.Bitmap.Width := Image1.Width;
-  Image1.Picture.Bitmap.Canvas.Rectangle(0, 0, Image1.Width, Image1.Height);
-
   // init
   Port := INVALID_HANDLE_VALUE;
   ScanRun := false;
   Connected := false;
+
+  //ToDo: command page
+  TabSheet6.TabVisible := false;
 end;
 
 procedure TfrmMain.LngLanguageChanged(Sender: TObject);
@@ -792,6 +794,14 @@ begin
 
     EasyFade(Image1.Picture.Bitmap, 16);
 
+    // центр робота
+    ImageListNeato.Draw(
+      Image1.Picture.Bitmap.Canvas,
+      (Image1.Width div 2)-10,
+      (Image1.Height div 2)-16,
+      0);
+    SetPoint(Image1.Width div 2, Image1.Height div 2, clRed);
+    
     SetLength(strs, 0);
     // нарезали на строчки
     strs := explode(#13#10, str);
@@ -806,20 +816,27 @@ begin
           aint := StrToIntDef(strs_line[0], -1);
           if (aint>=0) and (aint<=359) then
           begin
+            // перевели координаты из полярных в обычные
+            // незнаю почему но у моего робота наблюдается скос на 5 градусов, если вычесть то получается все точно
+            //a := DegreeToRadian(aint-5);
             a := DegreeToRadian(aint);
             r := StrToInt(strs_line[1]) / 10;
-            PolarToDescart(r, a, x, y);
-            x := x + Image1.Width div 2;
-            y := Image1.Height div 2 - y;
-            SetPoint(round(x), round(y), clGreen);
-
+            if r>0 then
+            begin
+              PolarToDescart(r, a, x, y);
+              // ставим точку относительно центра холста
+              x := x + Image1.Width div 2;
+              y := Image1.Height div 2 - y;
+              SetPoint(round(x), round(y), clGreen);
+            end;
             // заполняем 'спектр'
             ScanData[aint]:=strs_line;
+          end else
+          begin
+            ScanParseError := true;
           end;
         end;
     end;
-    // центр - точка робота
-    SetPoint(Image1.Width div 2, Image1.Height div 2, clRed);
     paintSpectre.Repaint;
   end;
 end;
@@ -1293,7 +1310,7 @@ end;
 
 procedure TfrmMain.paintSpectrePaint(Sender: TObject);
 var
-  i, inten: integer;
+  i, inten, dist: integer;
   pixwidht: float;
 begin
   // AngleInDegrees, DistInMM, Intensity,ErrorCodeHEX
@@ -1301,6 +1318,7 @@ begin
 
   paintSpectre.Canvas.Pen.Style := psClear;
   paintSpectre.Canvas.Brush.Style := bsSolid;
+  paintSpectre.Canvas.Brush.Color := clBlack;
   pixwidht := paintSpectre.ClientWidth / 360;
   // рисуем 'спектр'
   for i:=0 to 359 do
@@ -1309,21 +1327,48 @@ begin
       paintSpectre.Canvas.Brush.Color := clWhite;
     if Length(ScanData[i])=4 then
     begin
+      paintSpectre.Canvas.Brush.Color := clBlack;
+      paintSpectre.Canvas.Rectangle(round(i*pixwidht), 0, round((i+1)*pixwidht)+1, paintSpectre.ClientHeight);
+
       inten := StrToIntDef(ScanData[i][2], 0);
+      dist := StrToIntDef(ScanData[i][1], 0);
+
       // рисуем интенсивность
       if (inten > 0) then
-        paintSpectre.Canvas.Brush.Color := RGB(0, inten, 0);
+      begin
+        paintSpectre.Canvas.Brush.Color := RGB(0, Trunc(Interpolation2Clamp(0, 1400, 0, 255, inten)), 0);
+        paintSpectre.Canvas.Rectangle(round(i*pixwidht), 0, round((i+1)*pixwidht)+1, paintSpectre.ClientHeight div 2);
+      end;
+
+      // рисуем дистанцию
+      if (dist > 0) then
+      begin
+        paintSpectre.Canvas.Brush.Color := RGB(0, 0, Trunc(Interpolation2Clamp(150, 4000, 255, 0, dist)));
+        paintSpectre.Canvas.Rectangle(round(i*pixwidht), paintSpectre.ClientHeight div 2, round((i+1)*pixwidht)+1, paintSpectre.ClientHeight);
+      end;
 
       // если есть ошибка
       if (ScanData[i][3] <> '0') then
+      begin
         paintSpectre.Canvas.Brush.Color := clRed;
+        paintSpectre.Canvas.Rectangle(round(i*pixwidht), 0, round((i+1)*pixwidht)+1, paintSpectre.ClientHeight div 3);
+        paintSpectre.Canvas.Brush.Color := clBlack;
+      end;
 
-      paintSpectre.Canvas.Rectangle(round(i*pixwidht), 0, round((i+1)*pixwidht), paintSpectre.ClientHeight);
     end else
       paintSpectre.Canvas.Brush.Color := clMaroon;
     if (pixwidht > 2.8) then
       paintSpectre.Canvas.Pixels[round(i*pixwidht), 0] := clBlack;
   end;
+end;
+
+procedure TfrmMain.FormResize(Sender: TObject);
+begin
+  // картинка сканера
+  Image1.Picture.Bitmap.Height := Image1.Height;
+  Image1.Picture.Bitmap.Width := Image1.Width;
+  Image1.Picture.Bitmap.Canvas.Brush.Color := clWhite;
+  Image1.Picture.Bitmap.Canvas.Rectangle(0, 0, Image1.Width, Image1.Height);
 end;
 
 end.
