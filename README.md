@@ -64,6 +64,11 @@ The management interface will be updated.
 
 Changes
 =========
+       1.7
+       add "Scan Line"
+       add translation French and German (Thank glnc222)
+       add WinXP theme support
+       fix some bugs
 
        1.6
        BotVac support.
