@@ -805,8 +805,8 @@ object frmMain: TfrmMain
       'Monday = Monday'
       'Saturday = Saturday'
       'Sunday = Sunday'
-      'textDisabled = Disabled'
-      'textEnabled = Enabled'
+      'textDisabled = Off'
+      'textEnabled = On'
       'Thursda = Thursday'
       'Tuesday = Tuesday'
       'Wednesday = Wednesday')
