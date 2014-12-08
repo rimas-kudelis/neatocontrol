@@ -718,6 +718,7 @@ begin
    // Scan for language files in the app directory and register them in the LangManager object
   LangManager.ScanForLangFiles(ExtractFileDir(ParamStr(0)), '*.lng', False);
 
+  Caption := Caption + '   ver ' + GetMyVersion(2);
   // авто поиск языка
   LangManager.LanguageID := GetSysLang();
 
