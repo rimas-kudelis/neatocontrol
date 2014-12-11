@@ -158,6 +158,8 @@ type
     procedure FormResize(Sender: TObject);
     procedure actResizeScanZoneExecute(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
+    procedure lbWarnLowVoltageMouseUp(Sender: TObject;
+      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -1384,6 +1386,17 @@ procedure TfrmMain.PageControl1Change(Sender: TObject);
 begin
   if PageControl1.ActivePage.Name = 'tabScan' then
     actResizeScanZone.Execute();
+end;
+
+procedure TfrmMain.lbWarnLowVoltageMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  // секретная комбинация - выключает проверку на напряжение
+  if (ssCtrl in Shift) and (ssAlt in Shift) then
+  begin
+    lbWarnLowVoltage.Visible := false;
+    BattV_Nornal := true;
+  end;
 end;
 
 end.

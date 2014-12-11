@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
   Left = 282
   Top = 130
-  Width = 814
-  Height = 518
+  Width = 730
+  Height = 470
   Caption = 'Neato Control'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -23,9 +23,9 @@ object frmMain: TfrmMain
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 798
-    Height = 480
-    ActivePage = tabScan
+    Width = 714
+    Height = 432
+    ActivePage = TabSheet4
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -334,7 +334,7 @@ object frmMain: TfrmMain
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 790
+        Width = 706
         Height = 41
         Align = alTop
         TabOrder = 0
@@ -364,8 +364,8 @@ object frmMain: TfrmMain
       object listSensors: TValueListEditor
         Left = 0
         Top = 41
-        Width = 790
-        Height = 411
+        Width = 706
+        Height = 363
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking]
         PopupMenu = PopupMenu1
@@ -378,7 +378,7 @@ object frmMain: TfrmMain
         OnDrawCell = listSensorsDrawCell
         ColWidths = (
           181
-          603)
+          519)
       end
     end
     object tabScan: TTabSheet
@@ -386,21 +386,21 @@ object frmMain: TfrmMain
       object Image1: TImage
         Left = 0
         Top = 49
-        Width = 790
-        Height = 403
+        Width = 706
+        Height = 355
         Align = alClient
       end
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 790
+        Width = 706
         Height = 49
         Align = alTop
         TabOrder = 0
         object paintSpectre: TPaintBox
           Left = 1
           Top = 31
-          Width = 788
+          Width = 704
           Height = 17
           Align = alBottom
           OnPaint = paintSpectrePaint
@@ -431,13 +431,13 @@ object frmMain: TfrmMain
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 790
-        Height = 452
+        Width = 706
+        Height = 404
         Align = alClient
         TabOrder = 0
         DesignSize = (
-          786
-          448)
+          702
+          400)
         object Label2: TLabel
           Left = 7
           Top = 111
@@ -476,7 +476,7 @@ object frmMain: TfrmMain
         object Memo2: TMemo
           Left = 0
           Top = 2
-          Width = 510
+          Width = 686
           Height = 100
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -512,7 +512,7 @@ object frmMain: TfrmMain
         object Memo1: TMemo
           Left = 46
           Top = 104
-          Width = 464
+          Width = 640
           Height = 27
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -524,7 +524,7 @@ object frmMain: TfrmMain
         object Memo3: TMemo
           Left = 189
           Top = 137
-          Width = 321
+          Width = 497
           Height = 33
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -565,7 +565,7 @@ object frmMain: TfrmMain
         object Memo5: TMemo
           Left = 189
           Top = 221
-          Width = 321
+          Width = 497
           Height = 40
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -581,7 +581,7 @@ object frmMain: TfrmMain
         object Memo4: TMemo
           Left = 189
           Top = 176
-          Width = 321
+          Width = 497
           Height = 39
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -609,11 +609,12 @@ object frmMain: TfrmMain
           ParentFont = False
           TabOrder = 8
           Visible = False
+          OnMouseUp = lbWarnLowVoltageMouseUp
         end
         object Memo6: TMemo
           Left = 46
           Top = 267
-          Width = 464
+          Width = 640
           Height = 78
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -635,15 +636,15 @@ object frmMain: TfrmMain
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
-        Width = 790
-        Height = 452
+        Width = 706
+        Height = 404
         Align = alClient
         TabOrder = 0
         object memoConsole: TMemo
           Left = 0
           Top = 169
-          Width = 786
-          Height = 279
+          Width = 702
+          Height = 231
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -651,7 +652,7 @@ object frmMain: TfrmMain
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 786
+          Width = 702
           Height = 169
           Align = alTop
           TabOrder = 1
@@ -907,8 +908,8 @@ object frmMain: TfrmMain
     BkColor = clWhite
     Height = 32
     Width = 32
-    Left = 668
-    Top = 65535
+    Left = 416
+    Top = 33
     Bitmap = {
       494C010101000400040020002000FFFFFF00FF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
