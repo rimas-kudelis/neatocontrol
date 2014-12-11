@@ -21,7 +21,7 @@ TabSheet2.Caption=00000031,Sensors
 chSensorAuto.Caption=00000033,Auto load
 listSensors.Strings=00000034,\n
 listSensors.TitleCaptions=00000035,Sensor\nValue\n
-TabSheet1.Caption=00000036,Snanner
+tabScan.Caption=00000036,Snanner
 actScan.Caption=00000040,Scan
 actSensors.Caption=00000041,Load sensor
 actConnect.Caption=00000042,Connect
@@ -55,6 +55,7 @@ Memo6.Lines=00000095,Connect the robot to the charge.\nBe sure to make "Service"
 TabSheet6.Caption=00000096,Commands
 Edit1.Text=00000100,Edit1
 Label7.Caption=00000101,F1
+actResizeScanZone.Caption=00000102,actResizeScanZone
 
 [$CONSTANTS]
 ErrorCantOpenPortCOM=Can't open port COM

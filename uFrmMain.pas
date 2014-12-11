@@ -32,7 +32,7 @@ type
 
   TfrmMain = class(TForm)
     PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
+    tabScan: TTabSheet;
     TabSheet2: TTabSheet;
     Image1: TImage;
     ActionList1: TActionList;
@@ -116,6 +116,7 @@ type
     Edit1: TEdit;
     Label7: TLabel;
     ImageListNeato: TImageList;
+    actResizeScanZone: TAction;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -155,6 +156,8 @@ type
     procedure LngLanguageChanged(Sender: TObject);
     procedure paintSpectrePaint(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure actResizeScanZoneExecute(Sender: TObject);
+    procedure PageControl1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1365,11 +1368,22 @@ end;
 
 procedure TfrmMain.FormResize(Sender: TObject);
 begin
+  actResizeScanZone.Execute();
+end;
+
+procedure TfrmMain.actResizeScanZoneExecute(Sender: TObject);
+begin
   // картинка сканера
   Image1.Picture.Bitmap.Height := Image1.Height;
   Image1.Picture.Bitmap.Width := Image1.Width;
   Image1.Picture.Bitmap.Canvas.Brush.Color := clWhite;
   Image1.Picture.Bitmap.Canvas.Rectangle(0, 0, Image1.Width, Image1.Height);
+end;
+
+procedure TfrmMain.PageControl1Change(Sender: TObject);
+begin
+  if PageControl1.ActivePage.Name = 'tabScan' then
+    actResizeScanZone.Execute();
 end;
 
 end.
