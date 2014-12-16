@@ -109,14 +109,39 @@ type
     Memo6: TMemo;
     TabSheet6: TTabSheet;
     ScrollBox2: TScrollBox;
-    XPManifest1: TXPManifest;
     paintSpectre: TPaintBox;
     memoConsole: TMemo;
     Panel3: TPanel;
-    Edit1: TEdit;
     Label7: TLabel;
     ImageListNeato: TImageList;
     actResizeScanZone: TAction;
+    edCmd5: TComboBox;
+    cbRepeatTime5: TComboBox;
+    btnCmd5: TButton;
+    Label8: TLabel;
+    edCmd6: TComboBox;
+    cbRepeatTime6: TComboBox;
+    btnCmd6: TButton;
+    Label9: TLabel;
+    edCmd7: TComboBox;
+    cbRepeatTime7: TComboBox;
+    btnCmd7: TButton;
+    Label10: TLabel;
+    edCmd8: TComboBox;
+    cbRepeatTime8: TComboBox;
+    btnCmd8: TButton;
+    Label11: TLabel;
+    edCmd4: TComboBox;
+    cbRepeatTime4: TComboBox;
+    btnCmd4: TButton;
+    Label12: TLabel;
+    edCmd9: TComboBox;
+    cbRepeatTime9: TComboBox;
+    btnCmd9: TButton;
+    edLogFileName: TComboBox;
+    chSaveLogToFile: TCheckBox;
+    btnSelectLogFileName: TButton;
+    actBtnRun: TAction;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -160,11 +185,19 @@ type
     procedure PageControl1Change(Sender: TObject);
     procedure lbWarnLowVoltageMouseUp(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure btnSelectLogFileNameClick(Sender: TObject);
+    procedure actBtnRunExecute(Sender: TObject);
+    procedure cbRepeatTimeChange(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
     Points: array of TLocatePoint;
+    
+    ConsoleRunCmd: array [4..9] of TComboBox;
+    ConsoleRunCmdTimer: array [4..9] of TComboBox;
+    ConsoleRunCmdTimerCount: array [4..9] of integer;
+    ConsoleRunCmdTimerMaxCount: array [4..9] of integer;
 
     Connected: boolean;
     BattV_Nornal: boolean;
@@ -190,6 +223,7 @@ implementation
 {$R *.dfm}
 
 uses
+  uDataModule,
   SetupAPI,
   DateUtils,
   RegExpr,
@@ -741,12 +775,22 @@ begin
   RegisterDeviceNotification(Handle,@NF,DEVICE_NOTIFY_ALL_INTERFACE_CLASSES);
 
   // init
+  ConsoleRunCmd[4]:=edCmd4;
+  ConsoleRunCmd[5]:=edCmd5;
+  ConsoleRunCmd[6]:=edCmd6;
+  ConsoleRunCmd[7]:=edCmd7;
+  ConsoleRunCmd[8]:=edCmd8;
+  ConsoleRunCmd[9]:=edCmd9;
+  ConsoleRunCmdTimer[4]:=cbRepeatTime4;
+  ConsoleRunCmdTimer[5]:=cbRepeatTime5;
+  ConsoleRunCmdTimer[6]:=cbRepeatTime6;
+  ConsoleRunCmdTimer[7]:=cbRepeatTime7;
+  ConsoleRunCmdTimer[8]:=cbRepeatTime8;
+  ConsoleRunCmdTimer[9]:=cbRepeatTime9;
+
   Port := INVALID_HANDLE_VALUE;
   ScanRun := false;
   Connected := false;
-
-  //ToDo: command page
-  TabSheet6.TabVisible := false;
 end;
 
 procedure TfrmMain.LngLanguageChanged(Sender: TObject);
@@ -1396,6 +1440,27 @@ begin
   begin
     lbWarnLowVoltage.Visible := false;
     BattV_Nornal := true;
+  end;
+end;
+
+procedure TfrmMain.btnSelectLogFileNameClick(Sender: TObject);
+begin
+  if ModuleMain.SaveDialogLogFile.Execute then
+    edLogFileName.Text := ModuleMain.SaveDialogLogFile.FileName;
+end;
+
+procedure TfrmMain.actBtnRunExecute(Sender: TObject);
+begin
+  //ToDo:WIP
+end;
+
+procedure TfrmMain.cbRepeatTimeChange(Sender: TObject);
+var c: TComboBox;
+begin
+  if (Sender is TComboBox) then
+  begin
+    c := Sender as TComboBox;
+    //ToDo:WIP
   end;
 end;
 
