@@ -218,6 +218,8 @@ type
 var
   frmMain: TfrmMain;
 
+function SendCmd(Port: THandle; Cmd: string): string;
+
 implementation
 
 {$R *.dfm}
@@ -1450,8 +1452,13 @@ begin
 end;
 
 procedure TfrmMain.actBtnRunExecute(Sender: TObject);
+var c: TButton;
 begin
-  //ToDo:WIP
+  if (Sender is TButton) then
+  begin
+    c := Sender as TButton;
+    ModuleMain.RunCmdFn(c.Tag);
+  end;
 end;
 
 procedure TfrmMain.cbRepeatTimeChange(Sender: TObject);
@@ -1460,7 +1467,7 @@ begin
   if (Sender is TComboBox) then
   begin
     c := Sender as TComboBox;
-    //ToDo:WIP
+    ConsoleRunCmdTimerMaxCount[c.Tag] := StrToIntDef(c.Text, 0);
   end;
 end;
 
