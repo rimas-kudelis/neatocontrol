@@ -116,32 +116,35 @@ type
     ImageListNeato: TImageList;
     actResizeScanZone: TAction;
     edCmd5: TComboBox;
-    cbRepeatTime5: TComboBox;
     btnCmd5: TButton;
     Label8: TLabel;
     edCmd6: TComboBox;
-    cbRepeatTime6: TComboBox;
     btnCmd6: TButton;
     Label9: TLabel;
     edCmd7: TComboBox;
-    cbRepeatTime7: TComboBox;
     btnCmd7: TButton;
     Label10: TLabel;
     edCmd8: TComboBox;
-    cbRepeatTime8: TComboBox;
     btnCmd8: TButton;
     Label11: TLabel;
     edCmd4: TComboBox;
-    cbRepeatTime4: TComboBox;
     btnCmd4: TButton;
     Label12: TLabel;
     edCmd9: TComboBox;
-    cbRepeatTime9: TComboBox;
     btnCmd9: TButton;
-    edLogFileName: TComboBox;
-    chSaveLogToFile: TCheckBox;
-    btnSelectLogFileName: TButton;
     actBtnRun: TAction;
+    Label13: TLabel;
+    Panel4: TPanel;
+    edLogFileName: TComboBox;
+    btnSelectLogFileName: TButton;
+    chSaveLogToFile: TCheckBox;
+    GroupBox1: TGroupBox;
+    cbRepeatTime4: TComboBox;
+    cbRepeatTime5: TComboBox;
+    cbRepeatTime6: TComboBox;
+    cbRepeatTime7: TComboBox;
+    cbRepeatTime8: TComboBox;
+    cbRepeatTime9: TComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -188,6 +191,11 @@ type
     procedure btnSelectLogFileNameClick(Sender: TObject);
     procedure actBtnRunExecute(Sender: TObject);
     procedure cbRepeatTimeChange(Sender: TObject);
+    procedure chSaveLogToFileClick(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edCmd4KeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -1468,6 +1476,33 @@ begin
   begin
     c := Sender as TComboBox;
     ConsoleRunCmdTimerMaxCount[c.Tag] := StrToIntDef(c.Text, 0);
+  end;
+end;
+
+procedure TfrmMain.chSaveLogToFileClick(Sender: TObject);
+begin
+  edLogFileName.Enabled := chSaveLogToFile.Checked;
+  btnSelectLogFileName.Enabled := chSaveLogToFile.Checked;
+end;
+
+procedure TfrmMain.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (Key >= VK_F4) and (Key <= VK_F9) then
+    ModuleMain.RunCmdFn(Key - VK_F1 + 1);
+end;
+
+procedure TfrmMain.edCmd4KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var c: TButton;
+begin
+  if Key = VK_RETURN then
+  begin
+    if (Sender is TButton) then
+    begin
+      c := Sender as TButton;
+      ModuleMain.RunCmdFn(c.Tag);
+    end;
   end;
 end;
 

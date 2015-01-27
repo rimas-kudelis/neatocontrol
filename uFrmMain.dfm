@@ -1,6 +1,6 @@
 object frmMain: TfrmMain
-  Left = 282
-  Top = 130
+  Left = 306
+  Top = 150
   Width = 730
   Height = 470
   Caption = 'Neato Control'
@@ -17,6 +17,7 @@ object frmMain: TfrmMain
   OnDestroy = FormDestroy
   OnDeactivate = FormDeactivate
   OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
   OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
@@ -641,9 +642,9 @@ object frmMain: TfrmMain
         TabOrder = 0
         object memoConsole: TMemo
           Left = 0
-          Top = 177
+          Top = 199
           Width = 702
-          Height = 223
+          Height = 201
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -652,13 +653,13 @@ object frmMain: TfrmMain
           Left = 0
           Top = 0
           Width = 702
-          Height = 177
+          Height = 199
           Align = alTop
           TabOrder = 1
           object Label7: TLabel
             Tag = 5
             Left = 8
-            Top = 35
+            Top = 51
             Width = 12
             Height = 13
             Caption = 'F5'
@@ -666,7 +667,7 @@ object frmMain: TfrmMain
           object Label8: TLabel
             Tag = 6
             Left = 8
-            Top = 59
+            Top = 75
             Width = 12
             Height = 13
             Caption = 'F6'
@@ -674,7 +675,7 @@ object frmMain: TfrmMain
           object Label9: TLabel
             Tag = 7
             Left = 8
-            Top = 83
+            Top = 99
             Width = 12
             Height = 13
             Caption = 'F7'
@@ -682,7 +683,7 @@ object frmMain: TfrmMain
           object Label10: TLabel
             Tag = 8
             Left = 8
-            Top = 107
+            Top = 123
             Width = 12
             Height = 13
             Caption = 'F8'
@@ -690,7 +691,7 @@ object frmMain: TfrmMain
           object Label11: TLabel
             Tag = 4
             Left = 8
-            Top = 11
+            Top = 27
             Width = 12
             Height = 13
             Caption = 'F4'
@@ -698,19 +699,27 @@ object frmMain: TfrmMain
           object Label12: TLabel
             Tag = 9
             Left = 8
-            Top = 131
+            Top = 147
             Width = 12
             Height = 13
             Caption = 'F9'
           end
+          object Label13: TLabel
+            Left = 24
+            Top = 8
+            Width = 70
+            Height = 13
+            Caption = 'Commands list:'
+          end
           object edCmd5: TComboBox
             Tag = 5
             Left = 24
-            Top = 32
+            Top = 48
             Width = 361
             Height = 21
             ItemHeight = 13
-            TabOrder = 0
+            TabOrder = 1
+            OnKeyUp = edCmd4KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -718,140 +727,49 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object cbRepeatTime5: TComboBox
-            Tag = 5
-            Left = 392
-            Top = 32
-            Width = 73
-            Height = 21
-            Hint = 'in second'
-            ItemHeight = 13
-            ItemIndex = 0
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 1
-            Text = 'OFF'
-            OnChange = cbRepeatTimeChange
-            Items.Strings = (
-              'OFF'
-              '1'
-              '2'
-              '3'
-              '5'
-              '60'
-              '120')
-          end
           object btnCmd5: TButton
             Tag = 5
-            Left = 469
-            Top = 32
-            Width = 84
+            Left = 389
+            Top = 48
+            Width = 32
             Height = 20
             Action = actBtnRun
-            TabOrder = 2
+            TabOrder = 7
           end
           object edCmd6: TComboBox
             Tag = 6
             Left = 24
-            Top = 56
+            Top = 72
             Width = 361
             Height = 21
             ItemHeight = 13
-            TabOrder = 3
+            TabOrder = 2
+            OnKeyUp = edCmd4KeyUp
             Items.Strings = (
               ''
               'GetCharger'
               'GetMotors Laser'
               'TestMode On'
               'TestMode Off')
-          end
-          object cbRepeatTime6: TComboBox
-            Tag = 6
-            Left = 392
-            Top = 56
-            Width = 73
-            Height = 21
-            Hint = 'in second'
-            ItemHeight = 13
-            ItemIndex = 0
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 4
-            Text = 'OFF'
-            OnChange = cbRepeatTimeChange
-            Items.Strings = (
-              'OFF'
-              '1'
-              '2'
-              '3'
-              '5'
-              '60'
-              '120')
           end
           object btnCmd6: TButton
             Tag = 6
-            Left = 469
-            Top = 56
-            Width = 84
-            Height = 20
-            Action = actBtnRun
-            TabOrder = 5
-          end
-          object edCmd7: TComboBox
-            Tag = 7
-            Left = 24
-            Top = 80
-            Width = 361
-            Height = 21
-            ItemHeight = 13
-            TabOrder = 6
-            Items.Strings = (
-              ''
-              'GetCharger'
-              'GetMotors Laser'
-              'TestMode On'
-              'TestMode Off')
-          end
-          object cbRepeatTime7: TComboBox
-            Tag = 7
-            Left = 392
-            Top = 80
-            Width = 73
-            Height = 21
-            Hint = 'in second'
-            ItemHeight = 13
-            ItemIndex = 0
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 7
-            Text = 'OFF'
-            OnChange = cbRepeatTimeChange
-            Items.Strings = (
-              'OFF'
-              '1'
-              '2'
-              '3'
-              '5'
-              '60'
-              '120')
-          end
-          object btnCmd7: TButton
-            Tag = 7
-            Left = 469
-            Top = 80
-            Width = 84
+            Left = 389
+            Top = 72
+            Width = 32
             Height = 20
             Action = actBtnRun
             TabOrder = 8
           end
-          object edCmd8: TComboBox
-            Tag = 8
+          object edCmd7: TComboBox
+            Tag = 7
             Left = 24
-            Top = 104
+            Top = 96
             Width = 361
             Height = 21
             ItemHeight = 13
-            TabOrder = 9
+            TabOrder = 3
+            OnKeyUp = edCmd4KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -859,46 +777,49 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object cbRepeatTime8: TComboBox
+          object btnCmd7: TButton
+            Tag = 7
+            Left = 389
+            Top = 96
+            Width = 32
+            Height = 20
+            Action = actBtnRun
+            TabOrder = 9
+          end
+          object edCmd8: TComboBox
             Tag = 8
-            Left = 392
-            Top = 104
-            Width = 73
+            Left = 24
+            Top = 120
+            Width = 361
             Height = 21
-            Hint = 'in second'
             ItemHeight = 13
-            ItemIndex = 0
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 10
-            Text = 'OFF'
-            OnChange = cbRepeatTimeChange
+            TabOrder = 4
+            OnKeyUp = edCmd4KeyUp
             Items.Strings = (
-              'OFF'
-              '1'
-              '2'
-              '3'
-              '5'
-              '60'
-              '120')
+              ''
+              'GetCharger'
+              'GetMotors Laser'
+              'TestMode On'
+              'TestMode Off')
           end
           object btnCmd8: TButton
             Tag = 8
-            Left = 469
-            Top = 104
-            Width = 84
+            Left = 389
+            Top = 120
+            Width = 32
             Height = 20
             Action = actBtnRun
-            TabOrder = 11
+            TabOrder = 10
           end
           object edCmd4: TComboBox
             Tag = 4
             Left = 24
-            Top = 8
+            Top = 24
             Width = 361
             Height = 21
             ItemHeight = 13
-            TabOrder = 12
+            TabOrder = 0
+            OnKeyUp = edCmd4KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -906,46 +827,24 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object cbRepeatTime4: TComboBox
-            Tag = 4
-            Left = 392
-            Top = 8
-            Width = 73
-            Height = 21
-            Hint = 'in second'
-            ItemHeight = 13
-            ItemIndex = 0
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 13
-            Text = 'OFF'
-            OnChange = cbRepeatTimeChange
-            Items.Strings = (
-              'OFF'
-              '1'
-              '2'
-              '3'
-              '5'
-              '60'
-              '120')
-          end
           object btnCmd4: TButton
             Tag = 4
-            Left = 469
-            Top = 8
-            Width = 84
+            Left = 389
+            Top = 24
+            Width = 32
             Height = 20
             Action = actBtnRun
-            TabOrder = 14
+            TabOrder = 6
           end
           object edCmd9: TComboBox
             Tag = 9
             Left = 24
-            Top = 128
+            Top = 144
             Width = 361
             Height = 21
             ItemHeight = 13
-            TabOrder = 15
+            TabOrder = 5
+            OnKeyUp = edCmd4KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -953,63 +852,199 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object cbRepeatTime9: TComboBox
-            Tag = 9
-            Left = 392
-            Top = 128
-            Width = 73
-            Height = 21
-            Hint = 'in second'
-            ItemHeight = 13
-            ItemIndex = 0
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 16
-            Text = 'OFF'
-            OnChange = cbRepeatTimeChange
-            Items.Strings = (
-              'OFF'
-              '1'
-              '2'
-              '3'
-              '5'
-              '60'
-              '120')
-          end
           object btnCmd9: TButton
             Tag = 9
-            Left = 469
-            Top = 128
-            Width = 84
+            Left = 389
+            Top = 144
+            Width = 32
             Height = 20
             Action = actBtnRun
-            TabOrder = 17
+            TabOrder = 11
           end
-          object edLogFileName: TComboBox
-            Left = 24
-            Top = 152
-            Width = 361
-            Height = 21
-            ItemHeight = 13
-            TabOrder = 18
-            Text = 'log.txt'
+          object Panel4: TPanel
+            Left = 2
+            Top = 168
+            Width = 505
+            Height = 27
+            TabOrder = 13
+            object edLogFileName: TComboBox
+              Left = 216
+              Top = 4
+              Width = 265
+              Height = 21
+              ItemHeight = 13
+              TabOrder = 0
+              Text = 'log.txt'
+              Visible = False
+            end
+            object btnSelectLogFileName: TButton
+              Left = 483
+              Top = 4
+              Width = 19
+              Height = 19
+              Caption = '...'
+              TabOrder = 1
+              Visible = False
+              OnClick = btnSelectLogFileNameClick
+            end
+            object chSaveLogToFile: TCheckBox
+              Left = 8
+              Top = 6
+              Width = 201
+              Height = 17
+              Caption = 'Save log to file'
+              TabOrder = 2
+              OnClick = chSaveLogToFileClick
+            end
           end
-          object chSaveLogToFile: TCheckBox
-            Left = 416
-            Top = 154
-            Width = 137
-            Height = 17
-            Caption = 'Save log to file'
-            TabOrder = 19
-          end
-          object btnSelectLogFileName: TButton
-            Left = 384
-            Top = 152
-            Width = 19
-            Height = 19
-            Caption = '...'
-            TabOrder = 20
-            OnClick = btnSelectLogFileNameClick
+          object GroupBox1: TGroupBox
+            Left = 425
+            Top = 7
+            Width = 82
+            Height = 161
+            Hint = 'in second'
+            Caption = 'Timers:'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 12
+            object cbRepeatTime4: TComboBox
+              Tag = 4
+              Left = 5
+              Top = 16
+              Width = 73
+              Height = 21
+              Hint = 'in second'
+              ItemHeight = 13
+              ItemIndex = 0
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 0
+              Text = 'OFF'
+              OnChange = cbRepeatTimeChange
+              Items.Strings = (
+                'OFF'
+                '1'
+                '2'
+                '3'
+                '5'
+                '60'
+                '120')
+            end
+            object cbRepeatTime5: TComboBox
+              Tag = 5
+              Left = 5
+              Top = 40
+              Width = 73
+              Height = 21
+              Hint = 'in second'
+              ItemHeight = 13
+              ItemIndex = 0
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 1
+              Text = 'OFF'
+              OnChange = cbRepeatTimeChange
+              Items.Strings = (
+                'OFF'
+                '1'
+                '2'
+                '3'
+                '5'
+                '60'
+                '120')
+            end
+            object cbRepeatTime6: TComboBox
+              Tag = 6
+              Left = 5
+              Top = 64
+              Width = 73
+              Height = 21
+              Hint = 'in second'
+              ItemHeight = 13
+              ItemIndex = 0
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 2
+              Text = 'OFF'
+              OnChange = cbRepeatTimeChange
+              Items.Strings = (
+                'OFF'
+                '1'
+                '2'
+                '3'
+                '5'
+                '60'
+                '120')
+            end
+            object cbRepeatTime7: TComboBox
+              Tag = 7
+              Left = 5
+              Top = 88
+              Width = 73
+              Height = 21
+              Hint = 'in second'
+              ItemHeight = 13
+              ItemIndex = 0
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 3
+              Text = 'OFF'
+              OnChange = cbRepeatTimeChange
+              Items.Strings = (
+                'OFF'
+                '1'
+                '2'
+                '3'
+                '5'
+                '60'
+                '120')
+            end
+            object cbRepeatTime8: TComboBox
+              Tag = 8
+              Left = 5
+              Top = 112
+              Width = 73
+              Height = 21
+              Hint = 'in second'
+              ItemHeight = 13
+              ItemIndex = 0
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 4
+              Text = 'OFF'
+              OnChange = cbRepeatTimeChange
+              Items.Strings = (
+                'OFF'
+                '1'
+                '2'
+                '3'
+                '5'
+                '60'
+                '120')
+            end
+            object cbRepeatTime9: TComboBox
+              Tag = 9
+              Left = 5
+              Top = 136
+              Width = 73
+              Height = 21
+              Hint = 'in second'
+              ItemHeight = 13
+              ItemIndex = 0
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 5
+              Text = 'OFF'
+              OnChange = cbRepeatTimeChange
+              Items.Strings = (
+                'OFF'
+                '1'
+                '2'
+                '3'
+                '5'
+                '60'
+                '120')
+            end
           end
         end
       end
@@ -1034,17 +1069,15 @@ object frmMain: TfrmMain
           'Constructor  [ heX ]'
           ''
           'Site: http://heX.name/programs/neatocontrol'
-          'Git: bitbucket.org/heXor'
+          'Git: https://bitbucket.org/heXor/neatocontrol'
           'Mail: heX1625616@gmail.com'
           ''
           #1050#1072#1082' '#1086#1090#1073#1083#1072#1075#1086#1076#1072#1088#1080#1090#1100':'
           #1052#1086#1078#1077#1090#1077' '#1087#1077#1088#1077#1095#1080#1089#1083#1080#1090#1100' 50 '#1088#1091#1073#1083#1077#1081' '#1084#1085#1077' '#1085#1072' '#1087#1080#1074#1086':'
           #1071#1085#1076#1077#1082#1089'.'#1044#1077#1085#1100#1075#1080': 41001734858021'
           'BitCoin: 16Hgt4WuS1DgQoPqps2xpa9quax3T3k6qm'
-          'GooglePlay: https://play.google.com/store/apps/details?'
-          'id=name.hex.donate'
           ''
-          '2014')
+          '2015 '#1075#1086#1076'.')
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
@@ -1163,7 +1196,7 @@ object frmMain: TfrmMain
     OnLanguageChanged = LngLanguageChanged
     Left = 452
     LangData = {
-      070066726D4D61696E010100000001000000070043617074696F6E016E000000
+      070066726D4D61696E010100000001000000070043617074696F6E0171000000
       0C0050616765436F6E74726F6C31000009005461625368656574330101000000
       03000000070043617074696F6E00090047726F7570426F783201010000000400
       0000070043617074696F6E000700427574746F6E320101000000060000000700
@@ -1230,32 +1263,34 @@ object frmMain: TfrmMain
       6F6E736F6C650000060050616E656C33000006004C6162656C37010100000065
       000000070043617074696F6E000E00496D6167654C6973744E6561746F000011
       00616374526573697A655363616E5A6F6E650101000000660000000700436170
-      74696F6E0006006564436D643501010000006B00000005004974656D73000D00
-      636252657065617454696D653501030000006A000000040048696E7469000000
-      05004974656D736800000004005465787400070062746E436D6435000006004C
-      6162656C3801010000006D000000070043617074696F6E0006006564436D6436
-      01010000006E00000005004974656D73000D00636252657065617454696D6536
-      01030000006F000000040048696E747100000005004974656D73700000000400
-      5465787400070062746E436D6436000006004C6162656C390101000000730000
-      00070043617074696F6E0006006564436D643701010000007400000005004974
-      656D73000D00636252657065617454696D653701030000007500000004004869
-      6E747700000005004974656D737600000004005465787400070062746E436D64
-      37000007004C6162656C3130010100000079000000070043617074696F6E0006
-      006564436D643801010000007A00000005004974656D73000D00636252657065
-      617454696D653801030000007B000000040048696E747D00000005004974656D
-      737C00000004005465787400070062746E436D6438000007004C6162656C3131
-      01010000007F000000070043617074696F6E0006006564436D64340101000000
-      8000000005004974656D73000D00636252657065617454696D65340103000000
-      81000000040048696E748300000005004974656D738200000004005465787400
-      070062746E436D6434000007004C6162656C3132010100000085000000070043
-      617074696F6E0006006564436D643901010000008600000005004974656D7300
-      0D00636252657065617454696D6539010300000087000000040048696E748900
-      000005004974656D738800000004005465787400070062746E436D643900000D
-      0065644C6F6746696C654E616D6501010000008B000000040054657874000F00
-      6368536176654C6F67546F46696C6501010000008C000000070043617074696F
-      6E00140062746E53656C6563744C6F6746696C654E616D6501010000008D0000
-      00070043617074696F6E00090061637442746E52756E01010000008E00000007
-      0043617074696F6E00}
+      74696F6E0006006564436D643501010000006B00000005004974656D73000700
+      62746E436D6435000006004C6162656C3801010000006D000000070043617074
+      696F6E0006006564436D643601010000006E00000005004974656D7300070062
+      746E436D6436000006004C6162656C3901010000007300000007004361707469
+      6F6E0006006564436D643701010000007400000005004974656D730007006274
+      6E436D6437000007004C6162656C313001010000007900000007004361707469
+      6F6E0006006564436D643801010000007A00000005004974656D730007006274
+      6E436D6438000007004C6162656C313101010000007F00000007004361707469
+      6F6E0006006564436D643401010000008000000005004974656D730007006274
+      6E436D6434000007004C6162656C313201010000008500000007004361707469
+      6F6E0006006564436D643901010000008600000005004974656D730007006274
+      6E436D64390000090061637442746E52756E01010000008E0000000700436170
+      74696F6E0007004C6162656C313301010000008F000000070043617074696F6E
+      00060050616E656C3400000D0065644C6F6746696C654E616D65010100000091
+      00000004005465787400140062746E53656C6563744C6F6746696C654E616D65
+      010100000092000000070043617074696F6E000F006368536176654C6F67546F
+      46696C65010100000093000000070043617074696F6E00090047726F7570426F
+      7831010200000094000000070043617074696F6EA7000000040048696E74000D
+      00636252657065617454696D6534010300000095000000040048696E74970000
+      0005004974656D7396000000040054657874000D00636252657065617454696D
+      6535010300000098000000040048696E749A00000005004974656D7399000000
+      040054657874000D00636252657065617454696D653601030000009B00000004
+      0048696E749D00000005004974656D739C000000040054657874000D00636252
+      657065617454696D653701030000009E000000040048696E74A0000000050049
+      74656D739F000000040054657874000D00636252657065617454696D65380103
+      000000A1000000040048696E74A300000005004974656D73A200000004005465
+      7874000D00636252657065617454696D65390103000000A4000000040048696E
+      74A600000005004974656D73A500000004005465787400}
   end
   object TimerGetTime: TTimer
     OnTimer = TimerGetTimeTimer

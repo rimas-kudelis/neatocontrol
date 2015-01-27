@@ -27,6 +27,17 @@ implementation
 
 uses uFrmMain;
 
+procedure WriteFL(FileName,str:string; ReWriteFile:boolean=false);
+var f:text;
+begin
+  assign(f,FileName);
+  if FileExists(FileName) and ReWriteFile then
+    append(f) else
+    rewrite(f);
+  writeLN(f,str);
+  close(f);
+end;
+
 procedure TModuleMain.RunCmdFn(N: byte);
 var
   s: String;
@@ -38,6 +49,9 @@ begin
       s := SendCmd(frmMain.Port, Trim(ConsoleRunCmd[N].Text));
       if s<>'' then
       begin
+        if frmMain.chSaveLogToFile.Checked then
+          WriteFL(frmMain.edLogFileName.Text, s);
+
         // добавляем результат в консольный вывод
         memoConsole.Lines.Text := memoConsole.Lines.Text + s;
         // если строк слишком много то режем их
