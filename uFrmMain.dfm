@@ -1,6 +1,6 @@
 object frmMain: TfrmMain
-  Left = 306
-  Top = 150
+  Left = 353
+  Top = 171
   Width = 730
   Height = 470
   Caption = 'Neato Control'
@@ -656,7 +656,7 @@ object frmMain: TfrmMain
           Height = 199
           Align = alTop
           TabOrder = 1
-          object Label7: TLabel
+          object LabelR5: TLabel
             Tag = 5
             Left = 8
             Top = 51
@@ -664,7 +664,7 @@ object frmMain: TfrmMain
             Height = 13
             Caption = 'F5'
           end
-          object Label8: TLabel
+          object LabelR6: TLabel
             Tag = 6
             Left = 8
             Top = 75
@@ -672,7 +672,7 @@ object frmMain: TfrmMain
             Height = 13
             Caption = 'F6'
           end
-          object Label9: TLabel
+          object LabelR7: TLabel
             Tag = 7
             Left = 8
             Top = 99
@@ -680,7 +680,7 @@ object frmMain: TfrmMain
             Height = 13
             Caption = 'F7'
           end
-          object Label10: TLabel
+          object LabelR8: TLabel
             Tag = 8
             Left = 8
             Top = 123
@@ -688,7 +688,7 @@ object frmMain: TfrmMain
             Height = 13
             Caption = 'F8'
           end
-          object Label11: TLabel
+          object LabelR4: TLabel
             Tag = 4
             Left = 8
             Top = 27
@@ -696,7 +696,7 @@ object frmMain: TfrmMain
             Height = 13
             Caption = 'F4'
           end
-          object Label12: TLabel
+          object LabelR9: TLabel
             Tag = 9
             Left = 8
             Top = 147
@@ -719,7 +719,7 @@ object frmMain: TfrmMain
             Height = 21
             ItemHeight = 13
             TabOrder = 1
-            OnKeyUp = edCmd4KeyUp
+            OnKeyUp = edCmd_KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -729,12 +729,14 @@ object frmMain: TfrmMain
           end
           object btnCmd5: TButton
             Tag = 5
-            Left = 389
-            Top = 48
+            Left = 385
+            Top = 47
             Width = 32
             Height = 20
-            Action = actBtnRun
+            Caption = 'Run'
             TabOrder = 7
+            TabStop = False
+            OnClick = actBtnRunExecute
           end
           object edCmd6: TComboBox
             Tag = 6
@@ -744,7 +746,7 @@ object frmMain: TfrmMain
             Height = 21
             ItemHeight = 13
             TabOrder = 2
-            OnKeyUp = edCmd4KeyUp
+            OnKeyUp = edCmd_KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -754,12 +756,14 @@ object frmMain: TfrmMain
           end
           object btnCmd6: TButton
             Tag = 6
-            Left = 389
-            Top = 72
+            Left = 385
+            Top = 71
             Width = 32
             Height = 20
-            Action = actBtnRun
+            Caption = 'Run'
             TabOrder = 8
+            TabStop = False
+            OnClick = actBtnRunExecute
           end
           object edCmd7: TComboBox
             Tag = 7
@@ -769,7 +773,7 @@ object frmMain: TfrmMain
             Height = 21
             ItemHeight = 13
             TabOrder = 3
-            OnKeyUp = edCmd4KeyUp
+            OnKeyUp = edCmd_KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -779,12 +783,14 @@ object frmMain: TfrmMain
           end
           object btnCmd7: TButton
             Tag = 7
-            Left = 389
-            Top = 96
+            Left = 385
+            Top = 95
             Width = 32
             Height = 20
-            Action = actBtnRun
+            Caption = 'Run'
             TabOrder = 9
+            TabStop = False
+            OnClick = actBtnRunExecute
           end
           object edCmd8: TComboBox
             Tag = 8
@@ -794,7 +800,7 @@ object frmMain: TfrmMain
             Height = 21
             ItemHeight = 13
             TabOrder = 4
-            OnKeyUp = edCmd4KeyUp
+            OnKeyUp = edCmd_KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -804,12 +810,14 @@ object frmMain: TfrmMain
           end
           object btnCmd8: TButton
             Tag = 8
-            Left = 389
-            Top = 120
+            Left = 385
+            Top = 119
             Width = 32
             Height = 20
-            Action = actBtnRun
+            Caption = 'Run'
             TabOrder = 10
+            TabStop = False
+            OnClick = actBtnRunExecute
           end
           object edCmd4: TComboBox
             Tag = 4
@@ -819,7 +827,7 @@ object frmMain: TfrmMain
             Height = 21
             ItemHeight = 13
             TabOrder = 0
-            OnKeyUp = edCmd4KeyUp
+            OnKeyUp = edCmd_KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -829,12 +837,14 @@ object frmMain: TfrmMain
           end
           object btnCmd4: TButton
             Tag = 4
-            Left = 389
-            Top = 24
+            Left = 385
+            Top = 23
             Width = 32
             Height = 20
-            Action = actBtnRun
+            Caption = 'Run'
             TabOrder = 6
+            TabStop = False
+            OnClick = actBtnRunExecute
           end
           object edCmd9: TComboBox
             Tag = 9
@@ -844,7 +854,7 @@ object frmMain: TfrmMain
             Height = 21
             ItemHeight = 13
             TabOrder = 5
-            OnKeyUp = edCmd4KeyUp
+            OnKeyUp = edCmd_KeyUp
             Items.Strings = (
               ''
               'GetCharger'
@@ -854,28 +864,30 @@ object frmMain: TfrmMain
           end
           object btnCmd9: TButton
             Tag = 9
-            Left = 389
-            Top = 144
+            Left = 385
+            Top = 143
             Width = 32
             Height = 20
-            Action = actBtnRun
+            Caption = 'Run'
             TabOrder = 11
+            TabStop = False
+            OnClick = actBtnRunExecute
           end
           object Panel4: TPanel
             Left = 2
             Top = 168
             Width = 505
-            Height = 27
+            Height = 28
             TabOrder = 13
             object edLogFileName: TComboBox
               Left = 216
               Top = 4
               Width = 265
               Height = 21
+              Enabled = False
               ItemHeight = 13
               TabOrder = 0
               Text = 'log.txt'
-              Visible = False
             end
             object btnSelectLogFileName: TButton
               Left = 483
@@ -883,8 +895,8 @@ object frmMain: TfrmMain
               Width = 19
               Height = 19
               Caption = '...'
+              Enabled = False
               TabOrder = 1
-              Visible = False
               OnClick = btnSelectLogFileNameClick
             end
             object chSaveLogToFile: TCheckBox
@@ -897,7 +909,7 @@ object frmMain: TfrmMain
               OnClick = chSaveLogToFileClick
             end
           end
-          object GroupBox1: TGroupBox
+          object GroupBoxTimers: TGroupBox
             Left = 425
             Top = 7
             Width = 82
@@ -1151,12 +1163,7 @@ object frmMain: TfrmMain
       OnUpdate = actChrCheck
     end
     object actResizeScanZone: TAction
-      Caption = 'actResizeScanZone'
       OnExecute = actResizeScanZoneExecute
-    end
-    object actBtnRun: TAction
-      Caption = 'Run'
-      OnExecute = actBtnRunExecute
     end
   end
   object TimerScan: TTimer
@@ -1175,6 +1182,18 @@ object frmMain: TfrmMain
     IgnoreList.Strings = (
       '*.Category'
       '*.Font.Name'
+      'btnCmd5.Caption'
+      'btnCmd6.Caption'
+      'btnCmd7.Caption'
+      'btnCmd8.Caption'
+      'btnCmd9.Caption'
+      'btnSelectLogFileName.Caption'
+      'cbRepeatTime*.*'
+      'edCmd5.Items'
+      'edCmd6.Items'
+      'edCmd7.Items'
+      'edCmd8.Items'
+      'edCmd9.Items'
       'listSchedule.Strings'
       'MemoAbout.*')
     StoreList.Strings = (
@@ -1196,7 +1215,7 @@ object frmMain: TfrmMain
     OnLanguageChanged = LngLanguageChanged
     Left = 452
     LangData = {
-      070066726D4D61696E010100000001000000070043617074696F6E0171000000
+      070066726D4D61696E010100000001000000070043617074696F6E0170000000
       0C0050616765436F6E74726F6C31000009005461625368656574330101000000
       03000000070043617074696F6E00090047726F7570426F783201010000000400
       0000070043617074696F6E000700427574746F6E320101000000060000000700
@@ -1260,37 +1279,27 @@ object frmMain: TfrmMain
       74696F6E0005004D656D6F3601010000005F00000005004C696E657300090054
       6162536865657436010100000060000000070043617074696F6E000A00536372
       6F6C6C426F783200000C007061696E745370656374726500000B006D656D6F43
-      6F6E736F6C650000060050616E656C33000006004C6162656C37010100000065
-      000000070043617074696F6E000E00496D6167654C6973744E6561746F000011
-      00616374526573697A655363616E5A6F6E650101000000660000000700436170
-      74696F6E0006006564436D643501010000006B00000005004974656D73000700
-      62746E436D6435000006004C6162656C3801010000006D000000070043617074
-      696F6E0006006564436D643601010000006E00000005004974656D7300070062
-      746E436D6436000006004C6162656C3901010000007300000007004361707469
-      6F6E0006006564436D643701010000007400000005004974656D730007006274
-      6E436D6437000007004C6162656C313001010000007900000007004361707469
-      6F6E0006006564436D643801010000007A00000005004974656D730007006274
-      6E436D6438000007004C6162656C313101010000007F00000007004361707469
-      6F6E0006006564436D643401010000008000000005004974656D730007006274
-      6E436D6434000007004C6162656C313201010000008500000007004361707469
-      6F6E0006006564436D643901010000008600000005004974656D730007006274
-      6E436D64390000090061637442746E52756E01010000008E0000000700436170
-      74696F6E0007004C6162656C313301010000008F000000070043617074696F6E
-      00060050616E656C3400000D0065644C6F6746696C654E616D65010100000091
-      00000004005465787400140062746E53656C6563744C6F6746696C654E616D65
-      010100000092000000070043617074696F6E000F006368536176654C6F67546F
-      46696C65010100000093000000070043617074696F6E00090047726F7570426F
-      7831010200000094000000070043617074696F6EA7000000040048696E74000D
-      00636252657065617454696D6534010300000095000000040048696E74970000
-      0005004974656D7396000000040054657874000D00636252657065617454696D
-      6535010300000098000000040048696E749A00000005004974656D7399000000
-      040054657874000D00636252657065617454696D653601030000009B00000004
-      0048696E749D00000005004974656D739C000000040054657874000D00636252
-      657065617454696D653701030000009E000000040048696E74A0000000050049
-      74656D739F000000040054657874000D00636252657065617454696D65380103
-      000000A1000000040048696E74A300000005004974656D73A200000004005465
-      7874000D00636252657065617454696D65390103000000A4000000040048696E
-      74A600000005004974656D73A500000004005465787400}
+      6F6E736F6C650000060050616E656C33000007004C6162656C52350101000000
+      65000000070043617074696F6E000E00496D6167654C6973744E6561746F0000
+      1100616374526573697A655363616E5A6F6E65000006006564436D6435000007
+      0062746E436D6435000007004C6162656C523601010000006D00000007004361
+      7074696F6E0006006564436D64360000070062746E436D6436000007004C6162
+      656C5237010100000073000000070043617074696F6E0006006564436D643700
+      00070062746E436D6437000007004C6162656C52380101000000790000000700
+      43617074696F6E0006006564436D64380000070062746E436D6438000007004C
+      6162656C523401010000007F000000070043617074696F6E0006006564436D64
+      3401010000008000000005004974656D7300070062746E436D64340101000000
+      AC000000070043617074696F6E0007004C6162656C5239010100000085000000
+      070043617074696F6E0006006564436D64390000070062746E436D6439000007
+      004C6162656C313301010000008F000000070043617074696F6E00060050616E
+      656C3400000D0065644C6F6746696C654E616D65010100000091000000040054
+      65787400140062746E53656C6563744C6F6746696C654E616D6500000F006368
+      536176654C6F67546F46696C65010100000093000000070043617074696F6E00
+      0E0047726F7570426F7854696D65727301020000009400000007004361707469
+      6F6EA7000000040048696E74000D00636252657065617454696D653400000D00
+      636252657065617454696D653500000D00636252657065617454696D65360000
+      0D00636252657065617454696D653700000D00636252657065617454696D6538
+      00000D00636252657065617454696D65390000}
   end
   object TimerGetTime: TTimer
     OnTimer = TimerGetTimeTimer

@@ -112,33 +112,32 @@ type
     paintSpectre: TPaintBox;
     memoConsole: TMemo;
     Panel3: TPanel;
-    Label7: TLabel;
+    LabelR5: TLabel;
     ImageListNeato: TImageList;
     actResizeScanZone: TAction;
     edCmd5: TComboBox;
     btnCmd5: TButton;
-    Label8: TLabel;
+    LabelR6: TLabel;
     edCmd6: TComboBox;
     btnCmd6: TButton;
-    Label9: TLabel;
+    LabelR7: TLabel;
     edCmd7: TComboBox;
     btnCmd7: TButton;
-    Label10: TLabel;
+    LabelR8: TLabel;
     edCmd8: TComboBox;
     btnCmd8: TButton;
-    Label11: TLabel;
+    LabelR4: TLabel;
     edCmd4: TComboBox;
     btnCmd4: TButton;
-    Label12: TLabel;
+    LabelR9: TLabel;
     edCmd9: TComboBox;
     btnCmd9: TButton;
-    actBtnRun: TAction;
     Label13: TLabel;
     Panel4: TPanel;
     edLogFileName: TComboBox;
     btnSelectLogFileName: TButton;
     chSaveLogToFile: TCheckBox;
-    GroupBox1: TGroupBox;
+    GroupBoxTimers: TGroupBox;
     cbRepeatTime4: TComboBox;
     cbRepeatTime5: TComboBox;
     cbRepeatTime6: TComboBox;
@@ -189,13 +188,13 @@ type
     procedure lbWarnLowVoltageMouseUp(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure btnSelectLogFileNameClick(Sender: TObject);
-    procedure actBtnRunExecute(Sender: TObject);
     procedure cbRepeatTimeChange(Sender: TObject);
     procedure chSaveLogToFileClick(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure edCmd4KeyUp(Sender: TObject; var Key: Word;
+    procedure edCmd_KeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure actBtnRunExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -814,6 +813,19 @@ begin
   listSchedule.ItemProps['Sat'].KeyDesc := LangManager.ConstantValue['Saturday'];
   listSchedule.Refresh;
   Caption := Caption + '   ver ' + GetMyVersion(2);
+
+  cbRepeatTime4.Hint:=GroupBoxTimers.Hint;
+  cbRepeatTime5.Hint:=GroupBoxTimers.Hint;
+  cbRepeatTime6.Hint:=GroupBoxTimers.Hint;
+  cbRepeatTime7.Hint:=GroupBoxTimers.Hint;
+  cbRepeatTime8.Hint:=GroupBoxTimers.Hint;
+  cbRepeatTime9.Hint:=GroupBoxTimers.Hint;
+
+  btnCmd5.Caption := btnCmd4.Caption;
+  btnCmd6.Caption := btnCmd4.Caption;
+  btnCmd7.Caption := btnCmd4.Caption;
+  btnCmd8.Caption := btnCmd4.Caption;
+  btnCmd9.Caption := btnCmd4.Caption;
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
@@ -1459,16 +1471,6 @@ begin
     edLogFileName.Text := ModuleMain.SaveDialogLogFile.FileName;
 end;
 
-procedure TfrmMain.actBtnRunExecute(Sender: TObject);
-var c: TButton;
-begin
-  if (Sender is TButton) then
-  begin
-    c := Sender as TButton;
-    ModuleMain.RunCmdFn(c.Tag);
-  end;
-end;
-
 procedure TfrmMain.cbRepeatTimeChange(Sender: TObject);
 var c: TComboBox;
 begin
@@ -1492,18 +1494,21 @@ begin
     ModuleMain.RunCmdFn(Key - VK_F1 + 1);
 end;
 
-procedure TfrmMain.edCmd4KeyUp(Sender: TObject; var Key: Word;
+procedure TfrmMain.edCmd_KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
-var c: TButton;
 begin
   if Key = VK_RETURN then
   begin
-    if (Sender is TButton) then
+    if (Sender is TComponent) then
     begin
-      c := Sender as TButton;
-      ModuleMain.RunCmdFn(c.Tag);
+      ModuleMain.RunCmdFn((Sender as TComponent).Tag);
     end;
   end;
+end;
+
+procedure TfrmMain.actBtnRunExecute(Sender: TObject);
+begin
+  ModuleMain.RunCmdFn((Sender as TComponent).Tag);
 end;
 
 end.

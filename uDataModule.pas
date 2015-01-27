@@ -25,28 +25,50 @@ implementation
 
 {$R *.dfm}
 
-uses uFrmMain;
+uses
+  {lazarus: JwaWinUser}
+  Windows,
+  Messages,
+  uFrmMain;
 
-procedure WriteFL(FileName,str:string; ReWriteFile:boolean=false);
+procedure WriteFL(FileName,str:string);
 var f:text;
 begin
   assign(f,FileName);
-  if FileExists(FileName) and ReWriteFile then
+  if FileExists(FileName) then
     append(f) else
     rewrite(f);
-  writeLN(f,str);
+  write(f,str);
+  //writeLN(f,str);
   close(f);
 end;
 
 procedure TModuleMain.RunCmdFn(N: byte);
 var
-  s: String;
+  s, cmd: String;
 begin
   // выполняем команду из поля
+  cmd := Trim(frmMain.ConsoleRunCmd[N].Text);
   with frmMain do
-    if (Trim(ConsoleRunCmd[N].Text) <> '') then
+    if (cmd <> '') then
     begin
-      s := SendCmd(frmMain.Port, Trim(ConsoleRunCmd[N].Text));
+      if cmd = '!time' then
+      begin
+        s := '================ '+TimeToStr(Now)+' ================'+#13;
+      end else
+      if cmd = '!test' then
+      begin
+        s := 'TEST1'+#13+'TEST2'+#13+'TEST3'+#13;
+      end else
+      if (cmd = '-') or (cmd = '=') then
+      begin
+        s := '================================================'+#13;
+      end else
+      begin
+        if frmMain.Connected then
+          s := SendCmd(frmMain.Port, cmd);
+      end;
+      
       if s<>'' then
       begin
         if frmMain.chSaveLogToFile.Checked then
@@ -57,6 +79,9 @@ begin
         // если строк слишком много то режем их
         while memoConsole.Lines.Count > 1000 do
           memoConsole.Lines.Delete(0);
+
+        // скроллим в самый низ
+        SendMessage(memoConsole.Handle, WM_VSCROLL, SB_BOTTOM, 0);
       end;
     end;
 end;

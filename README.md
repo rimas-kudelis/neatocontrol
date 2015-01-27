@@ -62,8 +62,15 @@ All is almost obvious.
 
 The management interface will be updated.
 
+
+
+
 Changes
 =========
+
+       1.8
+       add "Commands" tab.
+
        1.7
        add "Scan Line"
        add translation French and German (Thank glnc222)
