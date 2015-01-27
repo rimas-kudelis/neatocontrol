@@ -63,6 +63,18 @@ All is almost obvious.
 The management interface will be updated.
 
 
+Commands tab
+-------------
+
+There are 6 command that can be called. Use "Run" button or simply press Enter while in the desired line, or by pressing the function key.
+
+You can also turn on the timer to command causes periodic.
+
+The bottom displays the result of the team.
+
+If you check "Save ..." the results of the command are stored in the file.
+
+Instructions of use: enter the necessary commands to assign a retry time, start recording. And after a couple of hours you will receive a data file that can be viewed carefully. =)
 
 
 Changes

@@ -68,7 +68,6 @@ type
     textVersion: TMemo;
     Panel2: TPanel;
     chSensorAuto: TCheckBox;
-    btnLoadParam: TButton;
     listSensors: TValueListEditor;
     Lng: TDKLanguageController;
     cbLanguage: TComboBox;
@@ -430,6 +429,7 @@ begin
           // Далее идет обработка принятых байтов
           Result := Result + Copy(Buf, 1, dwReaded);
 
+          // #1A - приглашение в консоль (метка завершения вывода команды)
           if Pos(#$1A, Result) <> 0 then
             ReadStop := true;
         enD else
@@ -439,6 +439,9 @@ begin
       FatalError('WaitCommEvent fail');
   end;
 
+  // отрезаем #1A в конце
+  if (Result<>'') and (Result[Length(Result)]=#$1A) then
+    SetLength(Result, Length(Result)-1);
 end;
 
 
