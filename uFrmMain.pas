@@ -2,6 +2,7 @@ unit uFrmMain;
 
 interface
 
+{.$DEFINE DKOk}
 {.$DEFINE Debug}
 {$IFNDEF Debug}
 {$ELSE}
@@ -11,7 +12,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
   uArrayAsPHP,
-  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList;
+  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList, System.Actions;
 
 type
   Float = Real;
@@ -705,7 +706,7 @@ begin
 'Sunday 13:57:09'#13#10;
 {$ENDIF}
   tmpStr := TStringList.Create;
-  if r.Exec then
+  if r.ExecNext() then
   try
     Result := EncodeTime(
       StrToIntDef(r.Match[1], 99),
@@ -753,7 +754,8 @@ begin
 end;
 
 function GetSystemDefaultUILanguage: UINT; stdcall; external kernel32 name 'GetSystemDefaultUILanguage';
-function GetSysLang: Integer;
+
+function GetSysLang: DWORD;
 begin
   Result := GetSystemDefaultUILanguage;
 end;
@@ -772,7 +774,7 @@ begin
 
   Caption := Caption + '   ver ' + GetMyVersion(2);
   // авто поиск языка
-  LangManager.LanguageID := GetSysLang();
+  //LangManager.LanguageID := GetSysLang();
 
   // Fill cbLanguage with available languages
   for i := 0 to LangManager.LanguageCount-1 do
@@ -808,6 +810,7 @@ end;
 
 procedure TfrmMain.LngLanguageChanged(Sender: TObject);
 begin
+{$IFDEF DKOk}
   listSchedule.ItemProps['Sun'].KeyDesc := LangManager.ConstantValue['Sunday'];
   listSchedule.ItemProps['Mon'].KeyDesc := LangManager.ConstantValue['Monday'];
   listSchedule.ItemProps['Tue'].KeyDesc := LangManager.ConstantValue['Tuesday'];
@@ -830,6 +833,7 @@ begin
   btnCmd7.Caption := btnCmd4.Caption;
   btnCmd8.Caption := btnCmd4.Caption;
   btnCmd9.Caption := btnCmd4.Caption;
+{$ENDIF}
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
@@ -1145,18 +1149,18 @@ begin
 'Fri 00:02 H'#13#10+
 'Sat 00:03 H';
 {$ENDIF}
-  if Pos('Schedule is Enabled', r.InputString)<>0 then Begin
+  if Pos('Schedule is Enabled', AnsiString(r.InputString))<>0 then Begin
     lbSchState.Caption := 'Enabled';
     btnSchDis.Enabled := true;
   enD;
 
-  if Pos('Schedule is Disable', r.InputString)<>0 then Begin
+  if Pos('Schedule is Disable', AnsiString(r.InputString))<>0 then Begin
     lbSchState.Caption := 'Disabled';
     btnSchEn.Enabled := true;
   enD;
 
   tmpStr := TStringList.Create;
-  if r.Exec then
+  if r.ExecNext() then
   repeat
     //tmpStr.Add(r.Match[1]+' '+r.Match[2]+' '+r.Match[3]+' '+r.Match[4]);
     if r.Match[4] = 'H' then

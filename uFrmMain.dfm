@@ -1,56 +1,71 @@
 object frmMain: TfrmMain
   Left = 353
   Top = 171
-  Width = 931
-  Height = 646
   Caption = 'Neato Control'
+  ClientHeight = 608
+  ClientWidth = 915
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -17
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
-  Position = poDefaultPosOnly
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDeactivate = FormDeactivate
   OnKeyDown = FormKeyDown
   OnKeyUp = FormKeyUp
   OnResize = FormResize
-  PixelsPerInch = 144
-  TextHeight = 20
+  PixelsPerInch = 96
+  TextHeight = 13
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 909
-    Height = 591
+    Width = 915
+    Height = 608
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     ActivePage = TabSheet3
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
     OnChanging = PageControl1Changing
     object TabSheet3: TTabSheet
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Caption = 'Options'
       ImageIndex = 2
       object lblLang: TLabel
-        Left = 465
-        Top = 414
-        Width = 76
-        Height = 20
+        Left = 302
+        Top = 269
+        Width = 51
+        Height = 13
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Language:'
       end
       object barFuelPercent: TGauge
-        Left = 760
-        Top = 5
-        Width = 128
-        Height = 26
+        Left = 494
+        Top = 3
+        Width = 83
+        Height = 17
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Color = clBtnFace
         ForeColor = clLime
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -18
+        Font.Height = -12
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentColor = False
@@ -58,106 +73,142 @@ object frmMain: TfrmMain
         Progress = 0
       end
       object lbRobotTime2: TLabel
-        Left = 469
-        Top = 5
-        Width = 133
-        Height = 29
+        Left = 305
+        Top = 3
+        Width = 86
+        Height = 20
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alCustom
         Alignment = taRightJustify
         BiDiMode = bdLeftToRight
         Caption = 'Robot Time:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -24
+        Font.Height = -16
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentBiDiMode = False
         ParentFont = False
       end
       object lbRobotTime: TLabel
-        Left = 608
-        Top = 6
-        Width = 90
-        Height = 29
+        Left = 395
+        Top = 4
+        Width = 62
+        Height = 20
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = '00:00:00'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -24
+        Font.Height = -16
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
       end
       object GroupBox2: TGroupBox
-        Left = 758
-        Top = 402
-        Width = 127
-        Height = 123
+        Left = 493
+        Top = 261
+        Width = 82
+        Height = 80
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Wall Follower:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -24
+        Font.Height = -16
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
         TabOrder = 0
         Visible = False
         object Button2: TButton
-          Left = 6
-          Top = 29
-          Width = 116
-          Height = 39
+          Left = 4
+          Top = 19
+          Width = 75
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Enable'
           TabOrder = 0
           OnClick = Button2Click
         end
         object Button3: TButton
-          Left = 6
-          Top = 74
-          Width = 116
-          Height = 38
+          Left = 4
+          Top = 48
+          Width = 75
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Disable'
           TabOrder = 1
           OnClick = Button3Click
         end
       end
       object GroupBox4: TGroupBox
-        Left = 455
-        Top = 35
-        Width = 433
-        Height = 357
+        Left = 296
+        Top = 23
+        Width = 281
+        Height = 232
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Schedule && Time'
         TabOrder = 1
         object lbSchState: TLabel
-          Left = 271
-          Top = 169
-          Width = 149
-          Height = 33
+          Left = 176
+          Top = 110
+          Width = 97
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Alignment = taCenter
           AutoSize = False
           Caption = '???'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -24
+          Font.Height = -16
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
         end
         object Label1: TLabel
-          Left = 271
-          Top = 148
-          Width = 71
-          Height = 20
+          Left = 176
+          Top = 96
+          Width = 48
+          Height = 13
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Schedule:'
         end
         object listSchedule: TValueListEditor
-          Left = 12
-          Top = 37
-          Width = 248
-          Height = 260
+          Left = 8
+          Top = 24
+          Width = 161
+          Height = 169
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           DefaultRowHeight = 24
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -24
+          Font.Height = -16
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
@@ -175,48 +226,68 @@ object frmMain: TfrmMain
             'Time')
           ColWidths = (
             91
-            151)
+            47)
         end
         object btnSetSchedule: TButton
-          Left = 271
-          Top = 86
-          Width = 154
-          Height = 39
+          Left = 176
+          Top = 56
+          Width = 100
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actSetSchedule
           TabOrder = 1
         end
         object btnGetSchedule: TButton
-          Left = 271
-          Top = 37
-          Width = 154
-          Height = 38
+          Left = 176
+          Top = 24
+          Width = 100
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actGetSchedule
           TabOrder = 2
         end
         object btnTimeUpdate: TButton
-          Left = 12
-          Top = 308
-          Width = 413
-          Height = 38
+          Left = 8
+          Top = 200
+          Width = 268
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actSetCurrentTime
           TabOrder = 3
           WordWrap = True
         end
         object btnSchEn: TButton
-          Left = 271
-          Top = 214
-          Width = 154
-          Height = 38
+          Left = 176
+          Top = 139
+          Width = 100
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Enable'
           Enabled = False
           TabOrder = 4
           OnClick = btnSchEnClick
         end
         object btnSchDis: TButton
-          Left = 271
-          Top = 258
-          Width = 154
-          Height = 39
+          Left = 176
+          Top = 168
+          Width = 100
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Disable'
           Enabled = False
           TabOrder = 5
@@ -224,27 +295,38 @@ object frmMain: TfrmMain
         end
       end
       object GroupBox3: TGroupBox
-        Left = 12
-        Top = 12
-        Width = 433
-        Height = 211
+        Left = 8
+        Top = 8
+        Width = 281
+        Height = 137
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Connect'
         TabOrder = 2
         object lbComPortN: TLabel
-          Left = 25
-          Top = 172
-          Width = 117
-          Height = 20
+          Left = 16
+          Top = 112
+          Width = 78
+          Height = 13
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'COM Port name:'
           Enabled = False
         end
         object textComPortN: TComboBox
-          Left = 215
-          Top = 165
-          Width = 196
-          Height = 28
+          Left = 140
+          Top = 107
+          Width = 127
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Enabled = False
-          ItemHeight = 20
           TabOrder = 0
           Text = 'COM1'
           Items.Strings = (
@@ -254,38 +336,50 @@ object frmMain: TfrmMain
             'COM4')
         end
         object Button4: TButton
-          Left = 12
-          Top = 25
-          Width = 199
-          Height = 50
+          Left = 8
+          Top = 16
+          Width = 129
+          Height = 33
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actConnect
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -24
+          Font.Height = -16
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 1
         end
         object Button5: TButton
-          Left = 222
-          Top = 25
-          Width = 198
-          Height = 50
+          Left = 144
+          Top = 16
+          Width = 129
+          Height = 33
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actDisconnect
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -24
+          Font.Height = -16
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 2
         end
         object chAutoDetectPort: TCheckBox
-          Left = 12
-          Top = 86
-          Width = 405
-          Height = 26
+          Left = 8
+          Top = 56
+          Width = 263
+          Height = 17
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Auto detect port number'
           Checked = True
           State = cbChecked
@@ -293,58 +387,89 @@ object frmMain: TfrmMain
           OnClick = chAutoDetectPortClick
         end
         object chAutoConnect: TCheckBox
-          Left = 12
-          Top = 123
-          Width = 405
-          Height = 26
+          Left = 8
+          Top = 80
+          Width = 263
+          Height = 17
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Auto connect on plug'
           Enabled = False
           TabOrder = 4
         end
       end
       object GroupBox5: TGroupBox
-        Left = 12
-        Top = 234
-        Width = 433
-        Height = 272
+        Left = 8
+        Top = 152
+        Width = 281
+        Height = 177
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Version:'
         TabOrder = 3
         object textVersion: TMemo
           Left = 2
-          Top = 22
-          Width = 429
-          Height = 248
+          Top = 15
+          Width = 277
+          Height = 160
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
         end
       end
       object cbLanguage: TComboBox
-        Left = 463
-        Top = 440
-        Width = 259
-        Height = 28
-        ItemHeight = 20
+        Left = 301
+        Top = 286
+        Width = 168
+        Height = 21
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         TabOrder = 4
         OnChange = cbLanguageChange
       end
     end
     object TabSheet2: TTabSheet
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Caption = 'Sensors'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 1086
-        Height = 63
+        Width = 907
+        Height = 41
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alTop
         TabOrder = 0
         Visible = False
         object chSensorAuto: TCheckBox
-          Left = 26
-          Top = 20
-          Width = 111
-          Height = 26
+          Left = 17
+          Top = 13
+          Width = 72
+          Height = 17
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Auto load'
           Checked = True
           ParentShowHint = False
@@ -356,9 +481,13 @@ object frmMain: TfrmMain
       end
       object listSensors: TValueListEditor
         Left = 0
-        Top = 63
-        Width = 1086
-        Height = 559
+        Top = 41
+        Width = 907
+        Height = 539
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking]
         PopupMenu = PopupMenu1
@@ -375,107 +504,174 @@ object frmMain: TfrmMain
       end
     end
     object tabScan: TTabSheet
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Caption = 'Snanner'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Image1: TImage
         Left = 0
-        Top = 75
-        Width = 901
-        Height = 481
+        Top = 49
+        Width = 907
+        Height = 531
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alClient
+        ExplicitWidth = 586
+        ExplicitHeight = 312
       end
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 901
-        Height = 75
+        Width = 907
+        Height = 49
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alTop
         TabOrder = 0
         object paintSpectre: TPaintBox
           Left = 1
-          Top = 48
-          Width = 899
-          Height = 26
+          Top = 31
+          Width = 905
+          Height = 17
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alBottom
           OnPaint = paintSpectrePaint
+          ExplicitWidth = 584
         end
         object chkScanLDS: TCheckBox
-          Left = 18
-          Top = 12
-          Width = 267
-          Height = 26
+          Left = 12
+          Top = 8
+          Width = 173
+          Height = 17
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actScanLDS
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
         end
         object chRemoteControl: TCheckBox
-          Left = 314
-          Top = 12
-          Width = 475
-          Height = 26
+          Left = 204
+          Top = 8
+          Width = 309
+          Height = 17
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actRemoteControl
           TabOrder = 1
         end
       end
     end
     object TabSheet4: TTabSheet
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Caption = 'Recharge'
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 901
-        Height = 556
+        Width = 907
+        Height = 580
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alClient
         TabOrder = 0
         DesignSize = (
-          897
-          552)
+          903
+          576)
         object Label2: TLabel
-          Left = 2
-          Top = 171
-          Width = 67
-          Height = 20
+          Left = 1
+          Top = 111
+          Width = 44
+          Height = 13
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           Caption = 'Step 1:'
         end
         object Label3: TLabel
-          Left = 2
-          Top = 231
-          Width = 67
-          Height = 20
+          Left = 1
+          Top = 150
+          Width = 44
+          Height = 13
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           Caption = 'Step 2:'
         end
         object Label4: TLabel
-          Left = 2
-          Top = 300
-          Width = 67
-          Height = 20
+          Left = 1
+          Top = 195
+          Width = 44
+          Height = 13
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           Caption = 'Step 3:'
         end
         object Label5: TLabel
-          Left = 2
-          Top = 360
-          Width = 67
-          Height = 20
+          Left = 1
+          Top = 234
+          Width = 44
+          Height = 13
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           Caption = 'Step 4:'
         end
         object Label6: TLabel
-          Left = 2
-          Top = 451
-          Width = 67
-          Height = 20
+          Left = 1
+          Top = 293
+          Width = 44
+          Height = 13
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           Caption = 'Step 5:'
         end
         object Memo2: TMemo
           Left = 0
-          Top = 3
-          Width = 1282
-          Height = 154
+          Top = 2
+          Width = 833
+          Height = 100
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'CAUTION:'
@@ -508,10 +704,14 @@ object frmMain: TfrmMain
           TabOrder = 0
         end
         object Memo1: TMemo
-          Left = 71
-          Top = 160
-          Width = 1211
-          Height = 42
+          Left = 46
+          Top = 104
+          Width = 787
+          Height = 27
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Turn on the robot for cleaning and wait until discharge.')
@@ -520,10 +720,14 @@ object frmMain: TfrmMain
           TabOrder = 1
         end
         object Memo3: TMemo
-          Left = 291
-          Top = 211
-          Width = 991
-          Height = 51
+          Left = 189
+          Top = 137
+          Width = 644
+          Height = 33
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Click this button, then turn on the '
@@ -534,37 +738,53 @@ object frmMain: TfrmMain
           TabOrder = 2
         end
         object btnSet100PercentBattery: TButton
-          Left = 71
-          Top = 211
-          Width = 211
-          Height = 51
+          Left = 46
+          Top = 137
+          Width = 137
+          Height = 33
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actChrSet100PercentBattery
           TabOrder = 3
           WordWrap = True
         end
         object btnEnableBrush: TButton
-          Left = 71
-          Top = 340
-          Width = 211
-          Height = 62
+          Left = 46
+          Top = 221
+          Width = 137
+          Height = 40
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actChrEnableBrush
           TabOrder = 4
           WordWrap = True
         end
         object btnEnableVaccum: TButton
-          Left = 71
-          Top = 271
-          Width = 211
-          Height = 60
+          Left = 46
+          Top = 176
+          Width = 137
+          Height = 39
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Action = actChrEnableVaccum
           TabOrder = 5
           WordWrap = True
         end
         object Memo5: TMemo
-          Left = 291
-          Top = 340
-          Width = 991
-          Height = 62
+          Left = 189
+          Top = 221
+          Width = 644
+          Height = 40
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Turn on the robot, and as quickly as '
@@ -577,10 +797,14 @@ object frmMain: TfrmMain
           TabOrder = 6
         end
         object Memo4: TMemo
-          Left = 291
-          Top = 271
-          Width = 991
-          Height = 60
+          Left = 189
+          Top = 176
+          Width = 644
+          Height = 39
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Turn on the robot, and as quickly as '
@@ -593,15 +817,19 @@ object frmMain: TfrmMain
           TabOrder = 7
         end
         object lbWarnLowVoltage: TPanel
-          Left = 91
-          Top = 231
-          Width = 171
-          Height = 151
+          Left = 59
+          Top = 150
+          Width = 111
+          Height = 98
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Batt V < 12 V'
           Color = clRed
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -24
+          Font.Height = -16
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
@@ -610,10 +838,14 @@ object frmMain: TfrmMain
           OnMouseUp = lbWarnLowVoltageMouseUp
         end
         object Memo6: TMemo
-          Left = 71
-          Top = 411
-          Width = 1211
-          Height = 120
+          Left = 46
+          Top = 267
+          Width = 787
+          Height = 78
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Connect the robot to the charge.'
@@ -628,20 +860,32 @@ object frmMain: TfrmMain
       end
     end
     object TabSheet6: TTabSheet
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Caption = 'Commands'
       ImageIndex = 4
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
-        Width = 901
-        Height = 556
+        Width = 907
+        Height = 580
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alClient
         TabOrder = 0
         object memoConsole: TMemo
           Left = 0
-          Top = 306
-          Width = 897
-          Height = 246
+          Top = 199
+          Width = 903
+          Height = 377
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -649,72 +893,107 @@ object frmMain: TfrmMain
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 897
-          Height = 306
+          Width = 903
+          Height = 199
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alTop
           TabOrder = 1
           object LabelR5: TLabel
             Tag = 5
-            Left = 12
-            Top = 78
-            Width = 19
-            Height = 20
+            Left = 8
+            Top = 51
+            Width = 12
+            Height = 13
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'F5'
           end
           object LabelR6: TLabel
             Tag = 6
-            Left = 12
-            Top = 115
-            Width = 19
-            Height = 20
+            Left = 8
+            Top = 75
+            Width = 12
+            Height = 13
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'F6'
           end
           object LabelR7: TLabel
             Tag = 7
-            Left = 12
-            Top = 152
-            Width = 19
-            Height = 20
+            Left = 8
+            Top = 99
+            Width = 12
+            Height = 13
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'F7'
           end
           object LabelR8: TLabel
             Tag = 8
-            Left = 12
-            Top = 189
-            Width = 19
-            Height = 20
+            Left = 8
+            Top = 123
+            Width = 12
+            Height = 13
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'F8'
           end
           object LabelR4: TLabel
             Tag = 4
-            Left = 12
-            Top = 42
-            Width = 19
-            Height = 20
+            Left = 8
+            Top = 27
+            Width = 12
+            Height = 13
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'F4'
           end
           object LabelR9: TLabel
             Tag = 9
-            Left = 12
-            Top = 226
-            Width = 19
-            Height = 20
+            Left = 8
+            Top = 147
+            Width = 12
+            Height = 13
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'F9'
           end
           object Label13: TLabel
-            Left = 37
-            Top = 12
-            Width = 108
-            Height = 20
+            Left = 24
+            Top = 8
+            Width = 70
+            Height = 13
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Commands list:'
           end
           object edCmd5: TComboBox
             Tag = 5
-            Left = 37
-            Top = 74
-            Width = 555
-            Height = 28
-            ItemHeight = 20
+            Left = 24
+            Top = 48
+            Width = 361
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 1
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -726,10 +1005,14 @@ object frmMain: TfrmMain
           end
           object btnCmd5: TButton
             Tag = 5
-            Left = 592
-            Top = 72
-            Width = 50
-            Height = 31
+            Left = 385
+            Top = 47
+            Width = 32
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Run'
             TabOrder = 7
             TabStop = False
@@ -737,11 +1020,14 @@ object frmMain: TfrmMain
           end
           object edCmd6: TComboBox
             Tag = 6
-            Left = 37
-            Top = 111
-            Width = 555
-            Height = 28
-            ItemHeight = 20
+            Left = 24
+            Top = 72
+            Width = 361
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 2
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -753,10 +1039,14 @@ object frmMain: TfrmMain
           end
           object btnCmd6: TButton
             Tag = 6
-            Left = 592
-            Top = 109
-            Width = 50
-            Height = 31
+            Left = 385
+            Top = 71
+            Width = 32
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Run'
             TabOrder = 8
             TabStop = False
@@ -764,11 +1054,14 @@ object frmMain: TfrmMain
           end
           object edCmd7: TComboBox
             Tag = 7
-            Left = 37
-            Top = 148
-            Width = 555
-            Height = 28
-            ItemHeight = 20
+            Left = 24
+            Top = 96
+            Width = 361
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 3
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -780,10 +1073,14 @@ object frmMain: TfrmMain
           end
           object btnCmd7: TButton
             Tag = 7
-            Left = 592
-            Top = 146
-            Width = 50
-            Height = 31
+            Left = 385
+            Top = 95
+            Width = 32
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Run'
             TabOrder = 9
             TabStop = False
@@ -791,11 +1088,14 @@ object frmMain: TfrmMain
           end
           object edCmd8: TComboBox
             Tag = 8
-            Left = 37
-            Top = 185
-            Width = 555
-            Height = 28
-            ItemHeight = 20
+            Left = 24
+            Top = 120
+            Width = 361
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 4
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -807,10 +1107,14 @@ object frmMain: TfrmMain
           end
           object btnCmd8: TButton
             Tag = 8
-            Left = 592
-            Top = 183
-            Width = 50
-            Height = 31
+            Left = 385
+            Top = 119
+            Width = 32
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Run'
             TabOrder = 10
             TabStop = False
@@ -818,11 +1122,14 @@ object frmMain: TfrmMain
           end
           object edCmd4: TComboBox
             Tag = 4
-            Left = 37
-            Top = 37
-            Width = 555
-            Height = 28
-            ItemHeight = 20
+            Left = 24
+            Top = 24
+            Width = 361
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 0
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -834,10 +1141,14 @@ object frmMain: TfrmMain
           end
           object btnCmd4: TButton
             Tag = 4
-            Left = 592
-            Top = 35
-            Width = 50
-            Height = 31
+            Left = 385
+            Top = 23
+            Width = 32
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Run'
             TabOrder = 6
             TabStop = False
@@ -845,11 +1156,14 @@ object frmMain: TfrmMain
           end
           object edCmd9: TComboBox
             Tag = 9
-            Left = 37
-            Top = 222
-            Width = 555
-            Height = 28
-            ItemHeight = 20
+            Left = 24
+            Top = 144
+            Width = 361
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 5
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -861,69 +1175,95 @@ object frmMain: TfrmMain
           end
           object btnCmd9: TButton
             Tag = 9
-            Left = 592
-            Top = 220
-            Width = 50
-            Height = 31
+            Left = 385
+            Top = 143
+            Width = 32
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Run'
             TabOrder = 11
             TabStop = False
             OnClick = actBtnRunExecute
           end
           object Panel4: TPanel
-            Left = 3
-            Top = 258
-            Width = 777
-            Height = 44
+            Left = 2
+            Top = 168
+            Width = 505
+            Height = 28
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 13
             object edLogFileName: TComboBox
-              Left = 332
-              Top = 6
-              Width = 408
-              Height = 28
+              Left = 216
+              Top = 4
+              Width = 265
+              Height = 21
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               Enabled = False
-              ItemHeight = 20
               TabOrder = 0
               Text = 'log.txt'
             end
             object btnSelectLogFileName: TButton
-              Left = 743
-              Top = 6
-              Width = 29
-              Height = 29
+              Left = 483
+              Top = 4
+              Width = 19
+              Height = 19
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               Caption = '...'
               Enabled = False
               TabOrder = 1
               OnClick = btnSelectLogFileNameClick
             end
             object chSaveLogToFile: TCheckBox
-              Left = 12
-              Top = 9
-              Width = 310
-              Height = 26
+              Left = 8
+              Top = 6
+              Width = 201
+              Height = 17
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               Caption = 'Save log to file'
               TabOrder = 2
               OnClick = chSaveLogToFileClick
             end
           end
           object GroupBoxTimers: TGroupBox
-            Left = 654
-            Top = 11
-            Width = 126
-            Height = 247
+            Left = 425
+            Top = 7
+            Width = 82
+            Height = 161
             Hint = 'in second'
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Timers:'
             ParentShowHint = False
             ShowHint = True
             TabOrder = 12
             object cbRepeatTime4: TComboBox
               Tag = 4
-              Left = 8
-              Top = 25
-              Width = 112
-              Height = 28
+              Left = 5
+              Top = 16
+              Width = 73
+              Height = 21
               Hint = 'in second'
-              ItemHeight = 20
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -941,12 +1281,15 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime5: TComboBox
               Tag = 5
-              Left = 8
-              Top = 62
-              Width = 112
-              Height = 28
+              Left = 5
+              Top = 40
+              Width = 73
+              Height = 21
               Hint = 'in second'
-              ItemHeight = 20
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -964,12 +1307,15 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime6: TComboBox
               Tag = 6
-              Left = 8
-              Top = 98
-              Width = 112
-              Height = 28
+              Left = 5
+              Top = 64
+              Width = 73
+              Height = 21
               Hint = 'in second'
-              ItemHeight = 20
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -987,12 +1333,15 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime7: TComboBox
               Tag = 7
-              Left = 8
-              Top = 135
-              Width = 112
-              Height = 28
+              Left = 5
+              Top = 88
+              Width = 73
+              Height = 21
               Hint = 'in second'
-              ItemHeight = 20
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1010,12 +1359,15 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime8: TComboBox
               Tag = 8
-              Left = 8
-              Top = 172
-              Width = 112
-              Height = 28
+              Left = 5
+              Top = 112
+              Width = 73
+              Height = 21
               Hint = 'in second'
-              ItemHeight = 20
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1033,12 +1385,15 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime9: TComboBox
               Tag = 9
-              Left = 8
-              Top = 209
-              Width = 112
-              Height = 28
+              Left = 5
+              Top = 136
+              Width = 73
+              Height = 21
               Hint = 'in second'
-              ItemHeight = 20
+              Margins.Left = 2
+              Margins.Top = 2
+              Margins.Right = 2
+              Margins.Bottom = 2
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1059,16 +1414,28 @@ object frmMain: TfrmMain
       end
     end
     object TabSheet5: TTabSheet
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Caption = 'About'
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object MemoAbout: TMemo
-        Left = 11
-        Top = 52
-        Width = 631
-        Height = 491
+        Left = 7
+        Top = 34
+        Width = 410
+        Height = 319
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -24
+        Font.Height = -16
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         Lines.Strings = (
@@ -1213,87 +1580,86 @@ object frmMain: TfrmMain
     LangData = {
       070066726D4D61696E010100000001000000070043617074696F6E016F000000
       0C0050616765436F6E74726F6C31000009005461625368656574330101000000
-      03000000070043617074696F6E00090047726F7570426F783201010000000400
-      0000070043617074696F6E000700427574746F6E320101000000060000000700
-      43617074696F6E000700427574746F6E33010100000007000000070043617074
-      696F6E00090047726F7570426F7834010100000008000000070043617074696F
-      6E000A006C625363685374617465010100000009000000070043617074696F6E
-      0006004C6162656C3101010000000B000000070043617074696F6E000C006C69
-      73745363686564756C6501010000000E0000000D005469746C6543617074696F
-      6E73000E0062746E5365745363686564756C6500000E0062746E476574536368
-      6564756C6500000D0062746E54696D655570646174650000080062746E536368
-      456E010100000012000000070043617074696F6E00090062746E536368446973
-      010100000013000000070043617074696F6E00090047726F7570426F78330101
-      00000014000000070043617074696F6E000A006C62436F6D506F72744E010100
-      000015000000070043617074696F6E000C0074657874436F6D506F72744E0102
-      0000006300000005004974656D7316000000040054657874000700427574746F
-      6E3400000700427574746F6E350000100063684175746F446574656374506F72
-      74010100000019000000070043617074696F6E000D0063684175746F436F6E6E
-      65637401010000001A000000070043617074696F6E00090047726F7570426F78
-      3501010000001C000000070043617074696F6E000B007465787456657273696F
-      6E0000090054616253686565743201010000001F000000070043617074696F6E
-      00060050616E656C3200000C00636853656E736F724175746F01010000002100
-      0000070043617074696F6E000B006C69737453656E736F727301010000002300
-      00000D005469746C6543617074696F6E730007007461625363616E0101000000
-      24000000070043617074696F6E000600496D616765310000060050616E656C31
-      00000A0063686B5363616E4C445300000B00416374696F6E4C69737431000007
-      006163745363616E00000A0061637453656E736F727300000A00616374436F6E
-      6E65637401010000002A000000070043617074696F6E000D0061637444697363
-      6F6E6E65637401010000002B000000070043617074696F6E00090054696D6572
-      5363616E00000C0054696D657253656E736F727300000A0063624C616E677561
-      6765000007006C626C4C616E6701010000002C000000070043617074696F6E00
-      0E006163745365745363686564756C6501010000002E00000007004361707469
-      6F6E000E006163744765745363686564756C6501010000002F00000007004361
-      7074696F6E00110061637453657443757272656E7454696D6501010000003000
-      0000070043617074696F6E000A006163745363616E4C44530101000000390000
-      00070043617074696F6E000F00636852656D6F7465436F6E74726F6C00001000
-      61637452656D6F7465436F6E74726F6C01010000003C00000007004361707469
-      6F6E00090054616253686565743401010000003D000000070043617074696F6E
-      00090054616253686565743501010000003E000000070043617074696F6E000E
-      006261724675656C50657263656E74000009004D656D6F41626F757400000C00
-      54696D657247657454696D6500000C006C62526F626F7454696D653201010000
-      0043000000070043617074696F6E000B006C62526F626F7454696D6501010000
-      0044000000070043617074696F6E001A00616374436872536574313030506572
-      63656E7442617474657279010100000050000000070043617074696F6E001200
-      616374436872456E61626C6556616363756D0101000000510000000700436170
-      74696F6E001100616374436872456E61626C6542727573680101000000520000
-      00070043617074696F6E000A00506F7075704D656E7531000006006D6E436F70
-      79010100000053000000070043617074696F6E000A005363726F6C6C426F7831
-      000005004D656D6F3201010000005400000005004C696E65730005004D656D6F
-      3101010000005500000005004C696E65730005004D656D6F3301010000005600
-      000005004C696E657300170062746E53657431303050657263656E7442617474
-      657279000006004C6162656C32010100000057000000070043617074696F6E00
-      06004C6162656C33010100000058000000070043617074696F6E0006004C6162
-      656C34010100000059000000070043617074696F6E0006004C6162656C350101
-      0000005A000000070043617074696F6E000E0062746E456E61626C6542727573
-      6800000F0062746E456E61626C6556616363756D000006004C6162656C360101
-      0000005B000000070043617074696F6E0005004D656D6F3501010000005C0000
-      0005004C696E65730005004D656D6F3401010000005D00000005004C696E6573
-      0010006C625761726E4C6F77566F6C7461676501010000005E00000007004361
-      7074696F6E0005004D656D6F3601010000005F00000005004C696E6573000900
-      546162536865657436010100000060000000070043617074696F6E000A005363
-      726F6C6C426F783200000C007061696E745370656374726500000B006D656D6F
-      436F6E736F6C650000060050616E656C33000007004C6162656C523501010000
-      0065000000070043617074696F6E000E00496D6167654C6973744E6561746F00
-      001100616374526573697A655363616E5A6F6E65000006006564436D64350000
-      070062746E436D6435000007004C6162656C523601010000006D000000070043
-      617074696F6E0006006564436D64360000070062746E436D6436000007004C61
-      62656C5237010100000073000000070043617074696F6E0006006564436D6437
-      0000070062746E436D6437000007004C6162656C523801010000007900000007
-      0043617074696F6E0006006564436D64380000070062746E436D643800000700
-      4C6162656C523401010000007F000000070043617074696F6E0006006564436D
-      643401010000008000000005004974656D7300070062746E436D643401010000
-      00AC000000070043617074696F6E0007004C6162656C52390101000000850000
-      00070043617074696F6E0006006564436D64390000070062746E436D64390000
-      07004C6162656C313301010000008F000000070043617074696F6E0006005061
-      6E656C3400000D0065644C6F6746696C654E616D650101000000910000000400
-      5465787400140062746E53656C6563744C6F6746696C654E616D6500000F0063
-      68536176654C6F67546F46696C65010100000093000000070043617074696F6E
-      000E0047726F7570426F7854696D657273010200000094000000070043617074
-      696F6EA7000000040048696E74000D00636252657065617454696D653400000D
-      00636252657065617454696D653500000D00636252657065617454696D653600
-      000D00636252657065617454696D653700000D00636252657065617454696D65
-      3800000D00636252657065617454696D65390000}
+      02000000070043617074696F6E0007006C626C4C616E67010100000003000000
+      070043617074696F6E000E006261724675656C50657263656E7400000C006C62
+      526F626F7454696D6532010100000004000000070043617074696F6E000B006C
+      62526F626F7454696D650000090047726F7570426F7832010100000005000000
+      070043617074696F6E000700427574746F6E3201010000000600000007004361
+      7074696F6E000700427574746F6E33010100000007000000070043617074696F
+      6E00090047726F7570426F7834010100000008000000070043617074696F6E00
+      0A006C625363685374617465000006004C6162656C3101010000000900000007
+      0043617074696F6E000C006C6973745363686564756C6501010000000A000000
+      0D005469746C6543617074696F6E73000E0062746E5365745363686564756C65
+      00000E0062746E4765745363686564756C6500000D0062746E54696D65557064
+      6174650000080062746E536368456E01010000000B000000070043617074696F
+      6E00090062746E53636844697301010000000C000000070043617074696F6E00
+      090047726F7570426F783301010000000D000000070043617074696F6E000A00
+      6C62436F6D506F72744E01010000000E000000070043617074696F6E000C0074
+      657874436F6D506F72744E01020000001000000005004974656D730F00000004
+      0054657874000700427574746F6E3400000700427574746F6E35000010006368
+      4175746F446574656374506F7274010100000011000000070043617074696F6E
+      000D0063684175746F436F6E6E65637401010000001200000007004361707469
+      6F6E00090047726F7570426F7835010100000013000000070043617074696F6E
+      000B007465787456657273696F6E00000A0063624C616E677561676500000900
+      546162536865657432010100000014000000070043617074696F6E0006005061
+      6E656C3200000C00636853656E736F724175746F010100000015000000070043
+      617074696F6E000B006C69737453656E736F72730101000000160000000D0054
+      69746C6543617074696F6E730007007461625363616E01010000001700000007
+      0043617074696F6E000600496D616765310000060050616E656C3100000C0070
+      61696E745370656374726500000A0063686B5363616E4C445300000F00636852
+      656D6F7465436F6E74726F6C0000090054616253686565743401010000001800
+      0000070043617074696F6E000A005363726F6C6C426F7831000006004C616265
+      6C32010100000019000000070043617074696F6E0006004C6162656C33010100
+      00001A000000070043617074696F6E0006004C6162656C3401010000001B0000
+      00070043617074696F6E0006004C6162656C3501010000001C00000007004361
+      7074696F6E0006004C6162656C3601010000001D000000070043617074696F6E
+      0005004D656D6F3201010000001E00000005004C696E65730005004D656D6F31
+      01010000001F00000005004C696E65730005004D656D6F330101000000200000
+      0005004C696E657300170062746E53657431303050657263656E744261747465
+      727900000E0062746E456E61626C65427275736800000F0062746E456E61626C
+      6556616363756D000005004D656D6F3501010000002100000005004C696E6573
+      0005004D656D6F3401010000002200000005004C696E65730010006C62576172
+      6E4C6F77566F6C74616765010100000023000000070043617074696F6E000500
+      4D656D6F3601010000002400000005004C696E65730009005461625368656574
+      36010100000025000000070043617074696F6E000A005363726F6C6C426F7832
+      00000B006D656D6F436F6E736F6C650000060050616E656C33000007004C6162
+      656C5235010100000026000000070043617074696F6E0007004C6162656C5236
+      010100000027000000070043617074696F6E0007004C6162656C523701010000
+      0028000000070043617074696F6E0007004C6162656C52380101000000290000
+      00070043617074696F6E0007004C6162656C523401010000002A000000070043
+      617074696F6E0007004C6162656C523901010000002B00000007004361707469
+      6F6E0007004C6162656C313301010000002C000000070043617074696F6E0006
+      006564436D64350000070062746E436D6435000006006564436D643600000700
+      62746E436D6436000006006564436D64370000070062746E436D643700000600
+      6564436D64380000070062746E436D6438000006006564436D64340101000000
+      2D00000005004974656D7300070062746E436D643401010000002E0000000700
+      43617074696F6E0006006564436D64390000070062746E436D64390000060050
+      616E656C3400000D0065644C6F6746696C654E616D6501010000002F00000004
+      005465787400140062746E53656C6563744C6F6746696C654E616D6500000F00
+      6368536176654C6F67546F46696C65010100000030000000070043617074696F
+      6E000E0047726F7570426F7854696D6572730102000000320000000700436170
+      74696F6E31000000040048696E74000D00636252657065617454696D65340000
+      0D00636252657065617454696D653500000D00636252657065617454696D6536
+      00000D00636252657065617454696D653700000D00636252657065617454696D
+      653800000D00636252657065617454696D653900000900546162536865657435
+      010100000033000000070043617074696F6E0009004D656D6F41626F75740000
+      0B00416374696F6E4C69737431000007006163745363616E00000A0061637453
+      656E736F727300000A00616374436F6E6E656374010100000034000000070043
+      617074696F6E000D00616374446973636F6E6E65637401010000003500000007
+      0043617074696F6E000E006163745365745363686564756C6501010000003600
+      0000070043617074696F6E000E006163744765745363686564756C6501010000
+      0037000000070043617074696F6E00110061637453657443757272656E745469
+      6D65010100000038000000070043617074696F6E000A006163745363616E4C44
+      53010100000039000000070043617074696F6E00100061637452656D6F746543
+      6F6E74726F6C01010000003A000000070043617074696F6E001A006163744368
+      7253657431303050657263656E744261747465727901010000003B0000000700
+      43617074696F6E001200616374436872456E61626C6556616363756D01010000
+      003C000000070043617074696F6E001100616374436872456E61626C65427275
+      736801010000003D000000070043617074696F6E001100616374526573697A65
+      5363616E5A6F6E650000090054696D65725363616E00000C0054696D65725365
+      6E736F727300000C0054696D657247657454696D6500000A00506F7075704D65
+      6E7531000006006D6E436F707901010000003E000000070043617074696F6E00
+      0E00496D6167654C6973744E6561746F0000}
   end
   object TimerGetTime: TTimer
     OnTimer = TimerGetTimeTimer
@@ -1314,7 +1680,7 @@ object frmMain: TfrmMain
     Left = 384
     Top = 1
     Bitmap = {
-      494C010101000400040020002000FFFFFF00FF10FFFFFFFFFFFFFFFF424D3600
+      494C010101000400100020002000FFFFFF00FF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
