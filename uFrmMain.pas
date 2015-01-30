@@ -357,6 +357,7 @@ begin
     // сделали настройку COM порта
     GetCommState(Result, Dcb);
     Dcb.BaudRate := CBR_57600;
+    //TEMP! Dcb.BaudRate := CBR_115200;
     Dcb.Parity := NOPARITY;
     Dcb.ByteSize := 8;
     Dcb.StopBits := ONESTOPBIT;

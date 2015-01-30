@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
   Left = 353
   Top = 171
-  Width = 730
-  Height = 470
+  Width = 931
+  Height = 646
   Caption = 'Neato Control'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,9 +24,9 @@ object frmMain: TfrmMain
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 708
-    Height = 415
-    ActivePage = TabSheet4
+    Width = 909
+    Height = 591
+    ActivePage = TabSheet3
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -175,7 +175,7 @@ object frmMain: TfrmMain
             'Time')
           ColWidths = (
             91
-            47)
+            151)
         end
         object btnSetSchedule: TButton
           Left = 271
@@ -310,10 +310,10 @@ object frmMain: TfrmMain
         Caption = 'Version:'
         TabOrder = 3
         object textVersion: TMemo
-          Left = 3
-          Top = 23
-          Width = 426
-          Height = 246
+          Left = 2
+          Top = 22
+          Width = 429
+          Height = 248
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -379,21 +379,21 @@ object frmMain: TfrmMain
       object Image1: TImage
         Left = 0
         Top = 75
-        Width = 1086
-        Height = 547
+        Width = 901
+        Height = 481
         Align = alClient
       end
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 1086
+        Width = 901
         Height = 75
         Align = alTop
         TabOrder = 0
         object paintSpectre: TPaintBox
-          Left = 2
+          Left = 1
           Top = 48
-          Width = 1083
+          Width = 899
           Height = 26
           Align = alBottom
           OnPaint = paintSpectrePaint
@@ -424,13 +424,13 @@ object frmMain: TfrmMain
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 700
-        Height = 380
+        Width = 901
+        Height = 556
         Align = alClient
         TabOrder = 0
         DesignSize = (
-          670
-          376)
+          897
+          552)
         object Label2: TLabel
           Left = 2
           Top = 171
@@ -474,7 +474,7 @@ object frmMain: TfrmMain
         object Memo2: TMemo
           Left = 0
           Top = 3
-          Width = 1055
+          Width = 1282
           Height = 154
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -510,7 +510,7 @@ object frmMain: TfrmMain
         object Memo1: TMemo
           Left = 71
           Top = 160
-          Width = 984
+          Width = 1211
           Height = 42
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -522,7 +522,7 @@ object frmMain: TfrmMain
         object Memo3: TMemo
           Left = 291
           Top = 211
-          Width = 764
+          Width = 991
           Height = 51
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -563,7 +563,7 @@ object frmMain: TfrmMain
         object Memo5: TMemo
           Left = 291
           Top = 340
-          Width = 764
+          Width = 991
           Height = 62
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -579,7 +579,7 @@ object frmMain: TfrmMain
         object Memo4: TMemo
           Left = 291
           Top = 271
-          Width = 764
+          Width = 991
           Height = 60
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -612,7 +612,7 @@ object frmMain: TfrmMain
         object Memo6: TMemo
           Left = 71
           Top = 411
-          Width = 984
+          Width = 1211
           Height = 120
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -633,15 +633,15 @@ object frmMain: TfrmMain
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
-        Width = 700
-        Height = 380
+        Width = 901
+        Height = 556
         Align = alClient
         TabOrder = 0
         object memoConsole: TMemo
           Left = 0
           Top = 306
-          Width = 696
-          Height = 70
+          Width = 897
+          Height = 246
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -649,7 +649,7 @@ object frmMain: TfrmMain
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 696
+          Width = 897
           Height = 306
           Align = alTop
           TabOrder = 1

@@ -3,7 +3,8 @@ NeatoControl - control of the robot
 
 **Google Translate!**
 
-Program management and diagnostic robot Neato XV-21.
+Program management and diagnostic Neato robot vacuums.
+Work on model: Neato XV series, Neato Signature, Neato Botvac.
 
 Features are quite simple: to see the state of the sensors to change the schedule, set the time to get the image from the scanner.
 (The program's interface leaves much to be desired - but there is room for improvement)
@@ -75,6 +76,12 @@ The bottom displays the result of the team.
 If you check "Save ..." the results of the command are stored in the file.
 
 Instructions of use: enter the necessary commands to assign a retry time, start recording. And after a couple of hours you will receive a data file that can be viewed carefully. =)
+
+Translate
+------------
+
+For translation you can try this program: http://yktoo.com/en/software/dklangTraned
+
 
 
 Changes
