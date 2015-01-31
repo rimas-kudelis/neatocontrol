@@ -1358,9 +1358,7 @@ begin
     // и включаем мотор - начинаем просаживать батарею
     SendCmd(Port, 'TestMode on');
     SendCmd(Port, 'SetMotor BrushEnable');
-    //todo: TEMP!!!!!!!!!!!!
-    SendCmd(Port, 'SetMotor Brush RPM 50');
-    //SendCmd(Port, 'SetMotor Brush RPM 250');
+    SendCmd(Port, 'SetMotor Brush RPM 250');
 
     // делаем диссконект сами - дисконект по умолчанию выключает тестовый режим
     CloseHandle(Port);
