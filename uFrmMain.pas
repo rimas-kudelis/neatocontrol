@@ -1053,9 +1053,12 @@ begin
     begin
       // Neato XV-21, XV-12
       N := FindCOMPort($2108, $780B);
+      // Neato BotVac
       if N='' then
-        // Neato BotVac
         N := FindCOMPort($2108, $780C);
+      // Neato Vorwerk vr100 vr200
+      //if N='' then
+      //  N := FindCOMPort($21??, $78??);
       textComPortN.Text := N;
     end else
     begin

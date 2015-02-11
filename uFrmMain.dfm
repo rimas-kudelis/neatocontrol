@@ -375,7 +375,7 @@ object frmMain: TfrmMain
       end
     end
     object tabScan: TTabSheet
-      Caption = 'Snanner'
+      Caption = 'Scanner'
       object Image1: TImage
         Left = 0
         Top = 75
