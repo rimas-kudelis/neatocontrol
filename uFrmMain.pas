@@ -772,7 +772,7 @@ begin
 
   Caption := Caption + '   ver ' + GetMyVersion(2);
   // авто поиск языка
-  LangManager.LanguageID := GetSysLang();
+  //LangManager.LanguageID := GetSysLang();
 
   // Fill cbLanguage with available languages
   for i := 0 to LangManager.LanguageCount-1 do
@@ -808,7 +808,7 @@ end;
 
 procedure TfrmMain.LngLanguageChanged(Sender: TObject);
 begin
-  listSchedule.ItemProps['Sun'].KeyDesc := LangManager.ConstantValue['Sunday'];
+  listSchedule.ItemProps['Sun'].KeyDesc := LangManager.ConstantValue['sunday'];
   listSchedule.ItemProps['Mon'].KeyDesc := LangManager.ConstantValue['Monday'];
   listSchedule.ItemProps['Tue'].KeyDesc := LangManager.ConstantValue['Tuesday'];
   listSchedule.ItemProps['Wed'].KeyDesc := LangManager.ConstantValue['Wednesday'];
