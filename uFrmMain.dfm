@@ -21,7 +21,7 @@ object frmMain: TfrmMain
   OnResize = FormResize
   PixelsPerInch = 144
   TextHeight = 20
-  object PageControl1: TPageControl
+  object PageControl1: TTntPageControl
     Left = 0
     Top = 0
     Width = 909
@@ -31,10 +31,10 @@ object frmMain: TfrmMain
     TabOrder = 0
     OnChange = PageControl1Change
     OnChanging = PageControl1Changing
-    object TabSheet3: TTabSheet
+    object TabSheet3: TTntTabSheet
       Caption = 'Options'
       ImageIndex = 2
-      object lblLang: TLabel
+      object lblLang: TTntLabel
         Left = 465
         Top = 414
         Width = 76
@@ -57,7 +57,7 @@ object frmMain: TfrmMain
         ParentFont = False
         Progress = 0
       end
-      object lbRobotTime2: TLabel
+      object lbRobotTime2: TTntLabel
         Left = 469
         Top = 5
         Width = 133
@@ -74,7 +74,7 @@ object frmMain: TfrmMain
         ParentBiDiMode = False
         ParentFont = False
       end
-      object lbRobotTime: TLabel
+      object lbRobotTime: TTntLabel
         Left = 608
         Top = 6
         Width = 90
@@ -87,7 +87,7 @@ object frmMain: TfrmMain
         Font.Style = []
         ParentFont = False
       end
-      object GroupBox2: TGroupBox
+      object GroupBox2: TTntGroupBox
         Left = 758
         Top = 402
         Width = 127
@@ -101,7 +101,7 @@ object frmMain: TfrmMain
         ParentFont = False
         TabOrder = 0
         Visible = False
-        object Button2: TButton
+        object Button2: TTntButton
           Left = 6
           Top = 29
           Width = 116
@@ -110,7 +110,7 @@ object frmMain: TfrmMain
           TabOrder = 0
           OnClick = Button2Click
         end
-        object Button3: TButton
+        object Button3: TTntButton
           Left = 6
           Top = 74
           Width = 116
@@ -120,14 +120,14 @@ object frmMain: TfrmMain
           OnClick = Button3Click
         end
       end
-      object GroupBox4: TGroupBox
+      object GroupBox4: TTntGroupBox
         Left = 455
         Top = 35
         Width = 433
         Height = 357
         Caption = 'Schedule && Time'
         TabOrder = 1
-        object lbSchState: TLabel
+        object lbSchState: TTntLabel
           Left = 271
           Top = 169
           Width = 149
@@ -142,7 +142,7 @@ object frmMain: TfrmMain
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object Label1: TLabel
+        object Label1: TTntLabel
           Left = 271
           Top = 148
           Width = 71
@@ -177,7 +177,7 @@ object frmMain: TfrmMain
             91
             151)
         end
-        object btnSetSchedule: TButton
+        object btnSetSchedule: TTntButton
           Left = 271
           Top = 86
           Width = 154
@@ -185,7 +185,7 @@ object frmMain: TfrmMain
           Action = actSetSchedule
           TabOrder = 1
         end
-        object btnGetSchedule: TButton
+        object btnGetSchedule: TTntButton
           Left = 271
           Top = 37
           Width = 154
@@ -193,7 +193,7 @@ object frmMain: TfrmMain
           Action = actGetSchedule
           TabOrder = 2
         end
-        object btnTimeUpdate: TButton
+        object btnTimeUpdate: TTntButton
           Left = 12
           Top = 308
           Width = 413
@@ -202,7 +202,7 @@ object frmMain: TfrmMain
           TabOrder = 3
           WordWrap = True
         end
-        object btnSchEn: TButton
+        object btnSchEn: TTntButton
           Left = 271
           Top = 214
           Width = 154
@@ -212,7 +212,7 @@ object frmMain: TfrmMain
           TabOrder = 4
           OnClick = btnSchEnClick
         end
-        object btnSchDis: TButton
+        object btnSchDis: TTntButton
           Left = 271
           Top = 258
           Width = 154
@@ -223,14 +223,14 @@ object frmMain: TfrmMain
           OnClick = btnSchDisClick
         end
       end
-      object GroupBox3: TGroupBox
+      object GroupBox3: TTntGroupBox
         Left = 12
         Top = 12
         Width = 433
         Height = 211
         Caption = 'Connect'
         TabOrder = 2
-        object lbComPortN: TLabel
+        object lbComPortN: TTntLabel
           Left = 25
           Top = 172
           Width = 117
@@ -238,7 +238,7 @@ object frmMain: TfrmMain
           Caption = 'COM Port name:'
           Enabled = False
         end
-        object textComPortN: TComboBox
+        object textComPortN: TTntComboBox
           Left = 215
           Top = 165
           Width = 196
@@ -253,7 +253,7 @@ object frmMain: TfrmMain
             'COM3'
             'COM4')
         end
-        object Button4: TButton
+        object Button4: TTntButton
           Left = 12
           Top = 25
           Width = 199
@@ -267,7 +267,7 @@ object frmMain: TfrmMain
           ParentFont = False
           TabOrder = 1
         end
-        object Button5: TButton
+        object Button5: TTntButton
           Left = 222
           Top = 25
           Width = 198
@@ -281,7 +281,7 @@ object frmMain: TfrmMain
           ParentFont = False
           TabOrder = 2
         end
-        object chAutoDetectPort: TCheckBox
+        object chAutoDetectPort: TTntCheckBox
           Left = 12
           Top = 86
           Width = 405
@@ -292,7 +292,7 @@ object frmMain: TfrmMain
           TabOrder = 3
           OnClick = chAutoDetectPortClick
         end
-        object chAutoConnect: TCheckBox
+        object chAutoConnect: TTntCheckBox
           Left = 12
           Top = 123
           Width = 405
@@ -302,14 +302,14 @@ object frmMain: TfrmMain
           TabOrder = 4
         end
       end
-      object GroupBox5: TGroupBox
+      object GroupBox5: TTntGroupBox
         Left = 12
         Top = 234
         Width = 433
         Height = 272
         Caption = 'Version:'
         TabOrder = 3
-        object textVersion: TMemo
+        object textVersion: TTntMemo
           Left = 2
           Top = 22
           Width = 429
@@ -319,7 +319,7 @@ object frmMain: TfrmMain
           TabOrder = 0
         end
       end
-      object cbLanguage: TComboBox
+      object cbLanguage: TTntComboBox
         Left = 463
         Top = 440
         Width = 259
@@ -329,10 +329,10 @@ object frmMain: TfrmMain
         OnChange = cbLanguageChange
       end
     end
-    object TabSheet2: TTabSheet
+    object TabSheet2: TTntTabSheet
       Caption = 'Sensors'
       ImageIndex = 1
-      object Panel2: TPanel
+      object Panel2: TTntPanel
         Left = 0
         Top = 0
         Width = 1086
@@ -340,7 +340,7 @@ object frmMain: TfrmMain
         Align = alTop
         TabOrder = 0
         Visible = False
-        object chSensorAuto: TCheckBox
+        object chSensorAuto: TTntCheckBox
           Left = 26
           Top = 20
           Width = 111
@@ -374,7 +374,7 @@ object frmMain: TfrmMain
           519)
       end
     end
-    object tabScan: TTabSheet
+    object tabScan: TTntTabSheet
       Caption = 'Scanner'
       object Image1: TImage
         Left = 0
@@ -383,7 +383,7 @@ object frmMain: TfrmMain
         Height = 481
         Align = alClient
       end
-      object Panel1: TPanel
+      object Panel1: TTntPanel
         Left = 0
         Top = 0
         Width = 901
@@ -398,7 +398,7 @@ object frmMain: TfrmMain
           Align = alBottom
           OnPaint = paintSpectrePaint
         end
-        object chkScanLDS: TCheckBox
+        object chkScanLDS: TTntCheckBox
           Left = 18
           Top = 12
           Width = 267
@@ -408,7 +408,7 @@ object frmMain: TfrmMain
           ShowHint = True
           TabOrder = 0
         end
-        object chRemoteControl: TCheckBox
+        object chRemoteControl: TTntCheckBox
           Left = 314
           Top = 12
           Width = 475
@@ -418,7 +418,7 @@ object frmMain: TfrmMain
         end
       end
     end
-    object TabSheet4: TTabSheet
+    object TabSheet4: TTntTabSheet
       Caption = 'Recharge'
       ImageIndex = 3
       object ScrollBox1: TScrollBox
@@ -431,7 +431,7 @@ object frmMain: TfrmMain
         DesignSize = (
           897
           552)
-        object Label2: TLabel
+        object Label2: TTntLabel
           Left = 2
           Top = 171
           Width = 67
@@ -439,7 +439,7 @@ object frmMain: TfrmMain
           AutoSize = False
           Caption = 'Step 1:'
         end
-        object Label3: TLabel
+        object Label3: TTntLabel
           Left = 2
           Top = 231
           Width = 67
@@ -447,7 +447,7 @@ object frmMain: TfrmMain
           AutoSize = False
           Caption = 'Step 2:'
         end
-        object Label4: TLabel
+        object Label4: TTntLabel
           Left = 2
           Top = 300
           Width = 67
@@ -455,7 +455,7 @@ object frmMain: TfrmMain
           AutoSize = False
           Caption = 'Step 3:'
         end
-        object Label5: TLabel
+        object Label5: TTntLabel
           Left = 2
           Top = 360
           Width = 67
@@ -463,7 +463,7 @@ object frmMain: TfrmMain
           AutoSize = False
           Caption = 'Step 4:'
         end
-        object Label6: TLabel
+        object Label6: TTntLabel
           Left = 2
           Top = 451
           Width = 67
@@ -471,7 +471,7 @@ object frmMain: TfrmMain
           AutoSize = False
           Caption = 'Step 5:'
         end
-        object Memo2: TMemo
+        object Memo2: TTntMemo
           Left = 0
           Top = 3
           Width = 1282
@@ -507,7 +507,7 @@ object frmMain: TfrmMain
           ScrollBars = ssVertical
           TabOrder = 0
         end
-        object Memo1: TMemo
+        object Memo1: TTntMemo
           Left = 71
           Top = 160
           Width = 1211
@@ -519,7 +519,7 @@ object frmMain: TfrmMain
           ScrollBars = ssVertical
           TabOrder = 1
         end
-        object Memo3: TMemo
+        object Memo3: TTntMemo
           Left = 291
           Top = 211
           Width = 991
@@ -533,7 +533,7 @@ object frmMain: TfrmMain
           ScrollBars = ssVertical
           TabOrder = 2
         end
-        object btnSet100PercentBattery: TButton
+        object btnSet100PercentBattery: TTntButton
           Left = 71
           Top = 211
           Width = 211
@@ -542,7 +542,7 @@ object frmMain: TfrmMain
           TabOrder = 3
           WordWrap = True
         end
-        object btnEnableBrush: TButton
+        object btnEnableBrush: TTntButton
           Left = 71
           Top = 340
           Width = 211
@@ -551,7 +551,7 @@ object frmMain: TfrmMain
           TabOrder = 4
           WordWrap = True
         end
-        object btnEnableVaccum: TButton
+        object btnEnableVaccum: TTntButton
           Left = 71
           Top = 271
           Width = 211
@@ -560,7 +560,7 @@ object frmMain: TfrmMain
           TabOrder = 5
           WordWrap = True
         end
-        object Memo5: TMemo
+        object Memo5: TTntMemo
           Left = 291
           Top = 340
           Width = 991
@@ -576,7 +576,7 @@ object frmMain: TfrmMain
           ScrollBars = ssVertical
           TabOrder = 6
         end
-        object Memo4: TMemo
+        object Memo4: TTntMemo
           Left = 291
           Top = 271
           Width = 991
@@ -592,7 +592,7 @@ object frmMain: TfrmMain
           ScrollBars = ssVertical
           TabOrder = 7
         end
-        object lbWarnLowVoltage: TPanel
+        object lbWarnLowVoltage: TTntPanel
           Left = 91
           Top = 231
           Width = 171
@@ -609,7 +609,7 @@ object frmMain: TfrmMain
           Visible = False
           OnMouseUp = lbWarnLowVoltageMouseUp
         end
-        object Memo6: TMemo
+        object Memo6: TTntMemo
           Left = 71
           Top = 411
           Width = 1211
@@ -627,7 +627,7 @@ object frmMain: TfrmMain
         end
       end
     end
-    object TabSheet6: TTabSheet
+    object TabSheet6: TTntTabSheet
       Caption = 'Commands'
       ImageIndex = 4
       object ScrollBox2: TScrollBox
@@ -637,7 +637,7 @@ object frmMain: TfrmMain
         Height = 556
         Align = alClient
         TabOrder = 0
-        object memoConsole: TMemo
+        object memoConsole: TTntMemo
           Left = 0
           Top = 306
           Width = 897
@@ -646,14 +646,14 @@ object frmMain: TfrmMain
           ScrollBars = ssBoth
           TabOrder = 0
         end
-        object Panel3: TPanel
+        object Panel3: TTntPanel
           Left = 0
           Top = 0
           Width = 897
           Height = 306
           Align = alTop
           TabOrder = 1
-          object LabelR5: TLabel
+          object LabelR5: TTntLabel
             Tag = 5
             Left = 12
             Top = 78
@@ -661,7 +661,7 @@ object frmMain: TfrmMain
             Height = 20
             Caption = 'F5'
           end
-          object LabelR6: TLabel
+          object LabelR6: TTntLabel
             Tag = 6
             Left = 12
             Top = 115
@@ -669,7 +669,7 @@ object frmMain: TfrmMain
             Height = 20
             Caption = 'F6'
           end
-          object LabelR7: TLabel
+          object LabelR7: TTntLabel
             Tag = 7
             Left = 12
             Top = 152
@@ -677,7 +677,7 @@ object frmMain: TfrmMain
             Height = 20
             Caption = 'F7'
           end
-          object LabelR8: TLabel
+          object LabelR8: TTntLabel
             Tag = 8
             Left = 12
             Top = 189
@@ -685,7 +685,7 @@ object frmMain: TfrmMain
             Height = 20
             Caption = 'F8'
           end
-          object LabelR4: TLabel
+          object LabelR4: TTntLabel
             Tag = 4
             Left = 12
             Top = 42
@@ -693,7 +693,7 @@ object frmMain: TfrmMain
             Height = 20
             Caption = 'F4'
           end
-          object LabelR9: TLabel
+          object LabelR9: TTntLabel
             Tag = 9
             Left = 12
             Top = 226
@@ -701,14 +701,14 @@ object frmMain: TfrmMain
             Height = 20
             Caption = 'F9'
           end
-          object Label13: TLabel
+          object Label13: TTntLabel
             Left = 37
             Top = 12
             Width = 108
             Height = 20
             Caption = 'Commands list:'
           end
-          object edCmd5: TComboBox
+          object edCmd5: TTntComboBox
             Tag = 5
             Left = 37
             Top = 74
@@ -724,7 +724,7 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object btnCmd5: TButton
+          object btnCmd5: TTntButton
             Tag = 5
             Left = 592
             Top = 72
@@ -735,7 +735,7 @@ object frmMain: TfrmMain
             TabStop = False
             OnClick = actBtnRunExecute
           end
-          object edCmd6: TComboBox
+          object edCmd6: TTntComboBox
             Tag = 6
             Left = 37
             Top = 111
@@ -751,7 +751,7 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object btnCmd6: TButton
+          object btnCmd6: TTntButton
             Tag = 6
             Left = 592
             Top = 109
@@ -762,7 +762,7 @@ object frmMain: TfrmMain
             TabStop = False
             OnClick = actBtnRunExecute
           end
-          object edCmd7: TComboBox
+          object edCmd7: TTntComboBox
             Tag = 7
             Left = 37
             Top = 148
@@ -778,7 +778,7 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object btnCmd7: TButton
+          object btnCmd7: TTntButton
             Tag = 7
             Left = 592
             Top = 146
@@ -789,7 +789,7 @@ object frmMain: TfrmMain
             TabStop = False
             OnClick = actBtnRunExecute
           end
-          object edCmd8: TComboBox
+          object edCmd8: TTntComboBox
             Tag = 8
             Left = 37
             Top = 185
@@ -805,7 +805,7 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object btnCmd8: TButton
+          object btnCmd8: TTntButton
             Tag = 8
             Left = 592
             Top = 183
@@ -816,7 +816,7 @@ object frmMain: TfrmMain
             TabStop = False
             OnClick = actBtnRunExecute
           end
-          object edCmd4: TComboBox
+          object edCmd4: TTntComboBox
             Tag = 4
             Left = 37
             Top = 37
@@ -832,7 +832,7 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object btnCmd4: TButton
+          object btnCmd4: TTntButton
             Tag = 4
             Left = 592
             Top = 35
@@ -843,7 +843,7 @@ object frmMain: TfrmMain
             TabStop = False
             OnClick = actBtnRunExecute
           end
-          object edCmd9: TComboBox
+          object edCmd9: TTntComboBox
             Tag = 9
             Left = 37
             Top = 222
@@ -859,7 +859,7 @@ object frmMain: TfrmMain
               'TestMode On'
               'TestMode Off')
           end
-          object btnCmd9: TButton
+          object btnCmd9: TTntButton
             Tag = 9
             Left = 592
             Top = 220
@@ -870,13 +870,13 @@ object frmMain: TfrmMain
             TabStop = False
             OnClick = actBtnRunExecute
           end
-          object Panel4: TPanel
+          object Panel4: TTntPanel
             Left = 3
             Top = 258
             Width = 777
             Height = 44
             TabOrder = 13
-            object edLogFileName: TComboBox
+            object edLogFileName: TTntComboBox
               Left = 332
               Top = 6
               Width = 408
@@ -886,7 +886,7 @@ object frmMain: TfrmMain
               TabOrder = 0
               Text = 'log.txt'
             end
-            object btnSelectLogFileName: TButton
+            object btnSelectLogFileName: TTntButton
               Left = 743
               Top = 6
               Width = 29
@@ -896,7 +896,7 @@ object frmMain: TfrmMain
               TabOrder = 1
               OnClick = btnSelectLogFileNameClick
             end
-            object chSaveLogToFile: TCheckBox
+            object chSaveLogToFile: TTntCheckBox
               Left = 12
               Top = 9
               Width = 310
@@ -906,7 +906,7 @@ object frmMain: TfrmMain
               OnClick = chSaveLogToFileClick
             end
           end
-          object GroupBoxTimers: TGroupBox
+          object GroupBoxTimers: TTntGroupBox
             Left = 654
             Top = 11
             Width = 126
@@ -916,7 +916,7 @@ object frmMain: TfrmMain
             ParentShowHint = False
             ShowHint = True
             TabOrder = 12
-            object cbRepeatTime4: TComboBox
+            object cbRepeatTime4: TTntComboBox
               Tag = 4
               Left = 8
               Top = 25
@@ -939,7 +939,7 @@ object frmMain: TfrmMain
                 '60'
                 '120')
             end
-            object cbRepeatTime5: TComboBox
+            object cbRepeatTime5: TTntComboBox
               Tag = 5
               Left = 8
               Top = 62
@@ -962,7 +962,7 @@ object frmMain: TfrmMain
                 '60'
                 '120')
             end
-            object cbRepeatTime6: TComboBox
+            object cbRepeatTime6: TTntComboBox
               Tag = 6
               Left = 8
               Top = 98
@@ -985,7 +985,7 @@ object frmMain: TfrmMain
                 '60'
                 '120')
             end
-            object cbRepeatTime7: TComboBox
+            object cbRepeatTime7: TTntComboBox
               Tag = 7
               Left = 8
               Top = 135
@@ -1008,7 +1008,7 @@ object frmMain: TfrmMain
                 '60'
                 '120')
             end
-            object cbRepeatTime8: TComboBox
+            object cbRepeatTime8: TTntComboBox
               Tag = 8
               Left = 8
               Top = 172
@@ -1031,7 +1031,7 @@ object frmMain: TfrmMain
                 '60'
                 '120')
             end
-            object cbRepeatTime9: TComboBox
+            object cbRepeatTime9: TTntComboBox
               Tag = 9
               Left = 8
               Top = 209
@@ -1058,10 +1058,10 @@ object frmMain: TfrmMain
         end
       end
     end
-    object TabSheet5: TTabSheet
+    object TabSheet5: TTntTabSheet
       Caption = 'About'
       ImageIndex = 4
-      object MemoAbout: TMemo
+      object MemoAbout: TTntMemo
         Left = 11
         Top = 52
         Width = 631
@@ -1093,71 +1093,71 @@ object frmMain: TfrmMain
       end
     end
   end
-  object ActionList1: TActionList
+  object ActionList1: TTntActionList
     OnUpdate = ActionList1Update
     Left = 488
-    object actScan: TAction
+    object actScan: TTntAction
       Category = 'robot'
       OnExecute = actScanExecute
     end
-    object actSensors: TAction
+    object actSensors: TTntAction
       Category = 'robot'
       OnExecute = actSensorsExecute
     end
-    object actConnect: TAction
+    object actConnect: TTntAction
       Caption = 'Connect'
       OnExecute = actConnectExecute
       OnUpdate = actConnectUpdate
     end
-    object actDisconnect: TAction
+    object actDisconnect: TTntAction
       Category = 'robot'
       Caption = 'Disconnect'
       OnExecute = actDisconnectExecute
     end
-    object actSetSchedule: TAction
+    object actSetSchedule: TTntAction
       Category = 'robot'
       Caption = 'Save Schedule'
       OnExecute = actSetScheduleExecute
     end
-    object actGetSchedule: TAction
+    object actGetSchedule: TTntAction
       Category = 'robot'
       Caption = 'Load Schedule'
       OnExecute = actGetScheduleExecute
     end
-    object actSetCurrentTime: TAction
+    object actSetCurrentTime: TTntAction
       Category = 'robot'
       Caption = 'Set time to Neato from computer'
       OnExecute = actSetCurrentTimeExecute
     end
-    object actScanLDS: TAction
+    object actScanLDS: TTntAction
       Category = 'robot'
       Caption = 'Scan LDS'
       OnExecute = actScanLDSExecute
     end
-    object actRemoteControl: TAction
+    object actRemoteControl: TTntAction
       Category = 'robot'
       Caption = 'Remote Control (push arrows)'
       OnExecute = actRemoteControlExecute
     end
-    object actChrSet100PercentBattery: TAction
+    object actChrSet100PercentBattery: TTntAction
       Category = 'robor_chr'
       Caption = 'Set 100% Battery'
       OnExecute = actChrSet100PercentBatteryExecute
       OnUpdate = actChrCheck
     end
-    object actChrEnableVaccum: TAction
+    object actChrEnableVaccum: TTntAction
       Category = 'robor_chr'
       Caption = 'Enable Vaccum Motor and Disconnect'
       OnExecute = actChrEnableVaccumExecute
       OnUpdate = actChrCheck
     end
-    object actChrEnableBrush: TAction
+    object actChrEnableBrush: TTntAction
       Category = 'robor_chr'
       Caption = 'Enable Brush Motor and Disconnect'
       OnExecute = actChrEnableBrushExecute
       OnUpdate = actChrCheck
     end
-    object actResizeScanZone: TAction
+    object actResizeScanZone: TTntAction
       OnExecute = actResizeScanZoneExecute
     end
   end
@@ -1217,92 +1217,91 @@ object frmMain: TfrmMain
       0000070043617074696F6E000700427574746F6E320101000000060000000700
       43617074696F6E000700427574746F6E33010100000007000000070043617074
       696F6E00090047726F7570426F7834010100000008000000070043617074696F
-      6E000A006C625363685374617465010100000009000000070043617074696F6E
-      0006004C6162656C3101010000000B000000070043617074696F6E000C006C69
-      73745363686564756C6501010000000E0000000D005469746C6543617074696F
-      6E73000E0062746E5365745363686564756C6500000E0062746E476574536368
-      6564756C6500000D0062746E54696D655570646174650000080062746E536368
-      456E010100000012000000070043617074696F6E00090062746E536368446973
-      010100000013000000070043617074696F6E00090047726F7570426F78330101
-      00000014000000070043617074696F6E000A006C62436F6D506F72744E010100
-      000015000000070043617074696F6E000C0074657874436F6D506F72744E0102
-      0000006300000005004974656D7316000000040054657874000700427574746F
-      6E3400000700427574746F6E350000100063684175746F446574656374506F72
-      74010100000019000000070043617074696F6E000D0063684175746F436F6E6E
-      65637401010000001A000000070043617074696F6E00090047726F7570426F78
-      3501010000001C000000070043617074696F6E000B007465787456657273696F
-      6E0000090054616253686565743201010000001F000000070043617074696F6E
-      00060050616E656C3200000C00636853656E736F724175746F01010000002100
-      0000070043617074696F6E000B006C69737453656E736F727301010000002300
-      00000D005469746C6543617074696F6E73000600496D61676531000006005061
-      6E656C3100000A0063686B5363616E4C445300000B00416374696F6E4C697374
-      31000007006163745363616E00000A0061637453656E736F727300000A006163
-      74436F6E6E65637401010000002A000000070043617074696F6E000D00616374
-      446973636F6E6E65637401010000002B000000070043617074696F6E00090054
-      696D65725363616E00000C0054696D657253656E736F727300000A0063624C61
-      6E6775616765000007006C626C4C616E6701010000002C000000070043617074
-      696F6E000E006163745365745363686564756C6501010000002E000000070043
-      617074696F6E000E006163744765745363686564756C6501010000002F000000
-      070043617074696F6E00110061637453657443757272656E7454696D65010100
-      000030000000070043617074696F6E000A006163745363616E4C445301010000
-      0039000000070043617074696F6E000F00636852656D6F7465436F6E74726F6C
-      0000100061637452656D6F7465436F6E74726F6C01010000003C000000070043
-      617074696F6E00090054616253686565743401010000003D0000000700436170
-      74696F6E00090054616253686565743501010000003E00000007004361707469
-      6F6E000E006261724675656C50657263656E74000009004D656D6F41626F7574
-      00000C0054696D657247657454696D6500000C006C62526F626F7454696D6532
-      010100000043000000070043617074696F6E000B006C62526F626F7454696D65
-      010100000044000000070043617074696F6E001A006163744368725365743130
-      3050657263656E7442617474657279010100000050000000070043617074696F
-      6E001200616374436872456E61626C6556616363756D01010000005100000007
-      0043617074696F6E001100616374436872456E61626C65427275736801010000
-      0052000000070043617074696F6E000A00506F7075704D656E7531000006006D
-      6E436F7079010100000053000000070043617074696F6E000A005363726F6C6C
-      426F7831000005004D656D6F3201010000005400000005004C696E6573000500
-      4D656D6F3101010000005500000005004C696E65730005004D656D6F33010100
-      00005600000005004C696E657300170062746E53657431303050657263656E74
-      42617474657279000006004C6162656C32010100000057000000070043617074
-      696F6E0006004C6162656C33010100000058000000070043617074696F6E0006
-      004C6162656C34010100000059000000070043617074696F6E0006004C616265
-      6C3501010000005A000000070043617074696F6E000E0062746E456E61626C65
-      427275736800000F0062746E456E61626C6556616363756D000006004C616265
-      6C3601010000005B000000070043617074696F6E0005004D656D6F3501010000
-      005C00000005004C696E65730005004D656D6F3401010000005D00000005004C
-      696E65730010006C625761726E4C6F77566F6C7461676501010000005E000000
-      070043617074696F6E0005004D656D6F3601010000005F00000005004C696E65
-      73000900546162536865657436010100000060000000070043617074696F6E00
-      0A005363726F6C6C426F783200000C007061696E745370656374726500000B00
-      6D656D6F436F6E736F6C650000060050616E656C3300000E00496D6167654C69
-      73744E6561746F000007007461625363616E0101000000640000000700436170
-      74696F6E0007004C6162656C5235010100000065000000070043617074696F6E
-      0007004C6162656C5236010100000066000000070043617074696F6E0007004C
-      6162656C5237010100000067000000070043617074696F6E0007004C6162656C
-      5238010100000068000000070043617074696F6E0007004C6162656C52340101
-      00000069000000070043617074696F6E0007004C6162656C523901010000006A
-      000000070043617074696F6E0007004C6162656C313301010000006B00000007
-      0043617074696F6E0006006564436D64350000070062746E436D643500000600
-      6564436D64360000070062746E436D6436000006006564436D64370000070062
-      746E436D6437000006006564436D64380000070062746E436D64380000060065
-      64436D643401010000006C00000005004974656D7300070062746E436D643401
-      010000006D000000070043617074696F6E0006006564436D6439000007006274
-      6E436D64390000060050616E656C3400000D0065644C6F6746696C654E616D65
-      01010000006E00000004005465787400140062746E53656C6563744C6F674669
-      6C654E616D6500000F006368536176654C6F67546F46696C6501010000006F00
-      0000070043617074696F6E000E0047726F7570426F7854696D65727301020000
-      0071000000070043617074696F6E70000000040048696E74000D006362526570
-      65617454696D653400000D00636252657065617454696D653500000D00636252
-      657065617454696D653600000D00636252657065617454696D653700000D0063
-      6252657065617454696D653800000D00636252657065617454696D6539000011
-      00616374526573697A655363616E5A6F6E650000}
+      6E000A006C625363685374617465000006004C6162656C3101010000000B0000
+      00070043617074696F6E000C006C6973745363686564756C6501010000000E00
+      00000D005469746C6543617074696F6E73000E0062746E536574536368656475
+      6C6500000E0062746E4765745363686564756C6500000D0062746E54696D6555
+      70646174650000080062746E536368456E010100000012000000070043617074
+      696F6E00090062746E536368446973010100000013000000070043617074696F
+      6E00090047726F7570426F7833010100000014000000070043617074696F6E00
+      0A006C62436F6D506F72744E010100000015000000070043617074696F6E000C
+      0074657874436F6D506F72744E01020000006300000005004974656D73160000
+      00040054657874000700427574746F6E3400000700427574746F6E3500001000
+      63684175746F446574656374506F727401010000001900000007004361707469
+      6F6E000D0063684175746F436F6E6E65637401010000001A0000000700436170
+      74696F6E00090047726F7570426F783501010000001C00000007004361707469
+      6F6E000B007465787456657273696F6E00000900546162536865657432010100
+      00001F000000070043617074696F6E00060050616E656C3200000C0063685365
+      6E736F724175746F010100000021000000070043617074696F6E000B006C6973
+      7453656E736F72730101000000230000000D005469746C6543617074696F6E73
+      000600496D616765310000060050616E656C3100000A0063686B5363616E4C44
+      5300000B00416374696F6E4C69737431000007006163745363616E00000A0061
+      637453656E736F727300000A00616374436F6E6E65637401010000002A000000
+      070043617074696F6E000D00616374446973636F6E6E65637401010000002B00
+      0000070043617074696F6E00090054696D65725363616E00000C0054696D6572
+      53656E736F727300000A0063624C616E6775616765000007006C626C4C616E67
+      01010000002C000000070043617074696F6E000E006163745365745363686564
+      756C6501010000002E000000070043617074696F6E000E006163744765745363
+      686564756C6501010000002F000000070043617074696F6E0011006163745365
+      7443757272656E7454696D65010100000030000000070043617074696F6E000A
+      006163745363616E4C4453010100000039000000070043617074696F6E000F00
+      636852656D6F7465436F6E74726F6C0000100061637452656D6F7465436F6E74
+      726F6C01010000003C000000070043617074696F6E0009005461625368656574
+      3401010000003D000000070043617074696F6E00090054616253686565743501
+      010000003E000000070043617074696F6E000E006261724675656C5065726365
+      6E74000009004D656D6F41626F757400000C0054696D657247657454696D6500
+      000C006C62526F626F7454696D6532010100000043000000070043617074696F
+      6E000B006C62526F626F7454696D6500001A0061637443687253657431303050
+      657263656E7442617474657279010100000050000000070043617074696F6E00
+      1200616374436872456E61626C6556616363756D010100000051000000070043
+      617074696F6E001100616374436872456E61626C654272757368010100000052
+      000000070043617074696F6E000A00506F7075704D656E7531000006006D6E43
+      6F7079010100000053000000070043617074696F6E000A005363726F6C6C426F
+      7831000005004D656D6F3201010000005400000005004C696E65730005004D65
+      6D6F3101010000005500000005004C696E65730005004D656D6F330101000000
+      5600000005004C696E657300170062746E53657431303050657263656E744261
+      7474657279000006004C6162656C32010100000057000000070043617074696F
+      6E0006004C6162656C33010100000058000000070043617074696F6E0006004C
+      6162656C34010100000059000000070043617074696F6E0006004C6162656C35
+      01010000005A000000070043617074696F6E000E0062746E456E61626C654272
+      75736800000F0062746E456E61626C6556616363756D000006004C6162656C36
+      01010000005B000000070043617074696F6E0005004D656D6F3501010000005C
+      00000005004C696E65730005004D656D6F3401010000005D00000005004C696E
+      65730010006C625761726E4C6F77566F6C7461676501010000005E0000000700
+      43617074696F6E0005004D656D6F3601010000005F00000005004C696E657300
+      0900546162536865657436010100000060000000070043617074696F6E000A00
+      5363726F6C6C426F783200000C007061696E745370656374726500000B006D65
+      6D6F436F6E736F6C650000060050616E656C3300000E00496D6167654C697374
+      4E6561746F000007007461625363616E01010000006400000007004361707469
+      6F6E0007004C6162656C5235010100000065000000070043617074696F6E0007
+      004C6162656C5236010100000066000000070043617074696F6E0007004C6162
+      656C5237010100000067000000070043617074696F6E0007004C6162656C5238
+      010100000068000000070043617074696F6E0007004C6162656C523401010000
+      0069000000070043617074696F6E0007004C6162656C523901010000006A0000
+      00070043617074696F6E0007004C6162656C313301010000006B000000070043
+      617074696F6E0006006564436D64350000070062746E436D6435000006006564
+      436D64360000070062746E436D6436000006006564436D64370000070062746E
+      436D6437000006006564436D64380000070062746E436D643800000600656443
+      6D643401010000006C00000005004974656D7300070062746E436D6434010100
+      00006D000000070043617074696F6E0006006564436D64390000070062746E43
+      6D64390000060050616E656C3400000D0065644C6F6746696C654E616D650101
+      0000006E00000004005465787400140062746E53656C6563744C6F6746696C65
+      4E616D6500000F006368536176654C6F67546F46696C6501010000006F000000
+      070043617074696F6E000E0047726F7570426F7854696D657273010200000071
+      000000070043617074696F6E70000000040048696E74000D0063625265706561
+      7454696D653400000D00636252657065617454696D653500000D006362526570
+      65617454696D653600000D00636252657065617454696D653700000D00636252
+      657065617454696D653800000D00636252657065617454696D65390000110061
+      6374526573697A655363616E5A6F6E650000}
   end
   object TimerGetTime: TTimer
     OnTimer = TimerGetTimeTimer
     Left = 598
     Top = 65535
   end
-  object PopupMenu1: TPopupMenu
+  object PopupMenu1: TTntPopupMenu
     Left = 416
-    object mnCopy: TMenuItem
+    object mnCopy: TTntMenuItem
       Caption = 'Copy'
       OnClick = mnCopyClick
     end

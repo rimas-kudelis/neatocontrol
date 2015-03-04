@@ -1,4 +1,4 @@
-Target = NeatoControl
+ï»¿Target = NeatoControl
 Autor = Uranus-13
 LANGID = 1031
 
@@ -26,15 +26,15 @@ LANGID = 1031
 00000044 = Sprache:
 Zeitplan 00000046 = Speichern
 00000047 = Leseplan
-00000048 = Setzen Sie den Zeitplan für die NEATO aus dem Computer
-00000049 = Über
+00000048 = Setzen Sie den Zeitplan fÑŒr die NEATO aus dem Computer
+00000049 = Ð¬ber
 00000057 = LIDAR-Scanner
-00000060 = Fernsteuerung (drücken Sie die Pfeile)
+00000060 = Fernsteuerung (drÑŒcken Sie die Pfeile)
 00000061 = Abklingzeit
-00000062 = Über
+00000062 = Ð¬ber
 Emulieren 00000080 = 100% Last
 00000081 = Schalten Sie den Staubsauger Motor und trennen
-00000082 = Licht der Bürstenmotor und trennen
+00000082 = Licht der BÑŒrstenmotor und trennen
 00000067 = Zeit Robot:
 00000068 = 00: 00: 00
 00000069 = Schritt 1:
@@ -42,21 +42,21 @@ Emulieren 00000080 = 100% Last
 00000071 = Schritt 3:
 00000072 = Schritt 4:
 00000073 = Schritt 5:
-= 00000084 WARNUNG: \ nAlle Aktionen werden von Ihnen auf eigene Gefahr erfolgt. \ nWenn Sie nicht wollen, riskieren Benutzen Sie diesen Modus - kaufen neue Batterien \ nProgramm NavTor garantiert nichts \ nméthode Nicht garantiert den Erfolg ... \ n Ansammlung Batterien. Erforderlich, wenn Ihr Roboter ist 10-20 Minuten entfernt und entladen. Um die Batterie zu systematisch wiederherzustellen folgen Sie den Anweisungen in den Schritten, wenn in Schritt a-Taste und es. \ nWenn Sie nach Anmeldung im erscheinenden Fenster ein rotes Feld mit dem Wort "Batt V <11 V" Stop "Akkumulation" und sofort einen Roboter auf die Preisgestaltung. Sie können versuchen, zweimal wiederholen, um den Effekt zu korrigieren.
+= 00000084 WARNUNG: \ nAlle Aktionen werden von Ihnen auf eigene Gefahr erfolgt. \ nWenn Sie nicht wollen, riskieren Benutzen Sie diesen Modus - kaufen neue Batterien \ nProgramm NavTor garantiert nichts \ nmÐ¹thode Nicht garantiert den Erfolg ... \ n Ansammlung Batterien. Erforderlich, wenn Ihr Roboter ist 10-20 Minuten entfernt und entladen. Um die Batterie zu systematisch wiederherzustellen folgen Sie den Anweisungen in den Schritten, wenn in Schritt a-Taste und es. \ nWenn Sie nach Anmeldung im erscheinenden Fenster ein rotes Feld mit dem Wort "Batt V <11 V" Stop "Akkumulation" und sofort einen Roboter auf die Preisgestaltung. Sie kÑ†nnen versuchen, zweimal wiederholen, um den Effekt zu korrigieren.
 00000085 = Drehen Sie den Reinigungsroboter, erwartete Entlastung.
-00000086 = Klicken Sie auf diese Schaltfläche, und drehen Sie den Reinigungsroboter, erwartete Entlastung. (~ 10,5 Minuten)
-00000092 = Schalten Sie den Roboter und so schnell wie möglich, klicken Sie auf "Connect" .Dann drücken Sie die Taste - Schalten Sie den Vakuummotor. Warten Sie, bis der Roboter geht aus sich selbst. (~ 30 Minuten)
-00000093 = Schalten Sie den Roboter und so schnell wie möglich, klicken Sie auf "Connect". Dann drücken Sie die Taste - Schalten Sie den Bürstenmotor. Warten Sie, bis der Roboter geht aus sich selbst. (~ 30 Minuten)
-00000095 = Verbinden Sie den Roboter mit der Last \ nNécessairement tun "Service." -> "New Battery" Warten Sie eine volle Ladung \ nFaire facher Reinigung vor der Beurteilung des Ergebnisses ...
+00000086 = Klicken Sie auf diese SchaltflÐ´che, und drehen Sie den Reinigungsroboter, erwartete Entlastung. (~ 10,5 Minuten)
+00000092 = Schalten Sie den Roboter und so schnell wie mÑ†glich, klicken Sie auf "Connect" .Dann drÑŒcken Sie die Taste - Schalten Sie den Vakuummotor. Warten Sie, bis der Roboter geht aus sich selbst. (~ 30 Minuten)
+00000093 = Schalten Sie den Roboter und so schnell wie mÑ†glich, klicken Sie auf "Connect". Dann drÑŒcken Sie die Taste - Schalten Sie den BÑŒrstenmotor. Warten Sie, bis der Roboter geht aus sich selbst. (~ 30 Minuten)
+00000095 = Verbinden Sie den Roboter mit der Last \ nNÐ¹cessairement tun "Service." -> "New Battery" Warten Sie eine volle Ladung \ nFaire facher Reinigung vor der Beurteilung des Ergebnisses ...
 
 [$ CONSTANT]
-ErrorCantOpenPortCOM = Kann den COM-Port nicht geöffnet werden - jemand nahm es. Vielleicht ist dies nicht der Anschluss oder das Programm bereits ausgeführt wird.
-ErrorComPortNotDetect = COM-Schnittstelle wurde nicht gefunden. Stecken Sie einfach Surle Roboter. Prüfen Sie die Verfügbarkeit von "Neato Robotics USB-Port" im Geräte-Manager unter "Ports". Überprüfen Sie die Verbindung.
+ErrorCantOpenPortCOM = Kann den COM-Port nicht geÑ†ffnet werden - jemand nahm es. Vielleicht ist dies nicht der Anschluss oder das Programm bereits ausgefÑŒhrt wird.
+ErrorComPortNotDetect = COM-Schnittstelle wurde nicht gefunden. Stecken Sie einfach Surle Roboter. PrÑŒfen Sie die VerfÑŒgbarkeit von "Neato Robotics USB-Port" im GerÐ´te-Manager unter "Ports". Ð¬berprÑŒfen Sie die Verbindung.
 ErrorSetPortState = Hafenstaatkontrolle Fehler (SetCommState)
 Errorevent = WaitCommEvent IOResult = EV_ERR
 ErrorClearPort port = Fehlerkompensation. (ClearCommError)
 ErrorInvalidComPortNumber = falsche Nummer COM-Port
-Sonntag für Sonntag
+Sonntag fÑŒr Sonntag
 Montag = Montag
 Dienstag = Dienstag
 Mittwoch = Mittwoch

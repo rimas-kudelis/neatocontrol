@@ -11,7 +11,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
   uArrayAsPHP,
-  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList;
+  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList, TntMenus, TntActnList,
+  TntExtCtrls, TntStdCtrls, TntComCtrls;
 
 type
   Float = Real;
@@ -31,118 +32,118 @@ type
   end;
 
   TfrmMain = class(TForm)
-    PageControl1: TPageControl;
-    tabScan: TTabSheet;
-    TabSheet2: TTabSheet;
+    PageControl1: TTntPageControl;
+    tabScan: TTntTabSheet;
+    TabSheet2: TTntTabSheet;
     Image1: TImage;
-    ActionList1: TActionList;
-    TabSheet3: TTabSheet;
-    actScan: TAction;
-    Panel1: TPanel;
-    chkScanLDS: TCheckBox;
+    ActionList1: TTntActionList;
+    TabSheet3: TTntTabSheet;
+    actScan: TTntAction;
+    Panel1: TTntPanel;
+    chkScanLDS: TTntCheckBox;
     TimerScan: TTimer;
-    actSensors: TAction;
+    actSensors: TTntAction;
     TimerSensors: TTimer;
-    GroupBox2: TGroupBox;
-    Button2: TButton;
-    Button3: TButton;
-    actConnect: TAction;
-    actDisconnect: TAction;
-    GroupBox4: TGroupBox;
+    GroupBox2: TTntGroupBox;
+    Button2: TTntButton;
+    Button3: TTntButton;
+    actConnect: TTntAction;
+    actDisconnect: TTntAction;
+    GroupBox4: TTntGroupBox;
     listSchedule: TValueListEditor;
-    btnSetSchedule: TButton;
-    btnGetSchedule: TButton;
-    btnTimeUpdate: TButton;
-    lbSchState: TLabel;
-    btnSchEn: TButton;
-    btnSchDis: TButton;
-    Label1: TLabel;
-    GroupBox3: TGroupBox;
-    textComPortN: TComboBox;
-    Button4: TButton;
-    Button5: TButton;
-    lbComPortN: TLabel;
-    chAutoDetectPort: TCheckBox;
-    chAutoConnect: TCheckBox;
-    GroupBox5: TGroupBox;
-    textVersion: TMemo;
-    Panel2: TPanel;
-    chSensorAuto: TCheckBox;
+    btnSetSchedule: TTntButton;
+    btnGetSchedule: TTntButton;
+    btnTimeUpdate: TTntButton;
+    lbSchState: TTntLabel;
+    btnSchEn: TTntButton;
+    btnSchDis: TTntButton;
+    Label1: TTntLabel;
+    GroupBox3: TTntGroupBox;
+    textComPortN: TTntComboBox;
+    Button4: TTntButton;
+    Button5: TTntButton;
+    lbComPortN: TTntLabel;
+    chAutoDetectPort: TTntCheckBox;
+    chAutoConnect: TTntCheckBox;
+    GroupBox5: TTntGroupBox;
+    textVersion: TTntMemo;
+    Panel2: TTntPanel;
+    chSensorAuto: TTntCheckBox;
     listSensors: TValueListEditor;
     Lng: TDKLanguageController;
-    cbLanguage: TComboBox;
-    lblLang: TLabel;
-    actSetSchedule: TAction;
-    actGetSchedule: TAction;
-    actSetCurrentTime: TAction;
-    actScanLDS: TAction;
-    chRemoteControl: TCheckBox;
-    actRemoteControl: TAction;
-    TabSheet4: TTabSheet;
-    TabSheet5: TTabSheet;
+    cbLanguage: TTntComboBox;
+    lblLang: TTntLabel;
+    actSetSchedule: TTntAction;
+    actGetSchedule: TTntAction;
+    actSetCurrentTime: TTntAction;
+    actScanLDS: TTntAction;
+    chRemoteControl: TTntCheckBox;
+    actRemoteControl: TTntAction;
+    TabSheet4: TTntTabSheet;
+    TabSheet5: TTntTabSheet;
     barFuelPercent: TGauge;
-    MemoAbout: TMemo;
+    MemoAbout: TTntMemo;
     TimerGetTime: TTimer;
-    lbRobotTime2: TLabel;
-    lbRobotTime: TLabel;
-    actChrSet100PercentBattery: TAction;
-    actChrEnableVaccum: TAction;
-    actChrEnableBrush: TAction;
-    PopupMenu1: TPopupMenu;
-    mnCopy: TMenuItem;
+    lbRobotTime2: TTntLabel;
+    lbRobotTime: TTntLabel;
+    actChrSet100PercentBattery: TTntAction;
+    actChrEnableVaccum: TTntAction;
+    actChrEnableBrush: TTntAction;
+    PopupMenu1: TTntPopupMenu;
+    mnCopy: TTntMenuItem;
     ScrollBox1: TScrollBox;
-    Memo2: TMemo;
-    Memo1: TMemo;
-    Memo3: TMemo;
-    btnSet100PercentBattery: TButton;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    btnEnableBrush: TButton;
-    btnEnableVaccum: TButton;
-    Label6: TLabel;
-    Memo5: TMemo;
-    Memo4: TMemo;
-    lbWarnLowVoltage: TPanel;
-    Memo6: TMemo;
-    TabSheet6: TTabSheet;
+    Memo2: TTntMemo;
+    Memo1: TTntMemo;
+    Memo3: TTntMemo;
+    btnSet100PercentBattery: TTntButton;
+    Label2: TTntLabel;
+    Label3: TTntLabel;
+    Label4: TTntLabel;
+    Label5: TTntLabel;
+    btnEnableBrush: TTntButton;
+    btnEnableVaccum: TTntButton;
+    Label6: TTntLabel;
+    Memo5: TTntMemo;
+    Memo4: TTntMemo;
+    lbWarnLowVoltage: TTntPanel;
+    Memo6: TTntMemo;
+    TabSheet6: TTntTabSheet;
     ScrollBox2: TScrollBox;
     paintSpectre: TPaintBox;
-    memoConsole: TMemo;
-    Panel3: TPanel;
-    LabelR5: TLabel;
+    memoConsole: TTntMemo;
+    Panel3: TTntPanel;
+    LabelR5: TTntLabel;
     ImageListNeato: TImageList;
-    actResizeScanZone: TAction;
-    edCmd5: TComboBox;
-    btnCmd5: TButton;
-    LabelR6: TLabel;
-    edCmd6: TComboBox;
-    btnCmd6: TButton;
-    LabelR7: TLabel;
-    edCmd7: TComboBox;
-    btnCmd7: TButton;
-    LabelR8: TLabel;
-    edCmd8: TComboBox;
-    btnCmd8: TButton;
-    LabelR4: TLabel;
-    edCmd4: TComboBox;
-    btnCmd4: TButton;
-    LabelR9: TLabel;
-    edCmd9: TComboBox;
-    btnCmd9: TButton;
-    Label13: TLabel;
-    Panel4: TPanel;
-    edLogFileName: TComboBox;
-    btnSelectLogFileName: TButton;
-    chSaveLogToFile: TCheckBox;
-    GroupBoxTimers: TGroupBox;
-    cbRepeatTime4: TComboBox;
-    cbRepeatTime5: TComboBox;
-    cbRepeatTime6: TComboBox;
-    cbRepeatTime7: TComboBox;
-    cbRepeatTime8: TComboBox;
-    cbRepeatTime9: TComboBox;
+    actResizeScanZone: TTntAction;
+    edCmd5: TTntComboBox;
+    btnCmd5: TTntButton;
+    LabelR6: TTntLabel;
+    edCmd6: TTntComboBox;
+    btnCmd6: TTntButton;
+    LabelR7: TTntLabel;
+    edCmd7: TTntComboBox;
+    btnCmd7: TTntButton;
+    LabelR8: TTntLabel;
+    edCmd8: TTntComboBox;
+    btnCmd8: TTntButton;
+    LabelR4: TTntLabel;
+    edCmd4: TTntComboBox;
+    btnCmd4: TTntButton;
+    LabelR9: TTntLabel;
+    edCmd9: TTntComboBox;
+    btnCmd9: TTntButton;
+    Label13: TTntLabel;
+    Panel4: TTntPanel;
+    edLogFileName: TTntComboBox;
+    btnSelectLogFileName: TTntButton;
+    chSaveLogToFile: TTntCheckBox;
+    GroupBoxTimers: TTntGroupBox;
+    cbRepeatTime4: TTntComboBox;
+    cbRepeatTime5: TTntComboBox;
+    cbRepeatTime6: TTntComboBox;
+    cbRepeatTime7: TTntComboBox;
+    cbRepeatTime8: TTntComboBox;
+    cbRepeatTime9: TTntComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -200,8 +201,8 @@ type
     { Public declarations }
     Points: array of TLocatePoint;
     
-    ConsoleRunCmd: array [4..9] of TComboBox;
-    ConsoleRunCmdTimer: array [4..9] of TComboBox;
+    ConsoleRunCmd: array [4..9] of TTntComboBox;
+    ConsoleRunCmdTimer: array [4..9] of TTntComboBox;
     ConsoleRunCmdTimerCount: array [4..9] of integer;
     ConsoleRunCmdTimerMaxCount: array [4..9] of integer;
 
@@ -571,11 +572,11 @@ begin
   end;
 end;
 
-function GetButton(Port: THandle): TStrings;
+function GeTTntButton(Port: THandle): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
-  Result.Text := SendCmd(Port, 'GetButtons');
+  Result.Text := SendCmd(Port, 'GeTTntButtons');
   {$ELSE}
   Result.Text := 'Button Name,Pressed'#13#10+
 'BTN_SOFT_KEY,0'#13#10+
@@ -964,7 +965,7 @@ begin
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
-    tmpStr := GetButton(Port);
+    tmpStr := GeTTntButton(Port);
     tmpStr.Insert(0, '____   Buttons:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
@@ -1034,9 +1035,9 @@ end;
 procedure TfrmMain.ActionList1Update(Action: TBasicAction;
   var Handled: Boolean);
 begin
-  if (Action as TAction).Category = 'robot' then
+  if (Action as TTntAction).Category = 'robot' then
     begin
-      (Action as TAction).Enabled := Connected;
+      (Action as TTntAction).Enabled := Connected;
       Handled := true;
     end;
 end;
@@ -1382,7 +1383,7 @@ end;
 
 procedure TfrmMain.actChrCheck(Sender: TObject);
 begin
-  (Sender as TAction).Enabled := BattV_Nornal and Connected;
+  (Sender as TTntAction).Enabled := BattV_Nornal and Connected;
 end;
 
 procedure TfrmMain.paintSpectrePaint(Sender: TObject);
@@ -1477,11 +1478,11 @@ begin
 end;
 
 procedure TfrmMain.cbRepeatTimeChange(Sender: TObject);
-var c: TComboBox;
+var c: TTntComboBox;
 begin
-  if (Sender is TComboBox) then
+  if (Sender is TTntComboBox) then
   begin
-    c := Sender as TComboBox;
+    c := Sender as TTntComboBox;
     ConsoleRunCmdTimerMaxCount[c.Tag] := StrToIntDef(c.Text, 0);
   end;
 end;
