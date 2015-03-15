@@ -223,6 +223,7 @@ type
 
     procedure SetPoint(X, Y: integer; C: TColor = clBlack);
     procedure ControlRobot(Key: Word);
+    function SendCmdSmart(Cmd: String): string;
   end;
 
 var
@@ -578,11 +579,11 @@ begin
   end;
 end;
 
-function GeTTntButton(Port: THandle): TStrings;
+function GetButton(Port: THandle): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
-  Result.Text := SendCmd(Port, 'GeTTntButtons');
+  Result.Text := frmMain.SendCmdSmart('GeTTntButtons');
   {$ELSE}
   Result.Text := 'Button Name,Pressed'#13#10+
 'BTN_SOFT_KEY,0'#13#10+
@@ -602,7 +603,7 @@ function GetDigitalSensors(Port: THandle): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
-  Result.Text := SendCmd(Port, 'GetDigitalSensors');
+  Result.Text := frmMain.SendCmdSmart('GetDigitalSensors');
   {$ELSE}
   Result.Text := 'Digital Sensor Name, Value'#13#10+
 'SNSR_DC_JACK_CONNECT,0'#13#10+
@@ -625,7 +626,7 @@ function GetAnalogSensors(Port: THandle): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
-  Result.Text := SendCmd(Port, 'GetAnalogSensors');
+  Result.Text := frmMain.SendCmdSmart('GetAnalogSensors');
   {$ELSE}
   Result.Text := 'SensorName,Value'#13#10+
 'WallSensorInMM,34585'#13#10+
@@ -647,7 +648,7 @@ function GetCharger(Port: THandle): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
-  Result.Text := SendCmd(Port, 'GetCharger');
+  Result.Text := frmMain.SendCmdSmart('GetCharger');
   {$ELSE}
   Result.Text := 'Charger Variable Name, Value'#13#10+
 'FuelPercent,100'#13#10+
@@ -704,7 +705,7 @@ begin
   r.ModifierI := true;
   r.Expression := '[ ]+(\d+)[:](\d+)[:](\d+)';
 {$IFNDEF Debug}
-  r.InputString := SendCmd(Port, 'GetTime');
+  r.InputString := frmMain.SendCmdSmart('GetTime');
 {$ELSE}
   r.InputString :=
 'DayOfWeek HourOf24:Min:Sec'#13#10+
@@ -849,7 +850,7 @@ begin
   if Connected then
   begin
     {$IFNDEF Debug}
-    str := SendCmd(Port, 'GetLDSScan');
+    str := frmMain.SendCmdSmart('GetLDSScan');
     {$ELSE}
     str :=
       'AngleInDegrees,DistInMM,Intensity,ErrorCodeHEX'#13#10+
@@ -954,7 +955,7 @@ begin
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
-    tmpStr := GeTTntButton(Port);
+    tmpStr := GetButton(Port);
     tmpStr.Insert(0, '____   Buttons:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
@@ -983,17 +984,17 @@ end;
 
 procedure TfrmMain.Button2Click(Sender: TObject);
 begin
-  SendCmd(Port, 'SetWallFollower Enable');
+  SendCmdSmart('SetWallFollower Enable');
 end;
 
 procedure TfrmMain.Button3Click(Sender: TObject);
 begin
-  SendCmd(Port, 'SetWallFollower Disable');
+  SendCmdSmart('SetWallFollower Disable');
 end;
 
 procedure TfrmMain.btnSchEnClick(Sender: TObject);
 begin
-  SendCmd(Port, 'SetSchedule ON');
+  SendCmdSmart('SetSchedule ON');
   //lbSchState.Caption := LangManager.ConstantValue['textEnabled'];
   btnSchEn.Enabled := false;
   btnSchDis.Enabled := true;
@@ -1001,7 +1002,7 @@ end;
 
 procedure TfrmMain.btnSchDisClick(Sender: TObject);
 begin
-  SendCmd(Port, 'SetSchedule OFF');
+  SendCmdSmart('SetSchedule OFF');
   //lbSchState.Caption := LangManager.ConstantValue['textDisabled'];
   btnSchEn.Enabled := true;
   btnSchDis.Enabled := false;
@@ -1084,13 +1085,13 @@ begin
       exit;
     end;
 
-    textVersion.Text := SendCmd(Port, 'GetVersion');
+    textVersion.Text := SendCmdSmart('GetVersion');
     barFuelPercent.Progress := GetFuelPercent(Port);
     V := GetBattV(Port);
     BattV_Nornal := V >= 12;
     lbWarnLowVoltage.Visible := not BattV_Nornal;
 
-    SendCmd(Port, 'TestMode on');
+    SendCmdSmart('TestMode on');
     Connected := true;
   end;
 end;
@@ -1100,7 +1101,7 @@ begin
   if Connected then
   begin
     if Port <> INVALID_HANDLE_VALUE then
-      SendCmd(Port, 'TestMode off');
+      SendCmdSmart('TestMode off');
 
     CloseHandle(Port);
     Port := INVALID_HANDLE_VALUE;
@@ -1129,7 +1130,7 @@ begin
   r.ModifierI := true;
   r.Expression := '(\w+)[ ]+(\d+)[:](\d+)[ ]+(\w|[-])';
 {$IFNDEF Debug}
-  r.InputString := SendCmd(Port, 'GetSchedule');
+  r.InputString := SendCmdSmart('GetSchedule');
 {$ELSE}
   r.InputString :=
 'Schedule is Enabled'#13#10+
@@ -1179,10 +1180,11 @@ begin
     if listSchedule.Strings.ValueFromIndex[i]=' ' then continue;
     try
       t := StrToTime(listSchedule.Strings.ValueFromIndex[i]);
-      SendCmd(Port, 'SetSchedule Day '+IntToStr(i)+' Hour '+IntToStr(HourOf(t))+' Min '+IntToStr(MinuteOf(t))+' House');
+      SendCmdSmart('SetSchedule Day '+IntToStr(i)+' Hour '+IntToStr(HourOf(t))+' Min '+IntToStr(MinuteOf(t))+' House');
     except
+      // if bad data format then just disable this day in schedule
       on EConvertError do
-        SendCmd(Port, 'SetSchedule Day '+IntToStr(i)+' Hour 12 Min 00 None');
+        SendCmdSmart('SetSchedule Day '+IntToStr(i)+' Hour 12 Min 00 None');
     end;
   enD;
 {
@@ -1193,16 +1195,24 @@ end;
 
 procedure TfrmMain.actScanLDSExecute(Sender: TObject);
 begin
-  SendCmd(Port, 'SetLDSRotation on');
-  ScanRun := true;
-  TimerScan.Enabled := chkScanLDS.Checked;
+  if chkScanLDS.Checked then
+  begin
+    SendCmdSmart('SetLDSRotation on');
+    ScanRun := true;
+    TimerScan.Enabled := true;
+  end else
+  begin
+    SendCmdSmart('SetLDSRotation off');
+    ScanRun := false;
+    TimerScan.Enabled := false;
+  end;
 end;
 
 procedure TfrmMain.actSetCurrentTimeExecute(Sender: TObject);
 var t: TDateTime;
 begin
   t := Now;
-  SendCmd(Port, 'SetTime'+
+  SendCmdSmart('SetTime'+
     ' Day '+IntToStr(DayOfTheWeek(t) mod 7)+
     ' Hour '+IntToStr(HourOf(t))+
     ' Min '+IntToStr(MinuteOf(t))+
@@ -1214,7 +1224,7 @@ end;
 procedure TfrmMain.actRemoteControlExecute(Sender: TObject);
 begin
   RemoteControl := chRemoteControl.Checked and Connected;
-  SendCmd(Port, 'SetMotor LWheelDisable RWheelDisable');
+  SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
   if RemoteControl then
   begin
     FocusControl(PageControl1);
@@ -1243,20 +1253,20 @@ begin
       if State = stBack then
       begin
         State := stStop;
-        SendCmd(Port, 'SetMotor LWheelDisable RWheelDisable');
+        SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
       end else
       begin
         if State = stForward then
         begin
           if Speed < 300 then
             Speed := Speed + 50;
-          SendCmd(Port, 'SetMotor LWheelDist 5000 RWheelDist 5000 Speed '+ IntToStr(Speed));
+          SendCmdSmart('SetMotor LWheelDist 5000 RWheelDist 5000 Speed '+ IntToStr(Speed));
         end else
         begin
           State := stForward;
           Speed := 50;
-          SendCmd(Port, 'SetMotor RWheelEnable LWheelEnable');
-          SendCmd(Port, 'SetMotor LWheelDist 5000 RWheelDist 5000 Speed '+ IntToStr(Speed));//+' Accel 1');
+          SendCmdSmart('SetMotor RWheelEnable LWheelEnable');
+          SendCmdSmart('SetMotor LWheelDist 5000 RWheelDist 5000 Speed '+ IntToStr(Speed));//+' Accel 1');
         end;
       end;
     end;
@@ -1264,41 +1274,41 @@ begin
       if State = stStop then
       begin
         State := stBack;
-        SendCmd(Port, 'SetMotor RWheelEnable LWheelEnable');
-        SendCmd(Port, 'SetMotor LWheelDist -5000 RWheelDist -5000 Speed 100');
+        SendCmdSmart('SetMotor RWheelEnable LWheelEnable');
+        SendCmdSmart('SetMotor LWheelDist -5000 RWheelDist -5000 Speed 100');
       end else
       begin
         State := stStop;
-        SendCmd(Port, 'SetMotor LWheelDisable RWheelDisable');
+        SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
       end;
     end;
     VK_LEFT: begin
       if State = stRight then
       begin
         State := stStop;
-        SendCmd(Port, 'SetMotor LWheelDisable RWheelDisable');
+        SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
       end else
       begin
         State := stLeft;
-        SendCmd(Port, 'SetMotor RWheelEnable LWheelEnable');
-        SendCmd(Port, 'SetMotor LWheelDist -2500 RWheelDist 2500 Speed 100');
+        SendCmdSmart('SetMotor RWheelEnable LWheelEnable');
+        SendCmdSmart('SetMotor LWheelDist -2500 RWheelDist 2500 Speed 100');
       end;
     end;
     VK_RIGHT: begin
       if State = stLeft then
       begin
         State := stStop;
-        SendCmd(Port, 'SetMotor LWheelDisable RWheelDisable');
+        SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
       end else
       begin
         State := stRight;
-        SendCmd(Port, 'SetMotor RWheelEnable LWheelEnable');
-        SendCmd(Port, 'SetMotor LWheelDist 2500 RWheelDist -2500 Speed 100');
+        SendCmdSmart('SetMotor RWheelEnable LWheelEnable');
+        SendCmdSmart('SetMotor LWheelDist 2500 RWheelDist -2500 Speed 100');
       end;
     end;
     VK_BACK: begin
       State := stStop;
-      SendCmd(Port, 'SetMotor LWheelDisable RWheelDisable');
+      SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
     end;
   end;
 end;
@@ -1325,7 +1335,7 @@ end;
 
 procedure TfrmMain.actChrSet100PercentBatteryExecute(Sender: TObject);
 begin
-  SendCmd(Port, 'SetFuelGauge 90');
+  SendCmdSmart('SetFuelGauge 90');
 end;
 
 procedure TfrmMain.actChrEnableVaccumExecute(Sender: TObject);
@@ -1333,10 +1343,10 @@ begin
   if Connected then
   begin
     // выставляем 100% - иначе он выключается слишком рано
-    SendCmd(Port, 'SetFuelGauge 100');
+    SendCmdSmart('SetFuelGauge 100');
     // и включаем мотор - начинаем просаживать батарею
-    SendCmd(Port, 'TestMode on');
-    SendCmd(Port, 'SetMotor VacuumOn');
+    SendCmdSmart('TestMode on');
+    SendCmdSmart('SetMotor VacuumOn');
 
     // делаем диссконект сами - дисконект по умолчанию выключает тестовый режим
     CloseHandle(Port);
@@ -1350,11 +1360,11 @@ begin
   if Connected then
   begin
     // выставляем 100% - иначе он выключается слишком рано
-    SendCmd(Port, 'SetFuelGauge 100');
+    SendCmdSmart('SetFuelGauge 100');
     // и включаем мотор - начинаем просаживать батарею
-    SendCmd(Port, 'TestMode on');
-    SendCmd(Port, 'SetMotor BrushEnable');
-    SendCmd(Port, 'SetMotor Brush RPM 250');
+    SendCmdSmart('TestMode on');
+    SendCmdSmart('SetMotor BrushEnable');
+    SendCmdSmart('SetMotor Brush RPM 250');
 
     // делаем диссконект сами - дисконект по умолчанию выключает тестовый режим
     CloseHandle(Port);
@@ -1524,6 +1534,26 @@ begin
   
   ShowMessage('Sorry, translation disabled. =('+#13+
      '(it''s temporarily)');
+end;
+
+function TfrmMain.SendCmdSmart(Cmd: String): string;
+begin
+{
+work only in TestMode:
+TestMode
+SetMotor
+SetLED
+SetLCD
+SetLDSRotation
+SetSystemMode
+TestLDS}
+
+  //if FindTestCmd(Cmd) and not TestModeEnabled then exit;
+
+  //if Cmd='TESTMODE ON' then TestModeEnabled := true;
+  //if Cmd='TESTMODE OFF' then TestModeEnabled := false;
+
+  Result := SendCmd(Port, Cmd);
 end;
 
 end.

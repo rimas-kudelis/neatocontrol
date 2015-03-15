@@ -26,7 +26,7 @@ object frmMain: TfrmMain
     Top = 0
     Width = 909
     Height = 591
-    ActivePage = TabSheet3
+    ActivePage = tabScan
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -345,7 +345,7 @@ object frmMain: TfrmMain
       object Panel2: TTntPanel
         Left = 0
         Top = 0
-        Width = 1086
+        Width = 901
         Height = 63
         Align = alTop
         TabOrder = 0
@@ -367,8 +367,8 @@ object frmMain: TfrmMain
       object listSensors: TValueListEditor
         Left = 0
         Top = 63
-        Width = 1086
-        Height = 559
+        Width = 901
+        Height = 493
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking]
         PopupMenu = PopupMenu1
@@ -381,7 +381,7 @@ object frmMain: TfrmMain
         OnDrawCell = listSensorsDrawCell
         ColWidths = (
           181
-          519)
+          714)
       end
     end
     object tabScan: TTntTabSheet
@@ -1090,6 +1090,7 @@ object frmMain: TfrmMain
           'Site: http://heX.name/programs/neatocontrol'
           'Git: https://bitbucket.org/heXor/neatocontrol'
           'Mail: heX1625616@gmail.com'
+          'Tox: hexor@toxme.se'
           ''
           #1050#1072#1082' '#1086#1090#1073#1083#1072#1075#1086#1076#1072#1088#1080#1090#1100':'
           #1052#1086#1078#1077#1090#1077' '#1087#1077#1088#1077#1095#1080#1089#1083#1080#1090#1100' 50 '#1088#1091#1073#1083#1077#1081' '#1084#1085#1077' '#1085#1072' '#1087#1080#1074#1086':'
@@ -1189,7 +1190,7 @@ object frmMain: TfrmMain
     Top = 65535
   end
   object PopupMenu1: TTntPopupMenu
-    Left = 416
+    Left = 440
     object mnCopy: TTntMenuItem
       Caption = 'Copy'
       OnClick = mnCopyClick
