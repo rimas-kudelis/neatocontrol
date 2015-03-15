@@ -13,7 +13,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
   uArrayAsPHP,
-  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList;
+  Gauges, Menus, Clipbrd, XPMan, ImgList;
 
 type
   Float = Real;
@@ -71,7 +71,6 @@ type
     Panel2: TTntPanel;
     chSensorAuto: TTntCheckBox;
     listSensors: TValueListEditor;
-    Lng: TDKLanguageController;
     cbLanguage: TTntComboBox;
     lblLang: TTntLabel;
     actSetSchedule: TTntAction;
@@ -145,9 +144,13 @@ type
     cbRepeatTime7: TTntComboBox;
     cbRepeatTime8: TTntComboBox;
     cbRepeatTime9: TTntComboBox;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
+
+    //old:
+    procedure LngLanguageChanged(Sender: TObject);
 
     procedure actScanExecute(Sender: TObject);
     procedure listSensorsDrawCell(Sender: TObject; ACol, ARow: Integer;
@@ -164,7 +167,6 @@ type
     procedure actDisconnectExecute(Sender: TObject);
     procedure actConnectUpdate(Sender: TObject);
     procedure chAutoDetectPortClick(Sender: TObject);
-    procedure cbLanguageChange(Sender: TObject);
     procedure actGetScheduleExecute(Sender: TObject);
     procedure actSetScheduleExecute(Sender: TObject);
     procedure actScanLDSExecute(Sender: TObject);
@@ -181,7 +183,6 @@ type
     procedure actChrEnableBrushExecute(Sender: TObject);
     procedure mnCopyClick(Sender: TObject);
     procedure actChrCheck(Sender: TObject);
-    procedure LngLanguageChanged(Sender: TObject);
     procedure paintSpectrePaint(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure actResizeScanZoneExecute(Sender: TObject);
@@ -196,6 +197,7 @@ type
     procedure edCmd_KeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure actBtnRunExecute(Sender: TObject);
+    procedure cbLanguageWarn(Sender: TObject);
   private
     { Private declarations }
   public
@@ -364,7 +366,8 @@ begin
     Dcb.ByteSize := 8;
     Dcb.StopBits := ONESTOPBIT;
     if not SetCommState(Result, Dcb) then
-      FatalError(LangManager.ConstantValue['ErrorSetPortState']); // Error setting port state (SetCommState)
+      FatalError('Error setting port state (SetCommState)');
+      //FatalError(LangManager.ConstantValue['ErrorSetPortState']); // Error setting port state (SetCommState)
 
     SetCommMask(Result, EV_RXCHAR);
   end;
@@ -411,13 +414,15 @@ begin
       // провер€ем событие
       if (IOResult and EV_ERR) <> 0 then
       begin
-        FatalError(LangManager.ConstantValue['ErrorEvent']);
+        FatalError('(IOResult and EV_ERR) <> 0');
+        //FatalError(LangManager.ConstantValue['ErrorEvent']);
       end
       else if (IOResult and EV_RXCHAR) <> 0 then
       begin
         // используем ClearCommError() дл€ определени€ количества прин€тых символов.
         if not ClearCommError(Port, IOResult, @ComStat) then
-          FatalError(LangManager.ConstantValue['ErrorClearPort']);
+          FatalError('ErrorClearPort');
+          //FatalError(LangManager.ConstantValue['ErrorClearPort']);
         dwRead := ComStat.cbInQue;
 
         if dwRead > DWORD(Length(Buf)) then
@@ -764,25 +769,11 @@ end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 var
-  NF:TDEV_BROADCAST_DEVICEINTERFACE;
-  i, t: Integer;
+  NF: TDEV_BROADCAST_DEVICEINTERFACE;
 begin
   PageControl1.ActivePageIndex := 0;
 
-   // Scan for language files in the app directory and register them in the LangManager object
-  LangManager.ScanForLangFiles(ExtractFileDir(ParamStr(0)), '*.lng', False);
-
   Caption := Caption + '   ver ' + GetMyVersion(2);
-  // авто поиск €зыка
-  //LangManager.LanguageID := GetSysLang();
-
-  // Fill cbLanguage with available languages
-  for i := 0 to LangManager.LanguageCount-1 do
-  begin
-    t := cbLanguage.Items.AddObject(LangManager.LanguageNames[i], Pointer(LangManager.LanguageIDs[i]));
-    if LangManager.LanguageIDs[i] = LangManager.LanguageID then
-      cbLanguage.ItemIndex := t;
-  end;
 
   // регаем нотификацию "вставки" устройства
   NF.dbcc_size:=sizeof(TDEV_BROADCAST_DEVICEINTERFACE);
@@ -810,6 +801,7 @@ end;
 
 procedure TfrmMain.LngLanguageChanged(Sender: TObject);
 begin
+{
   listSchedule.ItemProps['Sun'].KeyDesc := LangManager.ConstantValue['sunday'];
   listSchedule.ItemProps['Mon'].KeyDesc := LangManager.ConstantValue['Monday'];
   listSchedule.ItemProps['Tue'].KeyDesc := LangManager.ConstantValue['Tuesday'];
@@ -832,6 +824,7 @@ begin
   btnCmd7.Caption := btnCmd4.Caption;
   btnCmd8.Caption := btnCmd4.Caption;
   btnCmd9.Caption := btnCmd4.Caption;
+}
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
@@ -844,11 +837,6 @@ begin
   Image1.Picture.Bitmap.Canvas.Brush.Color := C;
   Image1.Picture.Bitmap.Canvas.Pen.Color := C;
   Image1.Picture.Bitmap.Canvas.Ellipse(X-2, Y-2, X+2, Y+2);
-end;
-
-procedure TfrmMain.cbLanguageChange(Sender: TObject);
-begin
-  LangManager.LanguageID := DWORD(cbLanguage.Items.Objects[cbLanguage.ItemIndex]);
 end;
 
 procedure TfrmMain.actScanExecute(Sender: TObject);
@@ -1006,7 +994,7 @@ end;
 procedure TfrmMain.btnSchEnClick(Sender: TObject);
 begin
   SendCmd(Port, 'SetSchedule ON');
-  lbSchState.Caption := LangManager.ConstantValue['textEnabled'];
+  //lbSchState.Caption := LangManager.ConstantValue['textEnabled'];
   btnSchEn.Enabled := false;
   btnSchDis.Enabled := true;
 end;
@@ -1014,7 +1002,7 @@ end;
 procedure TfrmMain.btnSchDisClick(Sender: TObject);
 begin
   SendCmd(Port, 'SetSchedule OFF');
-  lbSchState.Caption := LangManager.ConstantValue['textDisabled'];
+  //lbSchState.Caption := LangManager.ConstantValue['textDisabled'];
   btnSchEn.Enabled := true;
   btnSchDis.Enabled := false;
 end;
@@ -1078,8 +1066,10 @@ begin
     if N = '' then
     begin
       if chAutoDetectPort.Checked then
-        ShowMessage(LangManager.ConstantValue['ErrorComPortNotDetect']) else
-        ShowMessage(LangManager.ConstantValue['ErrorInvalidComPortNumber']);
+        ShowMessage('Error - Com Port Not Detect') else
+        //ShowMessage(LangManager.ConstantValue['ErrorComPortNotDetect']) else
+        ShowMessage('Error - Invalid Com Port Number');
+        //ShowMessage(LangManager.ConstantValue['ErrorInvalidComPortNumber']);
       exit;
     end;
 
@@ -1087,7 +1077,8 @@ begin
     if Port = INVALID_HANDLE_VALUE then
     begin
       E := GetLastError;
-      ShowMessage(LangManager.ConstantValue['ErrorCantOpenPortCOM'] + N + #13+
+      ShowMessage('Error - Cant Open Port COM' + N + #13+
+      //ShowMessage(LangManager.ConstantValue['ErrorCantOpenPortCOM'] + N + #13+
         'Error: ' + SysErrorMessage(GetLastError)+' '#13+
         'Error Code: '+IntToStr(E));
       exit;
@@ -1516,6 +1507,23 @@ end;
 procedure TfrmMain.actBtnRunExecute(Sender: TObject);
 begin
   ModuleMain.RunCmdFn((Sender as TComponent).Tag);
+end;
+
+procedure TfrmMain.cbLanguageWarn(Sender: TObject);
+begin
+  {
+   ћне надоели глюки DKLang и его огромные коды.
+   я потратил в течении мес€ца все доступные свободные часы (а их немного)
+   и потратил их не на улучшение программы а на зат€жную войну с DKLang,XE6,TNT,UTF8,RES...
+   ¬се хватит, надоело, лучше потом какнибудь приделаю самодельный перевод...
+   ј вот TNT контролы оставлю пока - посмотрим может они нормальные. 
+
+   Ќет, серьезно, 150 килобайт это просто непомерно огромный код
+   дл€ такой простой функции как присваивание текста в контролы из файла!
+  }
+  
+  ShowMessage('Sorry, translation disabled. =('+#13+
+     '(it''s temporarily)');
 end;
 
 end.
