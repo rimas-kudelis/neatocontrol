@@ -72,10 +72,10 @@ ErrorClearPort=Error clearing port. (ClearCommError)
 ErrorComPortNotDetect=COM порт не обнаружен. Просто включите робота повторно. Проверте наличие "Neato Robotics USB Port" в диспетчере устройств в разделе "Порты". Проверьте подключение.
 ErrorEvent=WaitCommEvent IOResult=EV_ERR
 ErrorSetPortState=Error setting port state (SetCommState)
-Friday=Пятница
-Monday=Понедельник
-Saturday=Суббота
-Sunday=Воскресенье
+friday=Пятница
+monday=Понедельник
+saturday=Суббота
+sunday=Воскресенье
 textDisabled=Выкл.
 textEnabled=Вкл.
 Thursda=Четверг

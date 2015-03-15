@@ -8,11 +8,12 @@ interface
 {$ENDIF}
 
 uses
+  TntMenus, TntActnList,
+  TntExtCtrls, TntStdCtrls, TntComCtrls,
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
   uArrayAsPHP,
-  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList, TntMenus, TntActnList,
-  TntExtCtrls, TntStdCtrls, TntComCtrls;
+  DKLang, Gauges, Menus, Clipbrd, XPMan, ImgList;
 
 type
   Float = Real;
