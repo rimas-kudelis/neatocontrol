@@ -26,7 +26,7 @@ object frmMain: TfrmMain
     Top = 0
     Width = 909
     Height = 591
-    ActivePage = tabScan
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -357,16 +357,15 @@ object frmMain: TfrmMain
       object Panel2: TTntPanel
         Left = 0
         Top = 0
-        Width = 902
-        Height = 63
+        Width = 901
+        Height = 41
         Align = alTop
         TabOrder = 0
-        Visible = False
         object chSensorAuto: TTntCheckBox
-          Left = 26
-          Top = 20
-          Width = 111
-          Height = 26
+          Left = 338
+          Top = 4
+          Width = 223
+          Height = 33
           Caption = 'Auto load'
           Checked = True
           ParentShowHint = False
@@ -375,12 +374,22 @@ object frmMain: TfrmMain
           TabOrder = 0
           OnClick = chSensorAutoClick
         end
+        object btnButtonTest: TTntCheckBox
+          Left = 10
+          Top = 4
+          Width = 223
+          Height = 33
+          Caption = 'Button Test'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
       end
       object listSensors: TValueListEditor
         Left = 0
-        Top = 63
-        Width = 902
-        Height = 492
+        Top = 41
+        Width = 901
+        Height = 515
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking]
         PopupMenu = PopupMenu1

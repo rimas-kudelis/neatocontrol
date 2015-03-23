@@ -148,6 +148,7 @@ type
     Button1: TButton;
     btnConnectOptions: TTntButton;
     ClientSocketTelnet: TIdTCPClient;
+    btnButtonTest: TTntCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -398,7 +399,7 @@ var
 begin
   if Port = INVALID_HANDLE_VALUE then
   Begin
-    ShowMessage('Connect USB');
+    //OLD: ShowMessage('Connect USB');
     Result := '';
     exit;
   enD;
@@ -584,7 +585,7 @@ function GetButton(): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
-  Result.Text := frmMain.SendCmdSmart('GeTTntButtons');
+  Result.Text := frmMain.SendCmdSmart('GetButtons');
   {$ELSE}
   Result.Text := 'Button Name,Pressed'#13#10+
 'BTN_SOFT_KEY,0'#13#10+
@@ -651,7 +652,9 @@ begin
   {$IFNDEF Debug}
   Result.Text := frmMain.SendCmdSmart('GetCharger');
   {$ELSE}
-  Result.Text := 'Charger Variable Name, Value'#13#10+
+  Result.Text :=
+'GetCharger'#13#10+
+'Charger Variable Name, Value'#13#10+
 'FuelPercent,100'#13#10+
 'BatteryOverTemp,0'#13#10+
 'ChargingActive,0'#13#10+
@@ -663,8 +666,10 @@ begin
   Result.Text := StringReplace(Result.Text, ','#13#10, #13#10, [rfReplaceAll]);
   Result.Text := StringReplace(Result.Text, ',', '=', [rfReplaceAll]);
 
-  Result.Delete(0);
-  Result.Delete(0);
+  if Result.Count > 1 then
+    Result.Delete(0);
+  if Result.Count > 1 then
+    Result.Delete(0);
 end;
 
 function GetFuelPercent(): Integer;
@@ -673,7 +678,9 @@ begin
   tmpStrs := TStringList.Create;
   try
     tmpStrs := GetCharger();
-    Result := StrToIntDef(tmpStrs.Values['FuelPercent'], 100);
+    if tmpStrs.Count > 0 then
+      Result := StrToIntDef(tmpStrs.Values['FuelPercent'], 100) else
+      Result := 0;
   finally
     tmpStrs.Free;
   end;
@@ -693,6 +700,13 @@ begin
   finally
     tmpStrs.Free;
   end;
+end;
+
+procedure SetTestMode(ModeOn: boolean);
+begin
+  if ModeOn then
+    frmMain.SendCmdSmart('TestMode On') else
+    frmMain.SendCmdSmart('TestMode Off');
 end;
 
 function GetRobotTime(): TTime;
@@ -947,7 +961,7 @@ begin
     params := TStringList.Create;
 
     tmpStr := GetDigitalSensors();
-    tmpStr.Insert(0, '____   Digital:   ____=');
+    tmpStr.Insert(0, '____   Discrete:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
@@ -956,6 +970,7 @@ begin
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
+    //todo: SendCmdSmart(testmode on)...
     tmpStr := GetButton();
     tmpStr.Insert(0, '____   Buttons:   ____=');
     params.AddStrings(tmpStr);
@@ -1041,7 +1056,8 @@ var
 begin
   if not Connected then
   begin
-    if Copy(UpperCase(textComPortN.Text), 1, Length('TCP:')) = 'TCP:' then
+    if (not chAutoDetectPort.Checked) and
+      (Copy(UpperCase(textComPortN.Text), 1, Length('TCP:')) = 'TCP:') then
     begin
       E := PosEx(':', textComPortN.Text, 5);
       if E = 0 then
@@ -1110,7 +1126,8 @@ begin
     BattV_Nornal := V >= 12;
     lbWarnLowVoltage.Visible := not BattV_Nornal;
 
-    SendCmdSmart('TestMode on');
+    //todo: OFF
+    SetTestMode(true);
   end;
 end;
 
@@ -1118,7 +1135,7 @@ procedure TfrmMain.actDisconnectExecute(Sender: TObject);
 begin
   if Connected then
   begin
-    SendCmdSmart('TestMode off');
+    SetTestMode(false);
 
     //todo: net
     CloseHandle(COMPort);
@@ -1363,7 +1380,7 @@ begin
     // выставл€ем 100% - иначе он выключаетс€ слишком рано
     SendCmdSmart('SetFuelGauge 100');
     // и включаем мотор - начинаем просаживать батарею
-    SendCmdSmart('TestMode on');
+    SetTestMode(true);
     SendCmdSmart('SetMotor VacuumOn');
 
     // делаем диссконект сами - дисконект по умолчанию выключает тестовый режим
@@ -1381,7 +1398,7 @@ begin
     // выставл€ем 100% - иначе он выключаетс€ слишком рано
     SendCmdSmart('SetFuelGauge 100');
     // и включаем мотор - начинаем просаживать батарею
-    SendCmdSmart('TestMode on');
+    SetTestMode(true);
     SendCmdSmart('SetMotor BrushEnable');
     SendCmdSmart('SetMotor Brush RPM 250');
 
@@ -1561,7 +1578,8 @@ var
   c: Char;
   t: DWORD;
 begin
-  if not SendCmdActive then
+  Result := '';
+  if (not SendCmdActive) and Connected then
   try
     SendCmdActive := true;
 {
@@ -1588,7 +1606,7 @@ work only in TestMode:
       begin
         ClientSocketTelnet.Write(Cmd);
 
-        t := GetTickCount+1000;
+        t := GetTickCount+10000;
         // пытаемс€ получить данные
         while c <> #$1A do
         begin
@@ -1598,14 +1616,15 @@ work only in TestMode:
             on EIdReadTimeOut do
             begin
               Connected := false;
-              ShowMessage('network: Read time out. Disconected.');
-              exit;
+              ShowMessage('network: Read is time out. Disconected.');
+              Result := '';
+              break;
             end;
           end;
           Result := Result + c;
           // обрабатываем сообщени€ - плоха€ иде€, могут быть проблемы с двойной посылкой сообщений и тд.
           Application.ProcessMessages;
-          // выходим если 1 секунд нет ответа
+          // выходим если 10 секунд нет ответа
           if GetTickCount > t then
           begin
             Result := '';
@@ -1618,7 +1637,8 @@ work only in TestMode:
       //ToDo: нужно както по другому провер€ть хэндл
       //if Port <> INVALID_HANDLE_VALUE then
 
-      Result := SendCmd(COMPort, Cmd);
+      if COMPort <> INVALID_HANDLE_VALUE then
+        Result := SendCmd(COMPort, Cmd);
     end;
 
 
