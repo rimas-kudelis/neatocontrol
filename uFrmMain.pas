@@ -13,7 +13,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
   uArrayAsPHP,
-  Gauges, Menus, Clipbrd, XPMan, ImgList;
+  Gauges, Menus, Clipbrd, XPMan, ImgList, ScktComp;
 
 type
   Float = Real;
@@ -145,6 +145,8 @@ type
     cbRepeatTime8: TTntComboBox;
     cbRepeatTime9: TTntComboBox;
     Button1: TButton;
+    ClientSocketTelnet: TClientSocket;
+    btnConnectOptions: TTntButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -198,6 +200,7 @@ type
       Shift: TShiftState);
     procedure actBtnRunExecute(Sender: TObject);
     procedure cbLanguageWarn(Sender: TObject);
+    procedure btnConnectOptionsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -210,10 +213,12 @@ type
     ConsoleRunCmdTimerMaxCount: array [4..9] of integer;
 
     Connected: boolean;
+    SendCmdActive: boolean;
     BattV_Nornal: boolean;
     ScanRun: boolean;
     Port: THandle;
 
+    TestModeEnabled: boolean;
     RemoteControl: boolean;
     Speed: Integer;
     State: (stStop, stForward, stLeft, stRight, stBack);
@@ -241,7 +246,7 @@ uses
   DateUtils,
   RegExpr,
   uMathLib,
-  uVectors, StrUtils;
+  uVectors, StrUtils, uFrmConnectionOptions;
 
   {
 const
@@ -396,8 +401,6 @@ begin
     exit;
   enD;
 
-  Cmd := Cmd + #13;
-
   // Запись:
   WriteFile(Port, Cmd[1], Length(Cmd), IOResult, nil);
 
@@ -447,10 +450,6 @@ begin
     end else
       FatalError('WaitCommEvent fail');
   end;
-
-  // отрезаем #1A в конце
-  if (Result<>'') and (Result[Length(Result)]=#$1A) then
-    SetLength(Result, Length(Result)-1);
 end;
 
 
@@ -1040,51 +1039,69 @@ var
 begin
   if not Connected then
   begin
-    if chAutoDetectPort.Checked then
+    if Copy(UpperCase(textComPortN.Text), 1, Length('TCP:')) = 'TCP:' then
     begin
-      // Neato XV-21, XV-12
-      N := FindCOMPort($2108, $780B);
-      // Neato BotVac
-      if N='' then
-        N := FindCOMPort($2108, $780C);
-      // Neato Vorwerk vr100 vr200
-      //if N='' then
-      //  N := FindCOMPort($21??, $78??);
-      textComPortN.Text := N;
+      E := PosEx(':', textComPortN.Text, 5);
+      if E = 0 then
+        ClientSocketTelnet.Address := Copy(textComPortN.Text, 5, 1000) else
+        ClientSocketTelnet.Address := Copy(textComPortN.Text, 5, E-5);
+      if E <> 0 then
+        ClientSocketTelnet.Port := StrToIntDef(Copy(textComPortN.Text, E+1, 100), 21);
+
+      ClientSocketTelnet.Open;
+      // если порт не откроется,
+      // то произойдет исключение,
+      // и мы выйдем из процедуры прямо из этой точки.
     end else
     begin
-      if Copy(UpperCase(textComPortN.Text), 1, Length('\\?\COM')) = '\\?\COM' then
-        N := textComPortN.Text else
-        if Copy(UpperCase(textComPortN.Text), 1, Length('COM')) = 'COM' then
-        begin
-          N := '\\?\' + textComPortN.Text;
-        end else
-        begin
-          N := '';
-        end;
-    end;
-
-    if N = '' then
-    begin
+      // Auto or Manual:
       if chAutoDetectPort.Checked then
-        ShowMessage('Error - Com Port Not Detect') else
-        //ShowMessage(LangManager.ConstantValue['ErrorComPortNotDetect']) else
-        ShowMessage('Error - Invalid Com Port Number');
-        //ShowMessage(LangManager.ConstantValue['ErrorInvalidComPortNumber']);
-      exit;
+      begin
+        // Neato XV-21, XV-12
+        N := FindCOMPort($2108, $780B);
+        // Neato BotVac
+        if N='' then
+          N := FindCOMPort($2108, $780C);
+        // Neato Vorwerk vr100 vr200
+        //if N='' then
+        //  N := FindCOMPort($21??, $78??);
+        textComPortN.Text := N;
+      end else
+      begin
+        if Copy(UpperCase(textComPortN.Text), 1, Length('\\?\COM')) = '\\?\COM' then
+          N := textComPortN.Text else
+          if Copy(UpperCase(textComPortN.Text), 1, Length('COM')) = 'COM' then
+          begin
+            N := '\\?\' + textComPortN.Text;
+          end else
+          begin
+            N := '';
+          end;
+      end;
+
+      if N = '' then
+      begin
+        if chAutoDetectPort.Checked then
+          ShowMessage('Error - Com Port Not Detect') else
+          //ShowMessage(LangManager.ConstantValue['ErrorComPortNotDetect']) else
+          ShowMessage('Error - Invalid Com Port Number');
+          //ShowMessage(LangManager.ConstantValue['ErrorInvalidComPortNumber']);
+        exit;
+      end;
+
+      Port := OpenCOMPort(N);
+      if Port = INVALID_HANDLE_VALUE then
+      begin
+        E := GetLastError;
+        ShowMessage('Error - Cant Open Port COM' + N + #13+
+        //ShowMessage(LangManager.ConstantValue['ErrorCantOpenPortCOM'] + N + #13+
+          'Error: ' + SysErrorMessage(GetLastError)+' '#13+
+          'Error Code: '+IntToStr(E));
+        exit;
+      end;
     end;
 
-    Port := OpenCOMPort(N);
-    if Port = INVALID_HANDLE_VALUE then
-    begin
-      E := GetLastError;
-      ShowMessage('Error - Cant Open Port COM' + N + #13+
-      //ShowMessage(LangManager.ConstantValue['ErrorCantOpenPortCOM'] + N + #13+
-        'Error: ' + SysErrorMessage(GetLastError)+' '#13+
-        'Error Code: '+IntToStr(E));
-      exit;
-    end;
-
+    Connected := true;
     textVersion.Text := SendCmdSmart('GetVersion');
     barFuelPercent.Progress := GetFuelPercent(Port);
     V := GetBattV(Port);
@@ -1092,7 +1109,6 @@ begin
     lbWarnLowVoltage.Visible := not BattV_Nornal;
 
     SendCmdSmart('TestMode on');
-    Connected := true;
   end;
 end;
 
@@ -1537,23 +1553,67 @@ begin
 end;
 
 function TfrmMain.SendCmdSmart(Cmd: String): string;
+var
+  c: Char;
+  t: DWORD;
 begin
+  if not SendCmdActive then
+  try
+    SendCmdActive := true;
 {
 work only in TestMode:
-TestMode
-SetMotor
-SetLED
-SetLCD
-SetLDSRotation
-SetSystemMode
-TestLDS}
+  TestMode
+  SetMotor
+  SetLED
+  SetLCD
+  SetLDSRotation
+  SetSystemMode
+  TestLDS
+}
 
-  //if FindTestCmd(Cmd) and not TestModeEnabled then exit;
+    Cmd := Trim(Cmd);
+    if UpperCase(Cmd)='TESTMODE ON' then TestModeEnabled := true;
+    if UpperCase(Cmd)='TESTMODE OFF' then TestModeEnabled := false;
+    //if IsTestModeCmd(Cmd) and not TestModeEnabled then exit;
 
-  //if Cmd='TESTMODE ON' then TestModeEnabled := true;
-  //if Cmd='TESTMODE OFF' then TestModeEnabled := false;
+    // добавляем перенос строки
+    Cmd := Cmd + #13;
 
-  Result := SendCmd(Port, Cmd);
+    if ClientSocketTelnet.Active
+    then
+      begin
+        ClientSocketTelnet.Socket.SendText(Cmd);
+
+        t := GetTickCount+5000;
+        // пытаемся получить данные
+        while c <> #$1A do
+        begin
+          ClientSocketTelnet.Socket.ReceiveBuf(c, 1);
+          Result := Result + c;
+          // обрабатываем сообщения - плохая идея, могут быть проблемы с двойной посылкой сообщений и тд.
+          Application.ProcessMessages;
+          // выходим если 5 секунд нет ответа
+          if GetTickCount > t then break;
+        end;
+      end
+    else
+      Result := SendCmd(Port, Cmd);
+
+    // отрезаем #1A в конце
+    if (Result<>'') and (Result[Length(Result)]=#$1A) then
+      SetLength(Result, Length(Result)-1);
+
+  finally
+    SendCmdActive := false;
+  end;
+end;
+
+procedure TfrmMain.btnConnectOptionsClick(Sender: TObject);
+begin
+  if frmConnectionOptions.ShowModal = mrOk then
+  begin
+    //WIP...
+  end;
 end;
 
 end.
