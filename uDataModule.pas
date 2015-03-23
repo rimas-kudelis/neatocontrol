@@ -66,7 +66,7 @@ begin
       end else
       begin
         if frmMain.Connected then
-          s := SendCmd(frmMain.Port, cmd);
+          s := SendCmd(frmMain.COMPort, cmd);
       end;
       
       if s<>'' then

@@ -13,7 +13,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, CheckLst, ActnList, ComCtrls, Grids, ValEdit,
   uArrayAsPHP,
-  Gauges, Menus, Clipbrd, XPMan, ImgList, ScktComp;
+  Gauges, Menus, Clipbrd, XPMan, ImgList, IdBaseComponent,
+  IdComponent, IdTCPConnection, IdTCPClient, IdException;
 
 type
   Float = Real;
@@ -145,8 +146,8 @@ type
     cbRepeatTime8: TTntComboBox;
     cbRepeatTime9: TTntComboBox;
     Button1: TButton;
-    ClientSocketTelnet: TClientSocket;
     btnConnectOptions: TTntButton;
+    ClientSocketTelnet: TIdTCPClient;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -201,6 +202,7 @@ type
     procedure actBtnRunExecute(Sender: TObject);
     procedure cbLanguageWarn(Sender: TObject);
     procedure btnConnectOptionsClick(Sender: TObject);
+    procedure ClientSocketTelnetDisconnected(Sender: TObject);
   private
     { Private declarations }
   public
@@ -216,7 +218,7 @@ type
     SendCmdActive: boolean;
     BattV_Nornal: boolean;
     ScanRun: boolean;
-    Port: THandle;
+    COMPort: THandle;
 
     TestModeEnabled: boolean;
     RemoteControl: boolean;
@@ -578,7 +580,7 @@ begin
   end;
 end;
 
-function GetButton(Port: THandle): TStrings;
+function GetButton(): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
@@ -598,7 +600,7 @@ begin
   Result.Delete(0);
 end;
 
-function GetDigitalSensors(Port: THandle): TStrings;
+function GetDigitalSensors(): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
@@ -621,7 +623,7 @@ begin
   Result.Delete(0);
 end;
 
-function GetAnalogSensors(Port: THandle): TStrings;
+function GetAnalogSensors(): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
@@ -643,7 +645,7 @@ begin
   Result.Delete(0);
 end;
 
-function GetCharger(Port: THandle): TStrings;
+function GetCharger(): TStrings;
 begin
   Result := TStringList.Create;
   {$IFNDEF Debug}
@@ -665,19 +667,19 @@ begin
   Result.Delete(0);
 end;
 
-function GetFuelPercent(Port: THandle): Integer;
+function GetFuelPercent(): Integer;
 var tmpStrs: TStrings;
 begin
   tmpStrs := TStringList.Create;
   try
-    tmpStrs := GetCharger(Port);
+    tmpStrs := GetCharger();
     Result := StrToIntDef(tmpStrs.Values['FuelPercent'], 100);
   finally
     tmpStrs.Free;
   end;
 end;
 
-function GetBattV(Port: THandle): Real;
+function GetBattV(): Real;
 var
   tmpStrs: TStrings;
   frmset: TFormatSettings;
@@ -686,14 +688,14 @@ begin
   try
     frmset.DecimalSeparator := '.';
     //'VBattV=14.52'
-    tmpStrs := GetCharger(Port);
+    tmpStrs := GetCharger();
     Result := StrToFloatDef(tmpStrs.Values['VBattV'], 0, frmset);
   finally
     tmpStrs.Free;
   end;
 end;
 
-function GetTime(Port: THandle): TTime;
+function GetRobotTime(): TTime;
 var
   tmpStr: TStrings;
   r : TRegExpr;
@@ -794,7 +796,7 @@ begin
   ConsoleRunCmdTimer[8]:=cbRepeatTime8;
   ConsoleRunCmdTimer[9]:=cbRepeatTime9;
 
-  Port := INVALID_HANDLE_VALUE;
+  COMPort := INVALID_HANDLE_VALUE;
   ScanRun := false;
   Connected := false;
 end;
@@ -944,27 +946,27 @@ begin
   begin
     params := TStringList.Create;
 
-    tmpStr := GetDigitalSensors(Port);
+    tmpStr := GetDigitalSensors();
     tmpStr.Insert(0, '____   Digital:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
-    tmpStr := GetAnalogSensors(Port);
+    tmpStr := GetAnalogSensors();
     tmpStr.Insert(0, '____   Analog:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
-    tmpStr := GetButton(Port);
+    tmpStr := GetButton();
     tmpStr.Insert(0, '____   Buttons:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
-    tmpStr := GetCharger(Port);
+    tmpStr := GetCharger();
     tmpStr.Insert(0, '____   Charger:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
-    barFuelPercent.Progress := GetFuelPercent(Port);
+    barFuelPercent.Progress := GetFuelPercent();
     
     for i:=0 to params.Count-1 do
       listSensors.Values[params.Names[i]] := params.ValueFromIndex[i];
@@ -1043,12 +1045,12 @@ begin
     begin
       E := PosEx(':', textComPortN.Text, 5);
       if E = 0 then
-        ClientSocketTelnet.Address := Copy(textComPortN.Text, 5, 1000) else
-        ClientSocketTelnet.Address := Copy(textComPortN.Text, 5, E-5);
+        ClientSocketTelnet.Host := Copy(textComPortN.Text, 5, 1000) else
+        ClientSocketTelnet.Host := Copy(textComPortN.Text, 5, E-5);
       if E <> 0 then
         ClientSocketTelnet.Port := StrToIntDef(Copy(textComPortN.Text, E+1, 100), 21);
 
-      ClientSocketTelnet.Open;
+      ClientSocketTelnet.Connect(1000);
       // если порт не откроется,
       // то произойдет исключение,
       // и мы выйдем из процедуры прямо из этой точки.
@@ -1089,8 +1091,8 @@ begin
         exit;
       end;
 
-      Port := OpenCOMPort(N);
-      if Port = INVALID_HANDLE_VALUE then
+      COMPort := OpenCOMPort(N);
+      if COMPort = INVALID_HANDLE_VALUE then
       begin
         E := GetLastError;
         ShowMessage('Error - Cant Open Port COM' + N + #13+
@@ -1103,8 +1105,8 @@ begin
 
     Connected := true;
     textVersion.Text := SendCmdSmart('GetVersion');
-    barFuelPercent.Progress := GetFuelPercent(Port);
-    V := GetBattV(Port);
+    barFuelPercent.Progress := GetFuelPercent();
+    V := GetBattV();
     BattV_Nornal := V >= 12;
     lbWarnLowVoltage.Visible := not BattV_Nornal;
 
@@ -1116,11 +1118,11 @@ procedure TfrmMain.actDisconnectExecute(Sender: TObject);
 begin
   if Connected then
   begin
-    if Port <> INVALID_HANDLE_VALUE then
-      SendCmdSmart('TestMode off');
+    SendCmdSmart('TestMode off');
 
-    CloseHandle(Port);
-    Port := INVALID_HANDLE_VALUE;
+    //todo: net
+    CloseHandle(COMPort);
+    COMPort := INVALID_HANDLE_VALUE;
     Connected := false;
   end;
 end;
@@ -1344,7 +1346,7 @@ var t:TTime;
 begin
   if Connected then
   begin
-    t:=GetTime(Port);
+    t:=GetRobotTime();
     if t<>-1 then lbRobotTime.Caption := TimeToStr(t);
   end;
 end;
@@ -1365,8 +1367,9 @@ begin
     SendCmdSmart('SetMotor VacuumOn');
 
     // делаем диссконект сами - дисконект по умолчанию выключает тестовый режим
-    CloseHandle(Port);
-    Port := INVALID_HANDLE_VALUE;
+    //todo: net
+    CloseHandle(COMPort);
+    COMPort := INVALID_HANDLE_VALUE;
     Connected := false;
   end;
 end;
@@ -1383,8 +1386,9 @@ begin
     SendCmdSmart('SetMotor Brush RPM 250');
 
     // делаем диссконект сами - дисконект по умолчанию выключает тестовый режим
-    CloseHandle(Port);
-    Port := INVALID_HANDLE_VALUE;
+    //todo: net
+    CloseHandle(COMPort);
+    COMPort := INVALID_HANDLE_VALUE;
     Connected := false;
   end;
 end;
@@ -1579,25 +1583,44 @@ work only in TestMode:
     // добавляем перенос строки
     Cmd := Cmd + #13;
 
-    if ClientSocketTelnet.Active
+    if ClientSocketTelnet.Connected and Connected
     then
       begin
-        ClientSocketTelnet.Socket.SendText(Cmd);
+        ClientSocketTelnet.Write(Cmd);
 
-        t := GetTickCount+5000;
+        t := GetTickCount+1000;
         // пытаемся получить данные
         while c <> #$1A do
         begin
-          ClientSocketTelnet.Socket.ReceiveBuf(c, 1);
+          try
+            ClientSocketTelnet.ReadBuffer(c, 1);
+          except
+            on EIdReadTimeOut do
+            begin
+              Connected := false;
+              ShowMessage('network: Read time out. Disconected.');
+              exit;
+            end;
+          end;
           Result := Result + c;
           // обрабатываем сообщения - плохая идея, могут быть проблемы с двойной посылкой сообщений и тд.
           Application.ProcessMessages;
-          // выходим если 5 секунд нет ответа
-          if GetTickCount > t then break;
+          // выходим если 1 секунд нет ответа
+          if GetTickCount > t then
+          begin
+            Result := '';
+            break;
+          end;
         end;
       end
     else
-      Result := SendCmd(Port, Cmd);
+    begin
+      //ToDo: нужно както по другому проверять хэндл
+      //if Port <> INVALID_HANDLE_VALUE then
+
+      Result := SendCmd(COMPort, Cmd);
+    end;
+
 
     // отрезаем #1A в конце
     if (Result<>'') and (Result[Length(Result)]=#$1A) then
@@ -1614,6 +1637,11 @@ begin
   begin
     //WIP...
   end;
+end;
+
+procedure TfrmMain.ClientSocketTelnetDisconnected(Sender: TObject);
+begin
+  Connected := false;
 end;
 
 end.
