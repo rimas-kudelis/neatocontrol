@@ -87,42 +87,47 @@ For translation you can try this program: http://yktoo.com/en/software/dklangTra
 Changes
 =========
 
-       1.8
-       add "Commands" tab.
+      1.9
+      correct charge monitoring.
+      change TestMode logic - now enable only then need.
+      add TCP connect - experimental! (not test)
 
-       1.7
-       add "Scan Line"
-       add translation French and German (Thank glnc222)
-       add WinXP theme support
-       fix some bugs
+      1.8
+      add "Commands" tab.
 
-       1.6
-       BotVac support.
-       Auto detect language.
+      1.7
+      add "Scan Line"
+      add translation French and German (Thank glnc222)
+      add WinXP theme support
+      fix some bugs
 
-       1.5
-       Improve translate. Thanx Yuval Kohavi.
+      1.6
+      BotVac support.
+      Auto detect language.
 
-       1.4
-       The buildup of the battery.
-       In the telemetry readings added battery.
-       Displays percentage of battery and internal time.
-       You can copy to the clipboard sensor readings.
+      1.5
+      Improve translate. Thanx Yuval Kohavi.
 
-       1.3
-       Now you can really control the robot!
+      1.4
+      The buildup of the battery.
+      In the telemetry readings added battery.
+      Displays percentage of battery and internal time.
+      You can copy to the clipboard sensor readings.
 
-       1.2
-       Added localization mechanism through files.
-       Russian version of the interface.
-       Improved user interface.
+      1.3
+      Now you can really control the robot!
 
-       1.1
-       Auto detect ports and more detailed error output connection
-       Print version when connected
-       Partially redesigned interface
+      1.2
+      Added localization mechanism through files.
+      Russian version of the interface.
+      Improved user interface.
 
-       1.0
-       first release
+      1.1
+      Auto detect ports and more detailed error output connection
+      Print version when connected
+      Partially redesigned interface
 
-       
+      1.0
+      first release
+
+

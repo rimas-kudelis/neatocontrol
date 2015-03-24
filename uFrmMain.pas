@@ -148,7 +148,7 @@ type
     Button1: TButton;
     btnConnectOptions: TTntButton;
     ClientSocketTelnet: TIdTCPClient;
-    btnButtonTest: TTntCheckBox;
+    chButtonTest: TTntCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -204,6 +204,7 @@ type
     procedure cbLanguageWarn(Sender: TObject);
     procedure btnConnectOptionsClick(Sender: TObject);
     procedure ClientSocketTelnetDisconnected(Sender: TObject);
+    procedure chButtonTestClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -960,6 +961,14 @@ begin
   begin
     params := TStringList.Create;
 
+    if TestModeEnabled then
+    begin
+      tmpStr := GetButton();
+      tmpStr.Insert(0, '____   Buttons:   ____=');
+      params.AddStrings(tmpStr);
+      tmpStr.Free;
+    end;
+
     tmpStr := GetDigitalSensors();
     tmpStr.Insert(0, '____   Discrete:   ____=');
     params.AddStrings(tmpStr);
@@ -967,12 +976,6 @@ begin
 
     tmpStr := GetAnalogSensors();
     tmpStr.Insert(0, '____   Analog:   ____=');
-    params.AddStrings(tmpStr);
-    tmpStr.Free;
-
-    //todo: SendCmdSmart(testmode on)...
-    tmpStr := GetButton();
-    tmpStr.Insert(0, '____   Buttons:   ____=');
     params.AddStrings(tmpStr);
     tmpStr.Free;
 
@@ -996,6 +999,13 @@ end;
 procedure TfrmMain.chSensorAutoClick(Sender: TObject);
 begin
   TimerSensors.Enabled := chSensorAuto.Checked;
+end;
+
+procedure TfrmMain.chButtonTestClick(Sender: TObject);
+begin
+  if chButtonTest.Checked then
+    SetTestMode(true) else
+    SetTestMode(false);
 end;
 
 procedure TfrmMain.Button2Click(Sender: TObject);
@@ -1072,6 +1082,7 @@ begin
       // и мы выйдем из процедуры прямо из этой точки.
     end else
     begin
+    
       // Auto or Manual:
       if chAutoDetectPort.Checked then
       begin
@@ -1126,8 +1137,7 @@ begin
     BattV_Nornal := V >= 12;
     lbWarnLowVoltage.Visible := not BattV_Nornal;
 
-    //todo: OFF
-    SetTestMode(true);
+    //OLD: SetTestMode(true);
   end;
 end;
 
@@ -1135,9 +1145,10 @@ procedure TfrmMain.actDisconnectExecute(Sender: TObject);
 begin
   if Connected then
   begin
+    //todo: OFF?
     SetTestMode(false);
 
-    //todo: net
+    //todo: net...
     CloseHandle(COMPort);
     COMPort := INVALID_HANDLE_VALUE;
     Connected := false;
@@ -1230,14 +1241,16 @@ end;
 
 procedure TfrmMain.actScanLDSExecute(Sender: TObject);
 begin
-  if chkScanLDS.Checked then
+  if chkScanLDS.Checked and TestModeEnabled then
   begin
+    SetTestMode(true);
     SendCmdSmart('SetLDSRotation on');
     ScanRun := true;
     TimerScan.Enabled := true;
   end else
   begin
     SendCmdSmart('SetLDSRotation off');
+    SetTestMode(false);
     ScanRun := false;
     TimerScan.Enabled := false;
   end;
@@ -1258,15 +1271,21 @@ end;
 
 procedure TfrmMain.actRemoteControlExecute(Sender: TObject);
 begin
-  RemoteControl := chRemoteControl.Checked and Connected;
-  SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
-  if RemoteControl then
+  if chRemoteControl.Checked then
   begin
-    FocusControl(PageControl1);
-    PageControl1.ActivePageIndex:=2;
-    State := stStop;
-    Speed := 0;
-  end;
+    SetTestMode(true);
+    RemoteControl := chRemoteControl.Checked and Connected and TestModeEnabled;
+    SendCmdSmart('SetMotor LWheelDisable RWheelDisable');
+
+    if RemoteControl then
+    begin
+      FocusControl(PageControl1);
+      PageControl1.ActivePageIndex:=2;
+      State := stStop;
+      Speed := 0;
+    end;
+  end else
+    SetTestMode(false);
 end;
 
 procedure TfrmMain.FormKeyDown(Sender: TObject; var Key: Word;

@@ -111,7 +111,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=9
 Release=0
-Build=86
+Build=88
 Debug=0
 PreRelease=0
 Special=0
@@ -122,7 +122,7 @@ CodePage=1251
 [Version Info Keys]
 CompanyName=heX
 FileDescription=
-FileVersion=1.9.0.86
+FileVersion=1.9.0.88
 InternalName=
 LegalCopyright=
 LegalTrademarks=
