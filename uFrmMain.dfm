@@ -7,7 +7,7 @@ object frmMain: TfrmMain
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -17
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   KeyPreview = True
@@ -19,13 +19,13 @@ object frmMain: TfrmMain
   OnKeyDown = FormKeyDown
   OnKeyUp = FormKeyUp
   OnResize = FormResize
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 144
+  TextHeight = 20
   object PageControl1: TTntPageControl
     Left = 0
     Top = 0
-    Width = 637
-    Height = 458
+    Width = 631
+    Height = 441
     ActivePage = TntTabSheet1
     Align = alClient
     TabOrder = 0
@@ -35,22 +35,22 @@ object frmMain: TfrmMain
       Caption = 'Options'
       ImageIndex = 2
       object lblLang: TTntLabel
-        Left = 302
-        Top = 269
-        Width = 51
-        Height = 13
+        Left = 465
+        Top = 414
+        Width = 76
+        Height = 20
         Caption = 'Language:'
       end
       object barFuelPercent: TGauge
-        Left = 494
-        Top = 3
-        Width = 83
-        Height = 17
+        Left = 760
+        Top = 5
+        Width = 128
+        Height = 26
         Color = clBtnFace
         ForeColor = clLime
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -12
+        Font.Height = -18
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentColor = False
@@ -58,106 +58,106 @@ object frmMain: TfrmMain
         Progress = 0
       end
       object lbRobotTime2: TTntLabel
-        Left = 305
-        Top = 3
-        Width = 86
-        Height = 20
+        Left = 469
+        Top = 5
+        Width = 133
+        Height = 29
         Align = alCustom
         Alignment = taRightJustify
         BiDiMode = bdLeftToRight
         Caption = 'Robot Time:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentBiDiMode = False
         ParentFont = False
       end
       object lbRobotTime: TTntLabel
-        Left = 395
-        Top = 4
-        Width = 62
-        Height = 20
+        Left = 608
+        Top = 6
+        Width = 90
+        Height = 29
         Caption = '00:00:00'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
       end
       object GroupBox2: TTntGroupBox
-        Left = 493
-        Top = 261
-        Width = 82
-        Height = 80
+        Left = 758
+        Top = 402
+        Width = 127
+        Height = 123
         Caption = 'Wall Follower:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
         TabOrder = 0
         Visible = False
         object Button2: TTntButton
-          Left = 4
-          Top = 19
-          Width = 75
-          Height = 25
+          Left = 6
+          Top = 29
+          Width = 116
+          Height = 39
           Caption = 'Enable'
           TabOrder = 0
           OnClick = Button2Click
         end
         object Button3: TTntButton
-          Left = 4
-          Top = 48
-          Width = 75
-          Height = 25
+          Left = 6
+          Top = 74
+          Width = 116
+          Height = 38
           Caption = 'Disable'
           TabOrder = 1
           OnClick = Button3Click
         end
       end
       object GroupBox4: TTntGroupBox
-        Left = 296
-        Top = 23
-        Width = 281
-        Height = 232
+        Left = 455
+        Top = 35
+        Width = 433
+        Height = 357
         Caption = 'Schedule && Time'
         TabOrder = 1
         object lbSchState: TTntLabel
-          Left = 176
-          Top = 110
-          Width = 97
-          Height = 21
+          Left = 271
+          Top = 169
+          Width = 149
+          Height = 33
           Alignment = taCenter
           AutoSize = False
           Caption = '???'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -24
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
         end
         object Label1: TTntLabel
-          Left = 176
-          Top = 96
-          Width = 48
-          Height = 13
+          Left = 271
+          Top = 148
+          Width = 71
+          Height = 20
           Caption = 'Schedule:'
         end
         object listSchedule: TValueListEditor
-          Left = 8
-          Top = 24
-          Width = 161
-          Height = 169
+          Left = 12
+          Top = 37
+          Width = 248
+          Height = 260
           DefaultRowHeight = 24
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -24
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
@@ -178,45 +178,45 @@ object frmMain: TfrmMain
             47)
         end
         object btnSetSchedule: TTntButton
-          Left = 176
-          Top = 56
-          Width = 100
-          Height = 25
+          Left = 271
+          Top = 86
+          Width = 154
+          Height = 39
           Action = actSetSchedule
           TabOrder = 1
         end
         object btnGetSchedule: TTntButton
-          Left = 176
-          Top = 24
-          Width = 100
-          Height = 25
+          Left = 271
+          Top = 37
+          Width = 154
+          Height = 38
           Action = actGetSchedule
           TabOrder = 2
         end
         object btnTimeUpdate: TTntButton
-          Left = 8
-          Top = 200
-          Width = 268
-          Height = 25
+          Left = 12
+          Top = 308
+          Width = 413
+          Height = 38
           Action = actSetCurrentTime
           TabOrder = 3
           WordWrap = True
         end
         object btnSchEn: TTntButton
-          Left = 176
-          Top = 139
-          Width = 100
-          Height = 25
+          Left = 271
+          Top = 214
+          Width = 154
+          Height = 38
           Caption = 'Enable'
           Enabled = False
           TabOrder = 4
           OnClick = btnSchEnClick
         end
         object btnSchDis: TTntButton
-          Left = 176
-          Top = 168
-          Width = 100
-          Height = 25
+          Left = 271
+          Top = 258
+          Width = 154
+          Height = 39
           Caption = 'Disable'
           Enabled = False
           TabOrder = 5
@@ -224,27 +224,27 @@ object frmMain: TfrmMain
         end
       end
       object GroupBox3: TTntGroupBox
-        Left = 8
-        Top = 8
-        Width = 281
-        Height = 137
+        Left = 12
+        Top = 12
+        Width = 433
+        Height = 211
         Caption = 'Connect'
         TabOrder = 2
         object lbComPortN: TTntLabel
-          Left = 16
-          Top = 112
-          Width = 78
-          Height = 13
+          Left = 25
+          Top = 172
+          Width = 117
+          Height = 20
           Caption = 'COM Port name:'
           Enabled = False
         end
         object textComPortN: TTntComboBox
-          Left = 124
-          Top = 107
-          Width = 127
-          Height = 21
+          Left = 191
+          Top = 165
+          Width = 195
+          Height = 28
           Enabled = False
-          ItemHeight = 13
+          ItemHeight = 20
           TabOrder = 0
           Text = 'COM1'
           Items.Strings = (
@@ -256,38 +256,38 @@ object frmMain: TfrmMain
             'TCP:127.0.0.1:21')
         end
         object Button4: TTntButton
-          Left = 8
-          Top = 16
-          Width = 129
-          Height = 33
+          Left = 12
+          Top = 25
+          Width = 199
+          Height = 50
           Action = actConnect
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -24
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 1
         end
         object Button5: TTntButton
-          Left = 144
-          Top = 16
-          Width = 129
-          Height = 33
+          Left = 222
+          Top = 25
+          Width = 198
+          Height = 50
           Action = actDisconnect
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -24
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 2
         end
         object chAutoDetectPort: TTntCheckBox
-          Left = 8
-          Top = 56
-          Width = 263
-          Height = 17
+          Left = 12
+          Top = 86
+          Width = 405
+          Height = 26
           Caption = 'Auto detect port number'
           Checked = True
           State = cbChecked
@@ -295,19 +295,19 @@ object frmMain: TfrmMain
           OnClick = chAutoDetectPortClick
         end
         object chAutoConnect: TTntCheckBox
-          Left = 8
-          Top = 80
-          Width = 263
-          Height = 17
+          Left = 12
+          Top = 123
+          Width = 405
+          Height = 26
           Caption = 'Auto connect on plug'
           Enabled = False
           TabOrder = 4
         end
         object btnConnectOptions: TTntButton
-          Left = 251
-          Top = 105
-          Width = 23
-          Height = 23
+          Left = 386
+          Top = 162
+          Width = 36
+          Height = 35
           Caption = '...'
           Enabled = False
           TabOrder = 5
@@ -315,37 +315,37 @@ object frmMain: TfrmMain
         end
       end
       object GroupBox5: TTntGroupBox
-        Left = 8
-        Top = 152
-        Width = 281
-        Height = 177
+        Left = 12
+        Top = 234
+        Width = 433
+        Height = 272
         Caption = 'Version:'
         TabOrder = 3
         object textVersion: TTntMemo
-          Left = 2
-          Top = 15
-          Width = 277
-          Height = 160
+          Left = 3
+          Top = 23
+          Width = 426
+          Height = 246
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
         end
       end
       object cbLanguage: TTntComboBox
-        Left = 301
-        Top = 286
-        Width = 168
+        Left = 463
+        Top = 440
+        Width = 259
         Height = 21
-        ItemHeight = 13
+        ItemHeight = 0
         TabOrder = 4
         OnChange = cbLanguageWarn
         OnClick = cbLanguageWarn
       end
       object Button1: TButton
-        Left = 302
-        Top = 286
-        Width = 172
-        Height = 21
+        Left = 465
+        Top = 440
+        Width = 264
+        Height = 32
         Caption = '...'
         TabOrder = 5
         OnClick = cbLanguageWarn
@@ -357,15 +357,15 @@ object frmMain: TfrmMain
       object Panel2: TTntPanel
         Left = 0
         Top = 0
-        Width = 629
-        Height = 27
+        Width = 968
+        Height = 42
         Align = alTop
         TabOrder = 0
         object chSensorAuto: TTntCheckBox
-          Left = 220
-          Top = 3
-          Width = 145
-          Height = 21
+          Left = 338
+          Top = 5
+          Width = 224
+          Height = 32
           Caption = 'Auto load'
           Checked = True
           ParentShowHint = False
@@ -375,10 +375,10 @@ object frmMain: TfrmMain
           OnClick = chSensorAutoClick
         end
         object chButtonTest: TTntCheckBox
-          Left = 7
-          Top = 3
-          Width = 144
-          Height = 21
+          Left = 11
+          Top = 5
+          Width = 221
+          Height = 32
           Caption = 'Button Test'
           ParentShowHint = False
           ShowHint = True
@@ -386,19 +386,19 @@ object frmMain: TfrmMain
           OnClick = chButtonTestClick
         end
         object Button6: TButton
-          Left = 416
-          Top = 3
-          Width = 67
-          Height = 22
+          Left = 640
+          Top = 5
+          Width = 103
+          Height = 33
           Action = actCopySensorData
           TabOrder = 2
         end
       end
       object listSensors: TValueListEditor
         Left = 0
-        Top = 27
-        Width = 629
-        Height = 403
+        Top = 42
+        Width = 968
+        Height = 620
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking]
         PopupMenu = PopupMenu1
@@ -419,16 +419,16 @@ object frmMain: TfrmMain
       object ScrollBox3: TScrollBox
         Left = 0
         Top = 0
-        Width = 629
-        Height = 430
+        Width = 623
+        Height = 406
         Align = alClient
         BorderStyle = bsNone
         TabOrder = 0
         object CheckBox1: TCheckBox
-          Left = 8
-          Top = 8
-          Width = 497
-          Height = 17
+          Left = 12
+          Top = 12
+          Width = 765
+          Height = 26
           Caption = 'require rotate the robot to the up'
           Checked = True
           State = cbChecked
@@ -440,41 +440,41 @@ object frmMain: TfrmMain
       Caption = 'Scanner'
       object Image1: TImage
         Left = 0
-        Top = 49
-        Width = 629
-        Height = 381
+        Top = 75
+        Width = 623
+        Height = 331
         Align = alClient
       end
       object Panel1: TTntPanel
         Left = 0
         Top = 0
-        Width = 629
-        Height = 49
+        Width = 623
+        Height = 75
         Align = alTop
         TabOrder = 0
         object paintSpectre: TPaintBox
           Left = 1
-          Top = 31
-          Width = 627
-          Height = 17
+          Top = 48
+          Width = 621
+          Height = 26
           Align = alBottom
           OnPaint = paintSpectrePaint
         end
         object chkScanLDS: TTntCheckBox
-          Left = 12
-          Top = 8
-          Width = 173
-          Height = 17
+          Left = 18
+          Top = 12
+          Width = 267
+          Height = 26
           Action = actScanLDS
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
         end
         object chRemoteControl: TTntCheckBox
-          Left = 204
-          Top = 8
-          Width = 309
-          Height = 17
+          Left = 314
+          Top = 12
+          Width = 475
+          Height = 26
           Action = actRemoteControl
           TabOrder = 1
         end
@@ -486,59 +486,59 @@ object frmMain: TfrmMain
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 629
-        Height = 430
+        Width = 623
+        Height = 406
         Align = alClient
         BorderStyle = bsNone
         TabOrder = 0
         DesignSize = (
-          629
-          430)
+          597
+          406)
         object Label2: TTntLabel
-          Left = 1
-          Top = 111
-          Width = 44
-          Height = 13
+          Left = 2
+          Top = 171
+          Width = 67
+          Height = 20
           AutoSize = False
           Caption = 'Step 1:'
         end
         object Label3: TTntLabel
-          Left = 1
-          Top = 150
-          Width = 44
-          Height = 13
+          Left = 2
+          Top = 231
+          Width = 67
+          Height = 20
           AutoSize = False
           Caption = 'Step 2:'
         end
         object Label4: TTntLabel
-          Left = 1
-          Top = 195
-          Width = 44
-          Height = 13
+          Left = 2
+          Top = 300
+          Width = 67
+          Height = 20
           AutoSize = False
           Caption = 'Step 3:'
         end
         object Label5: TTntLabel
-          Left = 1
-          Top = 234
-          Width = 44
-          Height = 13
+          Left = 2
+          Top = 360
+          Width = 67
+          Height = 20
           AutoSize = False
           Caption = 'Step 4:'
         end
         object Label6: TTntLabel
-          Left = 1
-          Top = 293
-          Width = 44
-          Height = 13
+          Left = 2
+          Top = 451
+          Width = 67
+          Height = 20
           AutoSize = False
           Caption = 'Step 5:'
         end
         object Memo2: TTntMemo
           Left = 0
-          Top = 2
-          Width = 559
-          Height = 100
+          Top = 3
+          Width = 860
+          Height = 154
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'CAUTION:'
@@ -571,10 +571,10 @@ object frmMain: TfrmMain
           TabOrder = 0
         end
         object Memo1: TTntMemo
-          Left = 46
-          Top = 104
-          Width = 513
-          Height = 27
+          Left = 71
+          Top = 160
+          Width = 789
+          Height = 42
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Turn on the robot for cleaning and wait until discharge.')
@@ -583,10 +583,10 @@ object frmMain: TfrmMain
           TabOrder = 1
         end
         object Memo3: TTntMemo
-          Left = 189
-          Top = 137
-          Width = 370
-          Height = 33
+          Left = 291
+          Top = 211
+          Width = 569
+          Height = 51
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Click this button, then turn on the '
@@ -597,37 +597,37 @@ object frmMain: TfrmMain
           TabOrder = 2
         end
         object btnSet100PercentBattery: TTntButton
-          Left = 46
-          Top = 137
-          Width = 137
-          Height = 33
+          Left = 71
+          Top = 211
+          Width = 211
+          Height = 51
           Action = actChrSet100PercentBattery
           TabOrder = 3
           WordWrap = True
         end
         object btnEnableBrush: TTntButton
-          Left = 46
-          Top = 221
-          Width = 137
-          Height = 40
+          Left = 71
+          Top = 340
+          Width = 211
+          Height = 62
           Action = actChrEnableBrush
           TabOrder = 4
           WordWrap = True
         end
         object btnEnableVaccum: TTntButton
-          Left = 46
-          Top = 176
-          Width = 137
-          Height = 39
+          Left = 71
+          Top = 271
+          Width = 211
+          Height = 60
           Action = actChrEnableVaccum
           TabOrder = 5
           WordWrap = True
         end
         object Memo5: TTntMemo
-          Left = 189
-          Top = 221
-          Width = 370
-          Height = 40
+          Left = 291
+          Top = 340
+          Width = 569
+          Height = 62
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Turn on the robot, and as quickly as '
@@ -640,10 +640,10 @@ object frmMain: TfrmMain
           TabOrder = 6
         end
         object Memo4: TTntMemo
-          Left = 189
-          Top = 176
-          Width = 370
-          Height = 39
+          Left = 291
+          Top = 271
+          Width = 569
+          Height = 60
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Turn on the robot, and as quickly as '
@@ -656,15 +656,15 @@ object frmMain: TfrmMain
           TabOrder = 7
         end
         object lbWarnLowVoltage: TTntPanel
-          Left = 59
-          Top = 150
-          Width = 111
-          Height = 98
+          Left = 91
+          Top = 231
+          Width = 171
+          Height = 151
           Caption = 'Batt V < 12 V'
           Color = clRed
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -24
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold]
           ParentFont = False
@@ -673,10 +673,10 @@ object frmMain: TfrmMain
           OnMouseUp = lbWarnLowVoltageMouseUp
         end
         object Memo6: TTntMemo
-          Left = 46
-          Top = 267
-          Width = 513
-          Height = 78
+          Left = 71
+          Top = 411
+          Width = 789
+          Height = 120
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
             'Connect the robot to the charge.'
@@ -696,16 +696,16 @@ object frmMain: TfrmMain
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
-        Width = 629
-        Height = 430
+        Width = 623
+        Height = 406
         Align = alClient
         BorderStyle = bsNone
         TabOrder = 0
         object memoConsole: TTntMemo
           Left = 0
-          Top = 199
-          Width = 629
-          Height = 231
+          Top = 306
+          Width = 623
+          Height = 100
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -713,72 +713,72 @@ object frmMain: TfrmMain
         object Panel3: TTntPanel
           Left = 0
           Top = 0
-          Width = 629
-          Height = 199
+          Width = 623
+          Height = 306
           Align = alTop
           TabOrder = 1
           object LabelR5: TTntLabel
             Tag = 5
-            Left = 8
-            Top = 51
-            Width = 12
-            Height = 13
+            Left = 12
+            Top = 78
+            Width = 19
+            Height = 20
             Caption = 'F5'
           end
           object LabelR6: TTntLabel
             Tag = 6
-            Left = 8
-            Top = 75
-            Width = 12
-            Height = 13
+            Left = 12
+            Top = 115
+            Width = 19
+            Height = 20
             Caption = 'F6'
           end
           object LabelR7: TTntLabel
             Tag = 7
-            Left = 8
-            Top = 99
-            Width = 12
-            Height = 13
+            Left = 12
+            Top = 152
+            Width = 19
+            Height = 20
             Caption = 'F7'
           end
           object LabelR8: TTntLabel
             Tag = 8
-            Left = 8
-            Top = 123
-            Width = 12
-            Height = 13
+            Left = 12
+            Top = 189
+            Width = 19
+            Height = 20
             Caption = 'F8'
           end
           object LabelR4: TTntLabel
             Tag = 4
-            Left = 8
-            Top = 27
-            Width = 12
-            Height = 13
+            Left = 12
+            Top = 42
+            Width = 19
+            Height = 20
             Caption = 'F4'
           end
           object LabelR9: TTntLabel
             Tag = 9
-            Left = 8
-            Top = 147
-            Width = 12
-            Height = 13
+            Left = 12
+            Top = 226
+            Width = 19
+            Height = 20
             Caption = 'F9'
           end
           object Label13: TTntLabel
-            Left = 24
-            Top = 8
-            Width = 70
-            Height = 13
+            Left = 37
+            Top = 12
+            Width = 108
+            Height = 20
             Caption = 'Commands list:'
           end
           object edCmd5: TTntComboBox
             Tag = 5
-            Left = 24
-            Top = 48
-            Width = 361
-            Height = 21
-            ItemHeight = 13
+            Left = 37
+            Top = 74
+            Width = 555
+            Height = 28
+            ItemHeight = 20
             TabOrder = 1
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -790,10 +790,10 @@ object frmMain: TfrmMain
           end
           object btnCmd5: TTntButton
             Tag = 5
-            Left = 385
-            Top = 47
-            Width = 32
-            Height = 20
+            Left = 592
+            Top = 72
+            Width = 50
+            Height = 31
             Caption = 'Run'
             TabOrder = 7
             TabStop = False
@@ -801,11 +801,11 @@ object frmMain: TfrmMain
           end
           object edCmd6: TTntComboBox
             Tag = 6
-            Left = 24
-            Top = 72
-            Width = 361
-            Height = 21
-            ItemHeight = 13
+            Left = 37
+            Top = 111
+            Width = 555
+            Height = 28
+            ItemHeight = 20
             TabOrder = 2
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -817,10 +817,10 @@ object frmMain: TfrmMain
           end
           object btnCmd6: TTntButton
             Tag = 6
-            Left = 385
-            Top = 71
-            Width = 32
-            Height = 20
+            Left = 592
+            Top = 109
+            Width = 50
+            Height = 31
             Caption = 'Run'
             TabOrder = 8
             TabStop = False
@@ -828,11 +828,11 @@ object frmMain: TfrmMain
           end
           object edCmd7: TTntComboBox
             Tag = 7
-            Left = 24
-            Top = 96
-            Width = 361
-            Height = 21
-            ItemHeight = 13
+            Left = 37
+            Top = 148
+            Width = 555
+            Height = 28
+            ItemHeight = 20
             TabOrder = 3
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -844,10 +844,10 @@ object frmMain: TfrmMain
           end
           object btnCmd7: TTntButton
             Tag = 7
-            Left = 385
-            Top = 95
-            Width = 32
-            Height = 20
+            Left = 592
+            Top = 146
+            Width = 50
+            Height = 31
             Caption = 'Run'
             TabOrder = 9
             TabStop = False
@@ -855,11 +855,11 @@ object frmMain: TfrmMain
           end
           object edCmd8: TTntComboBox
             Tag = 8
-            Left = 24
-            Top = 120
-            Width = 361
-            Height = 21
-            ItemHeight = 13
+            Left = 37
+            Top = 185
+            Width = 555
+            Height = 28
+            ItemHeight = 20
             TabOrder = 4
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -871,10 +871,10 @@ object frmMain: TfrmMain
           end
           object btnCmd8: TTntButton
             Tag = 8
-            Left = 385
-            Top = 119
-            Width = 32
-            Height = 20
+            Left = 592
+            Top = 183
+            Width = 50
+            Height = 31
             Caption = 'Run'
             TabOrder = 10
             TabStop = False
@@ -882,11 +882,11 @@ object frmMain: TfrmMain
           end
           object edCmd4: TTntComboBox
             Tag = 4
-            Left = 24
-            Top = 24
-            Width = 361
-            Height = 21
-            ItemHeight = 13
+            Left = 37
+            Top = 37
+            Width = 555
+            Height = 28
+            ItemHeight = 20
             TabOrder = 0
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -898,10 +898,10 @@ object frmMain: TfrmMain
           end
           object btnCmd4: TTntButton
             Tag = 4
-            Left = 385
-            Top = 23
-            Width = 32
-            Height = 20
+            Left = 592
+            Top = 35
+            Width = 50
+            Height = 31
             Caption = 'Run'
             TabOrder = 6
             TabStop = False
@@ -909,11 +909,11 @@ object frmMain: TfrmMain
           end
           object edCmd9: TTntComboBox
             Tag = 9
-            Left = 24
-            Top = 144
-            Width = 361
-            Height = 21
-            ItemHeight = 13
+            Left = 37
+            Top = 222
+            Width = 555
+            Height = 28
+            ItemHeight = 20
             TabOrder = 5
             OnKeyUp = edCmd_KeyUp
             Items.Strings = (
@@ -925,56 +925,56 @@ object frmMain: TfrmMain
           end
           object btnCmd9: TTntButton
             Tag = 9
-            Left = 385
-            Top = 143
-            Width = 32
-            Height = 20
+            Left = 592
+            Top = 220
+            Width = 50
+            Height = 31
             Caption = 'Run'
             TabOrder = 11
             TabStop = False
             OnClick = actBtnRunExecute
           end
           object Panel4: TTntPanel
-            Left = 2
-            Top = 168
-            Width = 505
-            Height = 28
+            Left = 3
+            Top = 258
+            Width = 777
+            Height = 44
             TabOrder = 13
             object edLogFileName: TTntComboBox
-              Left = 216
-              Top = 4
-              Width = 265
+              Left = 332
+              Top = 6
+              Width = 408
               Height = 21
               Enabled = False
-              ItemHeight = 13
+              ItemHeight = 0
               TabOrder = 0
               Text = 'log.txt'
             end
             object btnSelectLogFileName: TTntButton
-              Left = 483
-              Top = 4
-              Width = 19
-              Height = 19
+              Left = 743
+              Top = 6
+              Width = 29
+              Height = 29
               Caption = '...'
               Enabled = False
               TabOrder = 1
               OnClick = btnSelectLogFileNameClick
             end
             object chSaveLogToFile: TTntCheckBox
-              Left = 8
-              Top = 6
-              Width = 201
-              Height = 17
+              Left = 12
+              Top = 9
+              Width = 310
+              Height = 26
               Caption = 'Save log to file'
               TabOrder = 2
               OnClick = chSaveLogToFileClick
             end
           end
           object GroupBoxTimers: TTntGroupBox
-            Left = 425
-            Top = 7
-            Width = 82
-            Height = 161
+            Left = 654
+            Top = 11
+            Width = 126
+            Height = 247
             Hint = 'in second'
             Caption = 'Timers:'
             ParentShowHint = False
@@ -982,12 +982,12 @@ object frmMain: TfrmMain
             TabOrder = 12
             object cbRepeatTime4: TTntComboBox
               Tag = 4
-              Left = 5
-              Top = 16
-              Width = 73
-              Height = 21
+              Left = 8
+              Top = 25
+              Width = 112
+              Height = 28
               Hint = 'in second'
-              ItemHeight = 13
+              ItemHeight = 20
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1005,12 +1005,12 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime5: TTntComboBox
               Tag = 5
-              Left = 5
-              Top = 40
-              Width = 73
-              Height = 21
+              Left = 8
+              Top = 62
+              Width = 112
+              Height = 28
               Hint = 'in second'
-              ItemHeight = 13
+              ItemHeight = 20
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1028,12 +1028,12 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime6: TTntComboBox
               Tag = 6
-              Left = 5
-              Top = 64
-              Width = 73
-              Height = 21
+              Left = 8
+              Top = 98
+              Width = 112
+              Height = 28
               Hint = 'in second'
-              ItemHeight = 13
+              ItemHeight = 20
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1051,12 +1051,12 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime7: TTntComboBox
               Tag = 7
-              Left = 5
-              Top = 88
-              Width = 73
-              Height = 21
+              Left = 8
+              Top = 135
+              Width = 112
+              Height = 28
               Hint = 'in second'
-              ItemHeight = 13
+              ItemHeight = 20
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1074,12 +1074,12 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime8: TTntComboBox
               Tag = 8
-              Left = 5
-              Top = 112
-              Width = 73
-              Height = 21
+              Left = 8
+              Top = 172
+              Width = 112
+              Height = 28
               Hint = 'in second'
-              ItemHeight = 13
+              ItemHeight = 20
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1097,12 +1097,12 @@ object frmMain: TfrmMain
             end
             object cbRepeatTime9: TTntComboBox
               Tag = 9
-              Left = 5
-              Top = 136
-              Width = 73
-              Height = 21
+              Left = 8
+              Top = 209
+              Width = 112
+              Height = 28
               Hint = 'in second'
-              ItemHeight = 13
+              ItemHeight = 20
               ItemIndex = 0
               ParentShowHint = False
               ShowHint = True
@@ -1126,13 +1126,13 @@ object frmMain: TfrmMain
       Caption = 'About'
       ImageIndex = 4
       object MemoAbout: TTntMemo
-        Left = 7
-        Top = 10
-        Width = 410
-        Height = 319
+        Left = 11
+        Top = 15
+        Width = 631
+        Height = 491
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         Lines.Strings = (
