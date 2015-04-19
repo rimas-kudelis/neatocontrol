@@ -152,6 +152,9 @@ type
     Button6: TButton;
     actCopySensorData: TTntAction;
     CheckBox1: TCheckBox;
+    chSeparateCmd: TCheckBox;
+    ScrollBar1: TScrollBar;
+    ScrollBar2: TScrollBar;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -289,6 +292,8 @@ var
   NF: TDEV_BROADCAST_DEVICEINTERFACE;
 begin
   PageControl1.ActivePageIndex := 0;
+
+  PageControl1.Pages[3].TabVisible := false;
 
   Caption := Caption + '   ver ' + GetMyVersion(2);
 
@@ -1164,6 +1169,9 @@ work only in TestMode:
     // отрезаем #1A в конце
     if (Result<>'') and (Result[Length(Result)]=#$1A) then
       SetLength(Result, Length(Result)-1);
+    // приклеиваем #13 в конце если нету
+    if (Result<>'') and (Result[Length(Result)]<>#10) then
+      Result := Result + #13+#10;
 
   finally
     SendCmdActive := false;

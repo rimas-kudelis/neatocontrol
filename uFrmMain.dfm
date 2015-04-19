@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
   Left = 336
   Top = 121
-  Width = 653
-  Height = 496
+  Width = 960
+  Height = 673
   Caption = 'Neato Control'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,9 +24,9 @@ object frmMain: TfrmMain
   object PageControl1: TTntPageControl
     Left = 0
     Top = 0
-    Width = 631
-    Height = 441
-    ActivePage = TntTabSheet1
+    Width = 938
+    Height = 618
+    ActivePage = TabSheet5
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -175,7 +175,7 @@ object frmMain: TfrmMain
             'Time')
           ColWidths = (
             91
-            47)
+            151)
         end
         object btnSetSchedule: TTntButton
           Left = 271
@@ -322,10 +322,10 @@ object frmMain: TfrmMain
         Caption = 'Version:'
         TabOrder = 3
         object textVersion: TTntMemo
-          Left = 3
-          Top = 23
-          Width = 426
-          Height = 246
+          Left = 2
+          Top = 22
+          Width = 429
+          Height = 248
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -335,8 +335,8 @@ object frmMain: TfrmMain
         Left = 463
         Top = 440
         Width = 259
-        Height = 21
-        ItemHeight = 0
+        Height = 28
+        ItemHeight = 20
         TabOrder = 4
         OnChange = cbLanguageWarn
         OnClick = cbLanguageWarn
@@ -414,48 +414,26 @@ object frmMain: TfrmMain
           442)
       end
     end
-    object TntTabSheet1: TTntTabSheet
-      Caption = 'Equipment'
-      object ScrollBox3: TScrollBox
-        Left = 0
-        Top = 0
-        Width = 623
-        Height = 406
-        Align = alClient
-        BorderStyle = bsNone
-        TabOrder = 0
-        object CheckBox1: TCheckBox
-          Left = 12
-          Top = 12
-          Width = 765
-          Height = 26
-          Caption = 'require rotate the robot to the up'
-          Checked = True
-          State = cbChecked
-          TabOrder = 0
-        end
-      end
-    end
     object tabScan: TTntTabSheet
       Caption = 'Scanner'
       object Image1: TImage
         Left = 0
         Top = 75
-        Width = 623
-        Height = 331
+        Width = 930
+        Height = 508
         Align = alClient
       end
       object Panel1: TTntPanel
         Left = 0
         Top = 0
-        Width = 623
+        Width = 930
         Height = 75
         Align = alTop
         TabOrder = 0
         object paintSpectre: TPaintBox
           Left = 1
           Top = 48
-          Width = 621
+          Width = 928
           Height = 26
           Align = alBottom
           OnPaint = paintSpectrePaint
@@ -480,20 +458,61 @@ object frmMain: TfrmMain
         end
       end
     end
+    object TntTabSheet1: TTntTabSheet
+      Caption = 'Equipment'
+      object ScrollBox3: TScrollBox
+        Left = 0
+        Top = 0
+        Width = 930
+        Height = 583
+        Align = alClient
+        BorderStyle = bsNone
+        TabOrder = 0
+        object CheckBox1: TCheckBox
+          Left = 12
+          Top = 12
+          Width = 765
+          Height = 26
+          Caption = 'require rotate the robot to the up'
+          Checked = True
+          State = cbChecked
+          TabOrder = 0
+          Visible = False
+        end
+        object ScrollBar1: TScrollBar
+          Left = 40
+          Top = 112
+          Width = 26
+          Height = 273
+          Kind = sbVertical
+          PageSize = 0
+          TabOrder = 1
+        end
+        object ScrollBar2: TScrollBar
+          Left = 152
+          Top = 112
+          Width = 26
+          Height = 273
+          Kind = sbVertical
+          PageSize = 0
+          TabOrder = 2
+        end
+      end
+    end
     object TabSheet4: TTntTabSheet
       Caption = 'Recharge'
       ImageIndex = 3
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 623
-        Height = 406
+        Width = 930
+        Height = 583
         Align = alClient
         BorderStyle = bsNone
         TabOrder = 0
         DesignSize = (
-          597
-          406)
+          930
+          583)
         object Label2: TTntLabel
           Left = 2
           Top = 171
@@ -537,7 +556,7 @@ object frmMain: TfrmMain
         object Memo2: TTntMemo
           Left = 0
           Top = 3
-          Width = 860
+          Width = 1193
           Height = 154
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -573,7 +592,7 @@ object frmMain: TfrmMain
         object Memo1: TTntMemo
           Left = 71
           Top = 160
-          Width = 789
+          Width = 1122
           Height = 42
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -585,7 +604,7 @@ object frmMain: TfrmMain
         object Memo3: TTntMemo
           Left = 291
           Top = 211
-          Width = 569
+          Width = 902
           Height = 51
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -626,7 +645,7 @@ object frmMain: TfrmMain
         object Memo5: TTntMemo
           Left = 291
           Top = 340
-          Width = 569
+          Width = 902
           Height = 62
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -642,7 +661,7 @@ object frmMain: TfrmMain
         object Memo4: TTntMemo
           Left = 291
           Top = 271
-          Width = 569
+          Width = 902
           Height = 60
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -675,7 +694,7 @@ object frmMain: TfrmMain
         object Memo6: TTntMemo
           Left = 71
           Top = 411
-          Width = 789
+          Width = 1122
           Height = 120
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -696,16 +715,16 @@ object frmMain: TfrmMain
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
-        Width = 623
-        Height = 406
+        Width = 930
+        Height = 583
         Align = alClient
         BorderStyle = bsNone
         TabOrder = 0
         object memoConsole: TTntMemo
           Left = 0
-          Top = 306
-          Width = 623
-          Height = 100
+          Top = 337
+          Width = 930
+          Height = 246
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -713,8 +732,8 @@ object frmMain: TfrmMain
         object Panel3: TTntPanel
           Left = 0
           Top = 0
-          Width = 623
-          Height = 306
+          Width = 930
+          Height = 337
           Align = alTop
           TabOrder = 1
           object LabelR5: TTntLabel
@@ -938,15 +957,15 @@ object frmMain: TfrmMain
             Left = 3
             Top = 258
             Width = 777
-            Height = 44
+            Height = 71
             TabOrder = 13
             object edLogFileName: TTntComboBox
               Left = 332
               Top = 6
               Width = 408
-              Height = 21
+              Height = 28
               Enabled = False
-              ItemHeight = 0
+              ItemHeight = 20
               TabOrder = 0
               Text = 'log.txt'
             end
@@ -968,6 +987,16 @@ object frmMain: TfrmMain
               Caption = 'Save log to file'
               TabOrder = 2
               OnClick = chSaveLogToFileClick
+            end
+            object chSeparateCmd: TCheckBox
+              Left = 12
+              Top = 37
+              Width = 261
+              Height = 28
+              Caption = 'Separate all cmd "==="'
+              Checked = True
+              State = cbChecked
+              TabOrder = 3
             end
           end
           object GroupBoxTimers: TTntGroupBox
@@ -1142,6 +1171,7 @@ object frmMain: TfrmMain
           'Constructor  [ heX ]'
           ''
           'Site: http://heX.name/programs/neatocontrol'
+          'Site english: http://heX.name/en/programs/neatocontrol'
           'Git: https://bitbucket.org/heXor/neatocontrol'
           'Mail: heX1625616@gmail.com'
           'Tox: hexor@toxme.se'

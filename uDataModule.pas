@@ -378,8 +378,11 @@ begin
   Result.Text := StringReplace(Result.Text, ',1', '=True', [rfReplaceAll]);
   Result.Text := StringReplace(Result.Text, ',0', '=False', [rfReplaceAll]);
 
-  Result.Delete(0);
-  Result.Delete(0);
+  //todo: wip
+  if Result.Count > 0 then
+    Result.Delete(0);
+  if Result.Count > 0 then
+    Result.Delete(0);
 end;
 
 function GetDigitalSensors(): TStrings;
@@ -401,8 +404,11 @@ begin
   Result.Text := StringReplace(Result.Text, ',1', '=True', [rfReplaceAll]);
   Result.Text := StringReplace(Result.Text, ',0', '=False', [rfReplaceAll]);
 
-  Result.Delete(0);
-  Result.Delete(0);
+  //todo: wip
+  if Result.Count > 0 then
+    Result.Delete(0);
+  if Result.Count > 0 then
+    Result.Delete(0);
 end;
 
 function GetAnalogSensors(): TStrings;
@@ -423,8 +429,11 @@ begin
   Result.Text := StringReplace(Result.Text, ','#13#10, #13#10, [rfReplaceAll]);
   Result.Text := StringReplace(Result.Text, ',', '=', [rfReplaceAll]);
 
-  Result.Delete(0);
-  Result.Delete(0);
+  //todo: wip
+  if Result.Count > 0 then
+    Result.Delete(0);
+  if Result.Count > 0 then
+    Result.Delete(0);
 end;
 
 function GetCharger(): TStrings;
@@ -587,25 +596,31 @@ begin
     begin
       if cmd = '!time' then
       begin
-        s := '================ '+TimeToStr(Now)+' ================'+#13;
+        s := '================ '+TimeToStr(Now)+' ================'+#13+#10;
       end else
       if cmd = '!test' then
       begin
-        s := 'TEST1'+#13+'TEST2'+#13+'TEST3'+#13;
+        s := 'TEST1'+#13+#10+'TEST2'+#13+#10+'TEST3'+#13+#10;
       end else
       if (cmd = '-') or (cmd = '=') then
       begin
-        s := '================================================'+#13;
+        s := '================================================'+#13+#10;
       end else
       begin
         if frmMain.Connected then
-          s := SendCmd(frmMain.COMPort, cmd);
+          s := frmMain.SendCmdSmart(cmd);
       end;
-      
+
       if s<>'' then
       begin
+        if frmMain.chSeparateCmd.Checked then
+          s := s + '================================================'+#13+#10;
+          
+        // запись в файл
         if frmMain.chSaveLogToFile.Checked then
+        begin
           WriteFL(frmMain.edLogFileName.Text, s);
+        end;
 
         // добавляем результат в консольный вывод
         memoConsole.Lines.Text := memoConsole.Lines.Text + s;
