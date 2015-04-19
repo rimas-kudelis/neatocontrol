@@ -114,7 +114,6 @@ type
     memoConsole: TTntMemo;
     Panel3: TTntPanel;
     LabelR5: TTntLabel;
-    ImageListNeato: TImageList;
     actResizeScanZone: TTntAction;
     edCmd5: TTntComboBox;
     btnCmd5: TTntButton;
@@ -147,8 +146,12 @@ type
     cbRepeatTime9: TTntComboBox;
     Button1: TButton;
     btnConnectOptions: TTntButton;
-    ClientSocketTelnet: TIdTCPClient;
     chButtonTest: TTntCheckBox;
+    TntTabSheet1: TTntTabSheet;
+    ScrollBox3: TScrollBox;
+    Button6: TButton;
+    actCopySensorData: TTntAction;
+    CheckBox1: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -205,6 +208,7 @@ type
     procedure btnConnectOptionsClick(Sender: TObject);
     procedure ClientSocketTelnetDisconnected(Sender: TObject);
     procedure chButtonTestClick(Sender: TObject);
+    procedure actCopySensorDataExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -878,7 +882,7 @@ begin
     EasyFade(Image1.Picture.Bitmap, 16);
 
     // центр робота
-    ImageListNeato.Draw(
+    ModuleMain.ImageListNeato.Draw(
       Image1.Picture.Bitmap.Canvas,
       (Image1.Width div 2)-10,
       (Image1.Height div 2)-16,
@@ -1071,12 +1075,12 @@ begin
     begin
       E := PosEx(':', textComPortN.Text, 5);
       if E = 0 then
-        ClientSocketTelnet.Host := Copy(textComPortN.Text, 5, 1000) else
-        ClientSocketTelnet.Host := Copy(textComPortN.Text, 5, E-5);
+        ModuleMain.ClientSocketTelnet.Host := Copy(textComPortN.Text, 5, 1000) else
+        ModuleMain.ClientSocketTelnet.Host := Copy(textComPortN.Text, 5, E-5);
       if E <> 0 then
-        ClientSocketTelnet.Port := StrToIntDef(Copy(textComPortN.Text, E+1, 100), 21);
+        ModuleMain.ClientSocketTelnet.Port := StrToIntDef(Copy(textComPortN.Text, E+1, 100), 21);
 
-      ClientSocketTelnet.Connect(1000);
+      ModuleMain.ClientSocketTelnet.Connect(1000);
       // если порт не откроется,
       // то произойдет исключение,
       // и мы выйдем из процедуры прямо из этой точки.
@@ -1620,17 +1624,17 @@ work only in TestMode:
     // добавляем перенос строки
     Cmd := Cmd + #13;
 
-    if ClientSocketTelnet.Connected and Connected
+    if ModuleMain.ClientSocketTelnet.Connected and Connected
     then
       begin
-        ClientSocketTelnet.Write(Cmd);
+        ModuleMain.ClientSocketTelnet.Write(Cmd);
 
         t := GetTickCount+10000;
         // пытаемся получить данные
         while c <> #$1A do
         begin
           try
-            ClientSocketTelnet.ReadBuffer(c, 1);
+            ModuleMain.ClientSocketTelnet.ReadBuffer(c, 1);
           except
             on EIdReadTimeOut do
             begin
@@ -1681,6 +1685,12 @@ end;
 procedure TfrmMain.ClientSocketTelnetDisconnected(Sender: TObject);
 begin
   Connected := false;
+end;
+
+procedure TfrmMain.actCopySensorDataExecute(Sender: TObject);
+begin
+  if Connected then
+    Clipboard.AsText := listSensors.Strings.Text;
 end;
 
 end.

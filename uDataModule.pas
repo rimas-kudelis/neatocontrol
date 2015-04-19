@@ -3,13 +3,16 @@ unit uDataModule;
 interface
 
 uses
-  SysUtils, Classes, XPMan, Dialogs, ExtCtrls;
+  SysUtils, Classes, XPMan, Dialogs, ExtCtrls, IdBaseComponent,
+  IdComponent, IdTCPConnection, IdTCPClient, ImgList, Controls;
 
 type
   TModuleMain = class(TDataModule)
     XPManifest1: TXPManifest;
     SaveDialogLogFile: TSaveDialog;
     TimerRunCmd: TTimer;
+    ClientSocketTelnet: TIdTCPClient;
+    ImageListNeato: TImageList;
     procedure TimerRunCmdTimer(Sender: TObject);
   private
     { Private declarations }
