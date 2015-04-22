@@ -87,6 +87,9 @@ For translation you can try this program: http://yktoo.com/en/software/dklangTra
 Changes
 =========
 
+      1.10
+      bug fix
+
       1.9
       correct charge monitoring.
       change TestMode logic - now enable only then need.
