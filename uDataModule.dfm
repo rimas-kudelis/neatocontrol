@@ -20,6 +20,7 @@ object ModuleMain: TModuleMain
     Top = 64
   end
   object ClientSocketTelnet: TIdTCPClient
+    MaxLineLength = 32768
     MaxLineAction = maException
     ReadTimeout = 100
     Port = 0

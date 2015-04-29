@@ -26,7 +26,7 @@ object frmMain: TfrmMain
     Top = 0
     Width = 938
     Height = 618
-    ActivePage = TabSheet5
+    ActivePage = TabSheet3
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -357,7 +357,7 @@ object frmMain: TfrmMain
       object Panel2: TTntPanel
         Left = 0
         Top = 0
-        Width = 968
+        Width = 930
         Height = 42
         Align = alTop
         TabOrder = 0
@@ -366,7 +366,7 @@ object frmMain: TfrmMain
           Top = 5
           Width = 224
           Height = 32
-          Caption = 'Auto load'
+          Caption = 'Auto update'
           Checked = True
           ParentShowHint = False
           ShowHint = True
@@ -377,9 +377,9 @@ object frmMain: TfrmMain
         object chButtonTest: TTntCheckBox
           Left = 11
           Top = 5
-          Width = 221
+          Width = 311
           Height = 32
-          Caption = 'Button Test'
+          Caption = 'Scan buttons on robot too'
           ParentShowHint = False
           ShowHint = True
           TabOrder = 1
@@ -397,8 +397,8 @@ object frmMain: TfrmMain
       object listSensors: TValueListEditor
         Left = 0
         Top = 42
-        Width = 968
-        Height = 620
+        Width = 930
+        Height = 541
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking]
         PopupMenu = PopupMenu1
@@ -411,7 +411,7 @@ object frmMain: TfrmMain
         OnDrawCell = listSensorsDrawCell
         ColWidths = (
           181
-          442)
+          749)
       end
     end
     object tabScan: TTntTabSheet
@@ -419,21 +419,21 @@ object frmMain: TfrmMain
       object Image1: TImage
         Left = 0
         Top = 75
-        Width = 930
-        Height = 508
+        Width = 1440
+        Height = 859
         Align = alClient
       end
       object Panel1: TTntPanel
         Left = 0
         Top = 0
-        Width = 930
+        Width = 1440
         Height = 75
         Align = alTop
         TabOrder = 0
         object paintSpectre: TPaintBox
-          Left = 1
+          Left = 2
           Top = 48
-          Width = 928
+          Width = 1436
           Height = 26
           Align = alBottom
           OnPaint = paintSpectrePaint
@@ -556,7 +556,7 @@ object frmMain: TfrmMain
         object Memo2: TTntMemo
           Left = 0
           Top = 3
-          Width = 1193
+          Width = 1192
           Height = 154
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -592,7 +592,7 @@ object frmMain: TfrmMain
         object Memo1: TTntMemo
           Left = 71
           Top = 160
-          Width = 1122
+          Width = 1121
           Height = 42
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -604,7 +604,7 @@ object frmMain: TfrmMain
         object Memo3: TTntMemo
           Left = 291
           Top = 211
-          Width = 902
+          Width = 901
           Height = 51
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -645,7 +645,7 @@ object frmMain: TfrmMain
         object Memo5: TTntMemo
           Left = 291
           Top = 340
-          Width = 902
+          Width = 901
           Height = 62
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -661,7 +661,7 @@ object frmMain: TfrmMain
         object Memo4: TTntMemo
           Left = 291
           Top = 271
-          Width = 902
+          Width = 901
           Height = 60
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -694,7 +694,7 @@ object frmMain: TfrmMain
         object Memo6: TTntMemo
           Left = 71
           Top = 411
-          Width = 1122
+          Width = 1121
           Height = 120
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -963,9 +963,9 @@ object frmMain: TfrmMain
               Left = 332
               Top = 6
               Width = 408
-              Height = 28
+              Height = 21
               Enabled = False
-              ItemHeight = 20
+              ItemHeight = 0
               TabOrder = 0
               Text = 'log.txt'
             end
@@ -991,7 +991,7 @@ object frmMain: TfrmMain
             object chSeparateCmd: TCheckBox
               Left = 12
               Top = 37
-              Width = 261
+              Width = 260
               Height = 28
               Caption = 'Separate all cmd "==="'
               Checked = True
