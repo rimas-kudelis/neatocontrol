@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
   Left = 336
   Top = 121
-  Width = 960
-  Height = 673
+  Width = 939
+  Height = 718
   Caption = 'Neato Control'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,8 +24,8 @@ object frmMain: TfrmMain
   object PageControl1: TTntPageControl
     Left = 0
     Top = 0
-    Width = 938
-    Height = 618
+    Width = 917
+    Height = 663
     ActivePage = TabSheet3
     Align = alClient
     TabOrder = 0
@@ -36,7 +36,7 @@ object frmMain: TfrmMain
       ImageIndex = 2
       object lblLang: TTntLabel
         Left = 465
-        Top = 414
+        Top = 406
         Width = 76
         Height = 20
         Caption = 'Language:'
@@ -87,46 +87,13 @@ object frmMain: TfrmMain
         Font.Style = []
         ParentFont = False
       end
-      object GroupBox2: TTntGroupBox
-        Left = 758
-        Top = 402
-        Width = 127
-        Height = 123
-        Caption = 'Wall Follower:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -24
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        Visible = False
-        object Button2: TTntButton
-          Left = 6
-          Top = 29
-          Width = 116
-          Height = 39
-          Caption = 'Enable'
-          TabOrder = 0
-          OnClick = Button2Click
-        end
-        object Button3: TTntButton
-          Left = 6
-          Top = 74
-          Width = 116
-          Height = 38
-          Caption = 'Disable'
-          TabOrder = 1
-          OnClick = Button3Click
-        end
-      end
       object GroupBox4: TTntGroupBox
         Left = 455
         Top = 35
         Width = 433
         Height = 357
         Caption = 'Schedule && Time'
-        TabOrder = 1
+        TabOrder = 0
         object lbSchState: TTntLabel
           Left = 271
           Top = 169
@@ -229,7 +196,7 @@ object frmMain: TfrmMain
         Width = 433
         Height = 211
         Caption = 'Connect'
-        TabOrder = 2
+        TabOrder = 1
         object lbComPortN: TTntLabel
           Left = 25
           Top = 172
@@ -320,7 +287,7 @@ object frmMain: TfrmMain
         Width = 433
         Height = 272
         Caption = 'Version:'
-        TabOrder = 3
+        TabOrder = 2
         object textVersion: TTntMemo
           Left = 2
           Top = 22
@@ -332,23 +299,86 @@ object frmMain: TfrmMain
         end
       end
       object cbLanguage: TTntComboBox
-        Left = 463
-        Top = 440
+        Left = 551
+        Top = 400
         Width = 259
         Height = 28
         ItemHeight = 20
-        TabOrder = 4
+        TabOrder = 3
         OnChange = cbLanguageWarn
         OnClick = cbLanguageWarn
       end
       object Button1: TButton
-        Left = 465
-        Top = 440
+        Left = 548
+        Top = 399
         Width = 264
         Height = 32
         Caption = '...'
-        TabOrder = 5
+        TabOrder = 4
         OnClick = cbLanguageWarn
+      end
+      object Panel5: TPanel
+        Left = 14
+        Top = 512
+        Width = 867
+        Height = 49
+        TabOrder = 5
+        object Label7: TLabel
+          Left = 8
+          Top = 11
+          Width = 161
+          Height = 27
+          Alignment = taRightJustify
+          Caption = 'Test mode:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object btnTestModeOff: TRadioButton
+          Left = 183
+          Top = 4
+          Width = 174
+          Height = 41
+          Action = actTestModeOff
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+        end
+        object btnTestModeOn: TRadioButton
+          Left = 560
+          Top = 2
+          Width = 297
+          Height = 41
+          Action = actTestModeOnConst
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+        end
+        object RadioButton1: TRadioButton
+          Left = 368
+          Top = 3
+          Width = 179
+          Height = 41
+          Action = actTestModeOn
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+        end
       end
     end
     object TabSheet2: TTntTabSheet
@@ -411,7 +441,7 @@ object frmMain: TfrmMain
         OnDrawCell = listSensorsDrawCell
         ColWidths = (
           181
-          749)
+          743)
       end
     end
     object tabScan: TTntTabSheet
@@ -419,21 +449,21 @@ object frmMain: TfrmMain
       object Image1: TImage
         Left = 0
         Top = 75
-        Width = 1440
-        Height = 859
+        Width = 909
+        Height = 553
         Align = alClient
       end
       object Panel1: TTntPanel
         Left = 0
         Top = 0
-        Width = 1440
+        Width = 909
         Height = 75
         Align = alTop
         TabOrder = 0
         object paintSpectre: TPaintBox
-          Left = 2
+          Left = 1
           Top = 48
-          Width = 1436
+          Width = 907
           Height = 26
           Align = alBottom
           OnPaint = paintSpectrePaint
@@ -505,14 +535,14 @@ object frmMain: TfrmMain
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 930
-        Height = 583
+        Width = 909
+        Height = 628
         Align = alClient
         BorderStyle = bsNone
         TabOrder = 0
         DesignSize = (
-          930
-          583)
+          909
+          628)
         object Label2: TTntLabel
           Left = 2
           Top = 171
@@ -556,7 +586,7 @@ object frmMain: TfrmMain
         object Memo2: TTntMemo
           Left = 0
           Top = 3
-          Width = 1192
+          Width = 1171
           Height = 154
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -592,7 +622,7 @@ object frmMain: TfrmMain
         object Memo1: TTntMemo
           Left = 71
           Top = 160
-          Width = 1121
+          Width = 1100
           Height = 42
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -604,7 +634,7 @@ object frmMain: TfrmMain
         object Memo3: TTntMemo
           Left = 291
           Top = 211
-          Width = 901
+          Width = 880
           Height = 51
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -645,7 +675,7 @@ object frmMain: TfrmMain
         object Memo5: TTntMemo
           Left = 291
           Top = 340
-          Width = 901
+          Width = 880
           Height = 62
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -661,7 +691,7 @@ object frmMain: TfrmMain
         object Memo4: TTntMemo
           Left = 291
           Top = 271
-          Width = 901
+          Width = 880
           Height = 60
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -694,7 +724,7 @@ object frmMain: TfrmMain
         object Memo6: TTntMemo
           Left = 71
           Top = 411
-          Width = 1121
+          Width = 1100
           Height = 120
           Anchors = [akLeft, akTop, akRight]
           Lines.Strings = (
@@ -715,16 +745,16 @@ object frmMain: TfrmMain
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
-        Width = 930
-        Height = 583
+        Width = 909
+        Height = 628
         Align = alClient
         BorderStyle = bsNone
         TabOrder = 0
         object memoConsole: TTntMemo
           Left = 0
           Top = 337
-          Width = 930
-          Height = 246
+          Width = 909
+          Height = 291
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
@@ -732,7 +762,7 @@ object frmMain: TfrmMain
         object Panel3: TTntPanel
           Left = 0
           Top = 0
-          Width = 930
+          Width = 909
           Height = 337
           Align = alTop
           TabOrder = 1
@@ -963,9 +993,9 @@ object frmMain: TfrmMain
               Left = 332
               Top = 6
               Width = 408
-              Height = 21
+              Height = 28
               Enabled = False
-              ItemHeight = 0
+              ItemHeight = 20
               TabOrder = 0
               Text = 'log.txt'
             end
@@ -1259,6 +1289,18 @@ object frmMain: TfrmMain
       Category = 'gui'
       Caption = 'copy all'
       OnExecute = actCopySensorDataExecute
+    end
+    object actTestModeOn: TTntAction
+      Category = 'robot'
+      Caption = 'Enable'
+    end
+    object actTestModeOnConst: TTntAction
+      Category = 'robot'
+      Caption = 'Enable constantly'
+    end
+    object actTestModeOff: TTntAction
+      Category = 'robot'
+      Caption = 'Disable'
     end
   end
   object TimerScan: TTimer

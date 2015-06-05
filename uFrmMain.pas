@@ -46,9 +46,6 @@ type
     TimerScan: TTimer;
     actSensors: TTntAction;
     TimerSensors: TTimer;
-    GroupBox2: TTntGroupBox;
-    Button2: TTntButton;
-    Button3: TTntButton;
     actConnect: TTntAction;
     actDisconnect: TTntAction;
     GroupBox4: TTntGroupBox;
@@ -155,6 +152,14 @@ type
     chSeparateCmd: TCheckBox;
     ScrollBar1: TScrollBar;
     ScrollBar2: TScrollBar;
+    actTestModeOn: TTntAction;
+    actTestModeOnConst: TTntAction;
+    Panel5: TPanel;
+    Label7: TLabel;
+    btnTestModeOff: TRadioButton;
+    btnTestModeOn: TRadioButton;
+    RadioButton1: TRadioButton;
+    actTestModeOff: TTntAction;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure OnDeviceChange(var Msg: TMessage); message WM_DEVICECHANGE;
@@ -167,8 +172,6 @@ type
       Rect: TRect; State: TGridDrawState);
     procedure actSensorsExecute(Sender: TObject);
     procedure chSensorAutoClick(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
     procedure btnSchEnClick(Sender: TObject);
     procedure btnSchDisClick(Sender: TObject);
     procedure ActionList1Update(Action: TBasicAction;
@@ -513,16 +516,6 @@ begin
     SetTestMode(false);
 end;
 
-procedure TfrmMain.Button2Click(Sender: TObject);
-begin
-  SendCmdSmart('SetWallFollower Enable');
-end;
-
-procedure TfrmMain.Button3Click(Sender: TObject);
-begin
-  SendCmdSmart('SetWallFollower Disable');
-end;
-
 procedure TfrmMain.btnSchEnClick(Sender: TObject);
 begin
   SendCmdSmart('SetSchedule ON');
@@ -644,6 +637,13 @@ begin
 
     //OLD: SetTestMode(true);
   end;
+
+  if Connected then
+  begin
+    actTestModeOff.Checked := true;
+    actTestModeOn.Checked := false;
+    actTestModeOnConst.Checked := false;
+  end;
 end;
 
 procedure TfrmMain.actDisconnectExecute(Sender: TObject);
@@ -746,7 +746,7 @@ end;
 
 procedure TfrmMain.actScanLDSExecute(Sender: TObject);
 begin
-  if chkScanLDS.Checked and TestModeEnabled then
+  if chkScanLDS.Checked then
   begin
     SetTestMode(true);
     SendCmdSmart('SetLDSRotation on');
@@ -875,11 +875,12 @@ end;
 procedure TfrmMain.PageControl1Changing(Sender: TObject;
   var AllowChange: Boolean);
 begin
-  if RemoteControl then
+//todo:TEMP OFF!!!
+{  if RemoteControl then
   Begin
     PageControl1.ActivePageIndex := 2;
     AllowChange := false;
-  enD;
+  enD;}
 end;
 
 procedure TfrmMain.TimerGetTimeTimer(Sender: TObject);
