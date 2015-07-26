@@ -77,10 +77,6 @@ If you check "Save ..." the results of the command are stored in the file.
 
 Instructions of use: enter the necessary commands to assign a retry time, start recording. And after a couple of hours you will receive a data file that can be viewed carefully. =)
 
-Translate
-------------
-
-For translation you can try this program: http://yktoo.com/en/software/dklangTraned
 
 
 
