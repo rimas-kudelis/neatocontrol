@@ -87,6 +87,11 @@ For translation you can try this program: http://yktoo.com/en/software/dklangTra
 Changes
 =========
 
+      2.0
+      Migrate to Lazarus (from Delphi)!
+      "Sensors" tab - gray color for inactive sensor.
+      add new localization system.
+
       1.10
       bug fix
 
@@ -132,5 +137,4 @@ Changes
 
       1.0
       first release
-
 
