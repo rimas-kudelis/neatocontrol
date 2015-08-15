@@ -83,6 +83,16 @@ Instructions of use: enter the necessary commands to assign a retry time, start 
 Changes
 =========
 
+      2.2
+      Add page "Motors"
+      Add page "Log"
+
+      2.1
+      Add save same options
+      Add language manual change
+      Add German translate (NeatoControl.de.po)
+      Add online collective translate: https://poeditor.com/join/project/EdLcbGzBsR
+
       2.0
       Migrate to Lazarus (from Delphi)!
       "Sensors" tab - gray color for inactive sensor.
@@ -133,4 +143,5 @@ Changes
 
       1.0
       first release
+
 
