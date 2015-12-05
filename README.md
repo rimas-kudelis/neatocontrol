@@ -83,6 +83,21 @@ Instructions of use: enter the necessary commands to assign a retry time, start 
 Changes
 =========
 
+      2.6
+      Add "TestMode" checkbox
+      bug fix
+
+      2.5
+      Debug page "motors"
+      Debug page "Scanner"
+      bug fix
+
+      2.3
+      Save command history
+      Add side brush support (thx ...)
+      Add France translate
+      Update German translate
+
       2.2
       Add page "Motors"
       Add page "Log"
@@ -143,5 +158,4 @@ Changes
 
       1.0
       first release
-
 
