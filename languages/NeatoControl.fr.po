@@ -9,36 +9,36 @@ msgstr ""
 
 #: tfrmmain.actchrenablebrush.caption
 msgid "Enable Brush Motor and Disconnect"
-msgstr "Activer moteur de la brosse et Déconnecter"
+msgstr "Activer le moteur de la brosse et se déconnecter"
 
 #: tfrmmain.actchrenablevaccum.caption
 msgid "Enable Vaccum Motor and Disconnect"
-msgstr "Activer Vaccum moteur et débranchez les"
+msgstr "Activer l'aspiration et se déconnecter"
 
 #: tfrmmain.actchrset100percentbattery.caption
 msgid "Set 100% Battery"
-msgstr "Situé à 100% de la batterie"
+msgstr "Définir la batterie à 100%"
 
 #: tfrmmain.actconnect.caption
 msgctxt "TFRMMAIN.ACTCONNECT.CAPTION"
 msgid "Connect"
-msgstr "Relier"
+msgstr "Se connecter"
 
 #: tfrmmain.actcopysensordata.caption
 msgid "copy all"
-msgstr "copier tous"
+msgstr "tout copier"
 
 #: tfrmmain.actdisconnect.caption
 msgid "Disconnect"
-msgstr "Couper"
+msgstr "Se déconnecter"
 
 #: tfrmmain.actgetschedule.caption
 msgid "Load Schedule"
-msgstr "Planification des charges"
+msgstr "Charger un planning"
 
 #: tfrmmain.actremotecontrol.caption
 msgid "Remote Control (push arrows)"
-msgstr "Télécommande (flèches poussoirs)"
+msgstr "Télécommande (utiliser les flèches)"
 
 #: tfrmmain.actscanlds.caption
 msgid "Scan LDS"
@@ -46,11 +46,11 @@ msgstr "Numérisation LDS"
 
 #: tfrmmain.actsetcurrenttime.caption
 msgid "Set time to Neato from computer"
-msgstr "Réglez le temps de Neato de l'ordinateur"
+msgstr "Définir la date et l'heure de Neato à celles de l'ordinateur"
 
 #: tfrmmain.actsetschedule.caption
 msgid "Save Schedule"
-msgstr "Sauvegarder annexe"
+msgstr "Sauvegarder le planning"
 
 #: tfrmmain.acttestmodeoff.caption
 msgctxt "TFRMMAIN.ACTTESTMODEOFF.CAPTION"
@@ -69,32 +69,32 @@ msgstr "Activer en permanence"
 #: tfrmmain.btncmd4.caption
 msgctxt "TFRMMAIN.BTNCMD4.CAPTION"
 msgid "Run"
-msgstr "Course"
+msgstr "Lancer"
 
 #: tfrmmain.btncmd5.caption
 msgctxt "tfrmmain.btncmd5.caption"
 msgid "Run"
-msgstr "Course"
+msgstr "Lancer"
 
 #: tfrmmain.btncmd6.caption
 msgctxt "TFRMMAIN.BTNCMD6.CAPTION"
 msgid "Run"
-msgstr "Course"
+msgstr "Lancer"
 
 #: tfrmmain.btncmd7.caption
 msgctxt "TFRMMAIN.BTNCMD7.CAPTION"
 msgid "Run"
-msgstr "Course"
+msgstr "Lancer"
 
 #: tfrmmain.btncmd8.caption
 msgctxt "TFRMMAIN.BTNCMD8.CAPTION"
 msgid "Run"
-msgstr "Course"
+msgstr "Lancer"
 
 #: tfrmmain.btncmd9.caption
 msgctxt "TFRMMAIN.BTNCMD9.CAPTION"
 msgid "Run"
-msgstr "Course"
+msgstr "Lancer"
 
 #: tfrmmain.btnconnectoptions.caption
 msgctxt "tfrmmain.btnconnectoptions.caption"
@@ -123,7 +123,7 @@ msgstr "OFF"
 
 #: tfrmmain.btntestmodeon.caption
 msgid "ON"
-msgstr "SUR"
+msgstr "ON"
 
 #: tfrmmain.btntestmodeon1.caption
 msgid "Auto (recommended)"
@@ -131,12 +131,12 @@ msgstr "Auto (recommandé)"
 
 #: tfrmmain.caption
 msgid "Neato Control"
-msgstr "Contrôle Neato"
+msgstr "Neato Control"
 
 #: tfrmmain.cbrepeattime4.hint
 msgctxt "TFRMMAIN.CBREPEATTIME4.HINT"
 msgid "in second"
-msgstr "en seconde"
+msgstr "en secondes"
 
 #: tfrmmain.cbrepeattime4.text
 msgctxt "tfrmmain.cbrepeattime4.text"
@@ -146,7 +146,7 @@ msgstr "OFF"
 #: tfrmmain.cbrepeattime5.hint
 msgctxt "TFRMMAIN.CBREPEATTIME5.HINT"
 msgid "in second"
-msgstr "en seconde"
+msgstr "en secondes"
 
 #: tfrmmain.cbrepeattime5.text
 msgctxt "TFRMMAIN.CBREPEATTIME5.TEXT"
@@ -156,7 +156,7 @@ msgstr "OFF"
 #: tfrmmain.cbrepeattime6.hint
 msgctxt "TFRMMAIN.CBREPEATTIME6.HINT"
 msgid "in second"
-msgstr "en seconde"
+msgstr "en secondes"
 
 #: tfrmmain.cbrepeattime6.text
 msgctxt "TFRMMAIN.CBREPEATTIME6.TEXT"
@@ -166,7 +166,7 @@ msgstr "OFF"
 #: tfrmmain.cbrepeattime7.hint
 msgctxt "TFRMMAIN.CBREPEATTIME7.HINT"
 msgid "in second"
-msgstr "en seconde"
+msgstr "en secondes"
 
 #: tfrmmain.cbrepeattime7.text
 msgctxt "TFRMMAIN.CBREPEATTIME7.TEXT"
@@ -176,7 +176,7 @@ msgstr "OFF"
 #: tfrmmain.cbrepeattime8.hint
 msgctxt "TFRMMAIN.CBREPEATTIME8.HINT"
 msgid "in second"
-msgstr "en seconde"
+msgstr "en secondes"
 
 #: tfrmmain.cbrepeattime8.text
 msgctxt "TFRMMAIN.CBREPEATTIME8.TEXT"
@@ -186,7 +186,7 @@ msgstr "OFF"
 #: tfrmmain.cbrepeattime9.hint
 msgctxt "TFRMMAIN.CBREPEATTIME9.HINT"
 msgid "in second"
-msgstr "en seconde"
+msgstr "en secondes"
 
 #: tfrmmain.cbrepeattime9.text
 msgctxt "TFRMMAIN.CBREPEATTIME9.TEXT"
@@ -195,23 +195,23 @@ msgstr "OFF"
 
 #: tfrmmain.chautoconnect.caption
 msgid "Auto connect on plug"
-msgstr "Auto connect sur bougie"
+msgstr "Se connecter automatiquement au branchement"
 
 #: tfrmmain.chautodetectport.caption
 msgid "Auto detect port number"
-msgstr "Auto détecter numéro de port"
+msgstr "Détecter automatiquement le numéro de port"
 
 #: tfrmmain.chbuttontest.caption
 msgid "Use test mode"
-msgstr "Utilisez le mode de test"
+msgstr "Utiliser le mode de test"
 
 #: tfrmmain.checkbox1.caption
 msgid "require rotate the robot to the up"
-msgstr "exiger tourner le robot à la place"
+msgstr "nécessite de tourner le robot vers le haut"
 
 #: tfrmmain.chsavelogtofile.caption
 msgid "Save log to file"
-msgstr "Enregistrer le journal pour déposer"
+msgstr "Enregistrer le journal"
 
 #: tfrmmain.chsensorauto.caption
 msgid "Auto update"
@@ -227,61 +227,61 @@ msgstr "log.txt"
 
 #: tfrmmain.edtranslateauthor.text
 msgid "Translate author: heX"
-msgstr "Traduire auteur: Hex"
+msgstr "Auteur de la traduction : Gwen"
 
 #: tfrmmain.groupbox3.caption
 msgctxt "tfrmmain.groupbox3.caption"
 msgid "Connect"
-msgstr "Relier"
+msgstr "Se connecter"
 
 #: tfrmmain.groupbox4.caption
 msgid "Schedule && Time"
-msgstr "Horaire"
+msgstr "Planning"
 
 #: tfrmmain.groupbox5.caption
 msgid "Version:"
-msgstr "Version:"
+msgstr "Version :"
 
 #: tfrmmain.groupboxtimers.caption
 msgid "Timers:"
-msgstr "Timers:"
+msgstr "Timers :"
 
 #: tfrmmain.groupboxtimers.hint
 msgctxt "tfrmmain.groupboxtimers.hint"
 msgid "in second"
-msgstr "en seconde"
+msgstr "en secondes"
 
 #: tfrmmain.label1.caption
 msgid "Schedule:"
-msgstr "Calendrier:"
+msgstr "Planning :"
 
 #: tfrmmain.label13.caption
 msgid "Commands list:"
-msgstr "Liste Commandes:"
+msgstr "Liste des commandes:"
 
 #: tfrmmain.label2.caption
 msgid "Step 1:"
-msgstr "Étape 1:"
+msgstr "Étape 1 :"
 
 #: tfrmmain.label3.caption
 msgid "Step 2:"
-msgstr "Étape 2:"
+msgstr "Étape 2 :"
 
 #: tfrmmain.label4.caption
 msgid "Step 3:"
-msgstr "Etape 3:"
+msgstr "Etape 3 :"
 
 #: tfrmmain.label5.caption
 msgid "Step 4:"
-msgstr "Étape 4:"
+msgstr "Étape 4 :"
 
 #: tfrmmain.label6.caption
 msgid "Step 5:"
-msgstr "Etape 5:"
+msgstr "Etape 5 :"
 
 #: tfrmmain.label7.caption
 msgid "Test mode:"
-msgstr "Mode d'essai:"
+msgstr "Mode test :"
 
 #: tfrmmain.labelr4.caption
 msgid "F4"
@@ -309,11 +309,11 @@ msgstr "F9"
 
 #: tfrmmain.lbcomportn.caption
 msgid "COM Port name:"
-msgstr "Nom du port COM:"
+msgstr "Nom du port COM :"
 
 #: tfrmmain.lbllang.caption
 msgid "Language:"
-msgstr "Langue:"
+msgstr "Langue :"
 
 #: tfrmmain.lbrobottime.caption
 msgid "00:00:00"
@@ -321,7 +321,7 @@ msgstr "0:00:00"
 
 #: tfrmmain.lbrobottime2.caption
 msgid "Robot Time:"
-msgstr "Temps de Robot:"
+msgstr "Heure du Robot :"
 
 #: tfrmmain.lbschstate.caption
 msgid "???"
@@ -349,7 +349,7 @@ msgstr "Recharge"
 
 #: tfrmmain.tabsheet5.caption
 msgid "About"
-msgstr "Sur"
+msgstr "A propos"
 
 #: tfrmmain.tabsheet6.caption
 msgid "Commands"
@@ -366,15 +366,15 @@ msgstr "Copie"
 
 #: ufrmmain.errorcantopenportcom
 msgid "Can't open port COM"
-msgstr "Vous ne pouvez pas ouvrir le port COM"
+msgstr "Erreur à l'ouverture du port COM"
 
 #: ufrmmain.errorclearport
 msgid "Error clearing port. (ClearCommError)"
-msgstr "Erreur port de compensation. (ClearCommError)"
+msgstr "Erreur à la libération du port (ClearCommError)"
 
 #: ufrmmain.errorcomportnotdetect
 msgid "COM port not detect"
-msgstr "Le port COM détecte pas"
+msgstr "Port COM non détecté"
 
 #: ufrmmain.errorevent
 msgid "WaitCommEvent IOResult = EV_ERR"
@@ -382,11 +382,11 @@ msgstr "WaitCommEvent IOResult = EV_ERR"
 
 #: ufrmmain.errorinvalidcomportnumber
 msgid "invalid COM port number"
-msgstr "COM valide le numéro de port"
+msgstr "Numéro de port COM invalide"
 
 #: ufrmmain.errorsetportstate
 msgid "Error setting port state (SetCommState)"
-msgstr "État erreur de réglage du port (SetCommState)"
+msgstr "Erreur au réglage du l'état du port (SetCommState)"
 
 #: ufrmmain.friday
 msgid "Friday"
@@ -427,16 +427,16 @@ msgstr "Mercredi"
 #: tfrmmain.actcopysensordata.caption
 msgctxt "tfrmmain.actcopysensordata.caption"
 msgid "copy all"
-msgstr "copier tous"
+msgstr "tout copier"
 
 #: tfrmmain.actgetlifestatlog.caption
 msgid "Get Log"
-msgstr "Obtenez Connexion"
+msgstr "Journal"
 
 #: tfrmmain.btncopyall_log.caption
 msgctxt "TFRMMAIN.BTNCOPYALL_LOG.CAPTION"
 msgid "copy all"
-msgstr "copier tous"
+msgstr "tout copier"
 
 #: tfrmmain.chbrush.caption
 msgid "Brush"
@@ -456,11 +456,11 @@ msgstr "Brosse Latérale"
 
 #: tfrmmain.chvacuum.caption
 msgid "Vacuum"
-msgstr "Vide"
+msgstr "Aspiration"
 
 #: tfrmmain.label8.caption
 msgid "Translate: https://poeditor.com/join/project/EdLcbGzBsR"
-msgstr "Traduire: https://poeditor.com/join/project/EdLcbGzBsR"
+msgstr "Traduire : https://poeditor.com/join/project/EdLcbGzBsR"
 
 #: tfrmmain.lifestatlog.caption
 msgid "LifeStatLog"
@@ -468,9 +468,9 @@ msgstr "LifeStatLog"
 
 #: tfrmmain.tabsheet1.caption
 msgid "Motors"
-msgstr "Motors"
+msgstr "Moteurs"
 
 #: tfrmmain.label9.caption
 msgid "WARNING: Rotate the robot so the wheels are facing up before enable wheels motor!"
-msgstr "AVERTISSEMENT: Faites tourner le robot pour que les roues sont confrontés avant permettent de moteur roues!"
+msgstr "AVERTISSEMENT : mettez le robot roues en l'air avant d'allumer les moteurs !"
 
