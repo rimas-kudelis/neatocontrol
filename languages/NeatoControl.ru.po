@@ -7,191 +7,19 @@ msgstr ""
 "Project-Id-Version: NeatoControl\n"
 "Language: ru\n"
 
-#: tfrmmain.actchrenablebrush.caption
-msgid "Enable Brush Motor and Disconnect"
-msgstr "Вкл мотор пылесоса и отсоединиться"
-
-#: tfrmmain.actchrenablevaccum.caption
-msgid "Enable Vaccum Motor and Disconnect"
-msgstr "Вкл мотор щетки и отсоединиться"
-
-#: tfrmmain.actchrset100percentbattery.caption
-msgid "Set 100% Battery"
-msgstr "Эмулировать 100% заряда"
-
-#: tfrmmain.actconnect.caption
-msgctxt "TFRMMAIN.ACTCONNECT.CAPTION"
-msgid "Connect"
-msgstr "Подключиться"
-
-#: tfrmmain.actcopysensordata.caption
-msgid "copy all"
-msgstr "Копировать все"
-
-#: tfrmmain.actdisconnect.caption
-msgid "Disconnect"
-msgstr "Отключиться"
-
-#: tfrmmain.actgetschedule.caption
-msgid "Load Schedule"
-msgstr "Загрузить расп."
-
-#: tfrmmain.actremotecontrol.caption
-msgid "Remote Control (push arrows)"
-msgstr "Управление (нажимайте стрелочки)"
-
-#: tfrmmain.actscanlds.caption
-msgid "Scan LDS"
-msgstr "Вкл. лазерный сканер"
-
-#: tfrmmain.actsetcurrenttime.caption
-msgid "Set time to Neato from computer"
-msgstr "Установить время робота с компьютера"
-
-#: tfrmmain.actsetschedule.caption
-msgid "Save Schedule"
-msgstr "Сохранить расп."
-
-#: tfrmmain.acttestmodeoff.caption
-msgctxt "TFRMMAIN.ACTTESTMODEOFF.CAPTION"
-msgid "Disable"
-msgstr "Выкл."
-
-#: tfrmmain.acttestmodeon.caption
-msgctxt "TFRMMAIN.ACTTESTMODEON.CAPTION"
-msgid "Enable"
-msgstr "Вкл."
-
-#: tfrmmain.acttestmodeonconst.caption
-msgid "Enable constantly"
-msgstr "Вкл. постоянно"
-
-#: tfrmmain.btncmd4.caption
-msgctxt "TFRMMAIN.BTNCMD4.CAPTION"
-msgid "Run"
-msgstr "Выполнить"
-
-#: tfrmmain.btncmd5.caption
-msgctxt "tfrmmain.btncmd5.caption"
-msgid "Run"
-msgstr "Выполнить"
-
-#: tfrmmain.btncmd6.caption
-msgctxt "TFRMMAIN.BTNCMD6.CAPTION"
-msgid "Run"
-msgstr "Выполнить"
-
-#: tfrmmain.btncmd7.caption
-msgctxt "TFRMMAIN.BTNCMD7.CAPTION"
-msgid "Run"
-msgstr "Выполнить"
-
-#: tfrmmain.btncmd8.caption
-msgctxt "TFRMMAIN.BTNCMD8.CAPTION"
-msgid "Run"
-msgstr "Выполнить"
-
-#: tfrmmain.btncmd9.caption
-msgctxt "TFRMMAIN.BTNCMD9.CAPTION"
-msgid "Run"
-msgstr "Выполнить"
-
 #: tfrmmain.btnconnectoptions.caption
 msgctxt "tfrmmain.btnconnectoptions.caption"
 msgid "..."
 msgstr "..."
-
-#: tfrmmain.btnschdis.caption
-msgctxt "tfrmmain.btnschdis.caption"
-msgid "Disable"
-msgstr "Выкл."
-
-#: tfrmmain.btnschen.caption
-msgctxt "tfrmmain.btnschen.caption"
-msgid "Enable"
-msgstr "Вкл."
 
 #: tfrmmain.btnselectlogfilename.caption
 msgctxt "TFRMMAIN.BTNSELECTLOGFILENAME.CAPTION"
 msgid "..."
 msgstr "..."
 
-#: tfrmmain.btntestmodeoff.caption
-msgctxt "tfrmmain.btntestmodeoff.caption"
-msgid "OFF"
-msgstr "Выкл. Testmode"
-
-#: tfrmmain.btntestmodeon.caption
-msgid "ON"
-msgstr "Вкл. Testmode"
-
-#: tfrmmain.btntestmodeon1.caption
-msgid "Auto (recommended)"
-msgstr "Авто (рекомендуется)"
-
 #: tfrmmain.caption
 msgid "Neato Control"
 msgstr "Neato Control"
-
-#: tfrmmain.cbrepeattime4.hint
-msgctxt "TFRMMAIN.CBREPEATTIME4.HINT"
-msgid "in second"
-msgstr "в секундах"
-
-#: tfrmmain.cbrepeattime4.text
-msgctxt "tfrmmain.cbrepeattime4.text"
-msgid "OFF"
-msgstr "Выкл."
-
-#: tfrmmain.cbrepeattime5.hint
-msgctxt "TFRMMAIN.CBREPEATTIME5.HINT"
-msgid "in second"
-msgstr "в секундах"
-
-#: tfrmmain.cbrepeattime5.text
-msgctxt "TFRMMAIN.CBREPEATTIME5.TEXT"
-msgid "OFF"
-msgstr "Выкл."
-
-#: tfrmmain.cbrepeattime6.hint
-msgctxt "TFRMMAIN.CBREPEATTIME6.HINT"
-msgid "in second"
-msgstr "в секундах"
-
-#: tfrmmain.cbrepeattime6.text
-msgctxt "TFRMMAIN.CBREPEATTIME6.TEXT"
-msgid "OFF"
-msgstr "Выкл."
-
-#: tfrmmain.cbrepeattime7.hint
-msgctxt "TFRMMAIN.CBREPEATTIME7.HINT"
-msgid "in second"
-msgstr "в секундах"
-
-#: tfrmmain.cbrepeattime7.text
-msgctxt "TFRMMAIN.CBREPEATTIME7.TEXT"
-msgid "OFF"
-msgstr "Выкл."
-
-#: tfrmmain.cbrepeattime8.hint
-msgctxt "TFRMMAIN.CBREPEATTIME8.HINT"
-msgid "in second"
-msgstr "в секундах"
-
-#: tfrmmain.cbrepeattime8.text
-msgctxt "TFRMMAIN.CBREPEATTIME8.TEXT"
-msgid "OFF"
-msgstr "Выкл."
-
-#: tfrmmain.cbrepeattime9.hint
-msgctxt "TFRMMAIN.CBREPEATTIME9.HINT"
-msgid "in second"
-msgstr "в секундах"
-
-#: tfrmmain.cbrepeattime9.text
-msgctxt "TFRMMAIN.CBREPEATTIME9.TEXT"
-msgid "OFF"
-msgstr "Выкл."
 
 #: tfrmmain.chautoconnect.caption
 msgid "Auto connect on plug"
@@ -200,10 +28,6 @@ msgstr "Авто соединение при подключении"
 #: tfrmmain.chautodetectport.caption
 msgid "Auto detect port number"
 msgstr "Авто определение порта"
-
-#: tfrmmain.chbuttontest.caption
-msgid "Use test mode"
-msgstr "Использовать Test Mode"
 
 #: tfrmmain.checkbox1.caption
 msgid "require rotate the robot to the up"
@@ -229,15 +53,6 @@ msgstr "log.txt"
 msgid "Translate author: heX"
 msgstr "Автор перевода: heX"
 
-#: tfrmmain.groupbox3.caption
-msgctxt "tfrmmain.groupbox3.caption"
-msgid "Connect"
-msgstr "Подсоединить"
-
-#: tfrmmain.groupbox4.caption
-msgid "Schedule && Time"
-msgstr "Расписание и время"
-
 #: tfrmmain.groupbox5.caption
 msgid "Version:"
 msgstr "Версия:"
@@ -245,15 +60,6 @@ msgstr "Версия:"
 #: tfrmmain.groupboxtimers.caption
 msgid "Timers:"
 msgstr "Таймеры:"
-
-#: tfrmmain.groupboxtimers.hint
-msgctxt "tfrmmain.groupboxtimers.hint"
-msgid "in second"
-msgstr "в секундах"
-
-#: tfrmmain.label1.caption
-msgid "Schedule:"
-msgstr "Расписание:"
 
 #: tfrmmain.label13.caption
 msgid "Commands list:"
@@ -278,10 +84,6 @@ msgstr "Шаг 4:"
 #: tfrmmain.label6.caption
 msgid "Step 5:"
 msgstr "Шаг 5:"
-
-#: tfrmmain.label7.caption
-msgid "Test mode:"
-msgstr "Тестовый режим:"
 
 #: tfrmmain.labelr4.caption
 msgid "F4"
@@ -323,10 +125,6 @@ msgstr "00:00:00"
 msgid "Robot Time:"
 msgstr "Время:"
 
-#: tfrmmain.lbschstate.caption
-msgid "???"
-msgstr "???"
-
 #: tfrmmain.lbwarnlowvoltage.caption
 msgid "Batt V < 12 V"
 msgstr "Batt V < 12 V"
@@ -360,78 +158,9 @@ msgid "COM1"
 msgstr "COM1"
 
 #: tmodulemain.mncopy.caption
-msgctxt "tmodulemain.mncopy.caption"
+msgctxt "TMODULEMAIN.MNCOPY.CAPTION"
 msgid "Copy"
 msgstr "Копировать"
-
-#: ufrmmain.errorcantopenportcom
-msgid "Can't open port COM"
-msgstr "Не могу открыть COM порт"
-
-#: ufrmmain.errorclearport
-msgid "Error clearing port. (ClearCommError)"
-msgstr "ClearCommError"
-
-#: ufrmmain.errorcomportnotdetect
-msgid "COM port not detect"
-msgstr "Подходящий COM порт не найден"
-
-#: ufrmmain.errorevent
-msgid "WaitCommEvent IOResult = EV_ERR"
-msgstr "WaitCommEvent IOResult = EV_ERR"
-
-#: ufrmmain.errorinvalidcomportnumber
-msgid "invalid COM port number"
-msgstr "Неправильный номер COM порта"
-
-#: ufrmmain.errorsetportstate
-msgid "Error setting port state (SetCommState)"
-msgstr "Error setting port state (SetCommState)"
-
-#: ufrmmain.friday
-msgid "Friday"
-msgstr "Пятница"
-
-#: ufrmmain.monday
-msgid "Monday"
-msgstr "Понедельник"
-
-#: ufrmmain.saturday
-msgid "Saturday"
-msgstr "Суббота"
-
-#: ufrmmain.sunday
-msgid "Sunday"
-msgstr "Воскресенье"
-
-#: ufrmmain.textdisabled
-msgid "Disabled"
-msgstr "Выкл"
-
-#: ufrmmain.textenabled
-msgid "Enabled"
-msgstr "Вкл"
-
-#: ufrmmain.thursda
-msgid "Thursday"
-msgstr "Четверг"
-
-#: ufrmmain.tuesday
-msgid "Tuesday"
-msgstr "Вторник"
-
-#: ufrmmain.wednesday
-msgid "Wednesday"
-msgstr "Среда"
-
-#: tfrmmain.actcopysensordata.caption
-msgctxt "tfrmmain.actcopysensordata.caption"
-msgid "copy all"
-msgstr "Копировать все"
-
-#: tfrmmain.actgetlifestatlog.caption
-msgid "Get Log"
-msgstr "Системный лог"
 
 #: tfrmmain.btncopyall_log.caption
 msgctxt "TFRMMAIN.BTNCOPYALL_LOG.CAPTION"
@@ -473,4 +202,174 @@ msgstr "Моторы"
 #: tfrmmain.label9.caption
 msgid "WARNING: Rotate the robot so the wheels are facing up before enable wheels motor!"
 msgstr "ВНИМАНИЕ: переверните робота колесами вверх перед запуском моторов"
+
+#: ustrres.disable
+msgctxt "ustrres.disable"
+msgid "Disable"
+msgstr "Выкл."
+
+#: ustrres.enable
+msgctxt "ustrres.enable"
+msgid "Enable"
+msgstr "Вкл."
+
+#: tfrmmain.chdrawradialstate.caption
+msgid "Show state"
+msgstr "Показать диагностику"
+
+#: tfrmmain.chdrawradialstate.hint
+msgid "Blue - intensity, Green - length, Red - error, Black - not visible"
+msgstr "Голубой - интенсивность, Зеленый - расстояние, Красный - ошибка, Черный - вне поля зрения"
+
+#: tfrmmain.groupbox4.caption
+msgid "Schedule"
+msgstr "Расписание и время"
+
+#: tmodulemain.actchrenablebrush.caption
+msgctxt "TMODULEMAIN.ACTCHRENABLEBRUSH.CAPTION"
+msgid "Enable Brush Motor and Disconnect"
+msgstr "Вкл мотор пылесоса и отсоединиться"
+
+#: tmodulemain.actchrenablevaccum.caption
+msgctxt "TMODULEMAIN.ACTCHRENABLEVACCUM.CAPTION"
+msgid "Enable Vaccum Motor and Disconnect"
+msgstr "Вкл мотор щетки и отсоединиться"
+
+#: tmodulemain.actchrset100percentbattery.caption
+msgctxt "TMODULEMAIN.ACTCHRSET100PERCENTBATTERY.CAPTION"
+msgid "Set 100% Battery"
+msgstr "Эмулировать 100% заряда"
+
+#: tmodulemain.actconnect.caption
+msgctxt "TMODULEMAIN.ACTCONNECT.CAPTION"
+msgid "Connect"
+msgstr "Подсоединить"
+
+#: tmodulemain.actcopysensordata.caption
+msgctxt "TMODULEMAIN.ACTCOPYSENSORDATA.CAPTION"
+msgid "copy all"
+msgstr "Копировать все"
+
+#: tmodulemain.actdisconnect.caption
+msgctxt "TMODULEMAIN.ACTDISCONNECT.CAPTION"
+msgid "Disconnect"
+msgstr "Отключиться"
+
+#: tmodulemain.actgetlifestatlog.caption
+msgctxt "TMODULEMAIN.ACTGETLIFESTATLOG.CAPTION"
+msgid "Get Log"
+msgstr "Системный лог"
+
+#: tmodulemain.actremotecontrol.caption
+msgctxt "TMODULEMAIN.ACTREMOTECONTROL.CAPTION"
+msgid "Remote Control (push arrows)"
+msgstr "Управление (нажимайте стрелочки)"
+
+#: tmodulemain.actscanlds.caption
+msgctxt "TMODULEMAIN.ACTSCANLDS.CAPTION"
+msgid "Scan LDS"
+msgstr "Вкл. лазерный сканер"
+
+#: tmodulemain.actsetcurrenttime.caption
+msgctxt "TMODULEMAIN.ACTSETCURRENTTIME.CAPTION"
+msgid "Set time to Neato from computer"
+msgstr "Установить время робота с компьютера"
+
+#: tmodulemain.actsetschedule.caption
+msgctxt "TMODULEMAIN.ACTSETSCHEDULE.CAPTION"
+msgid "Save Schedule"
+msgstr "Сохранить"
+
+#: tmodulemain.acttestmodeoff.caption
+msgctxt "TMODULEMAIN.ACTTESTMODEOFF.CAPTION"
+msgid "Disable"
+msgstr "Выкл."
+
+#: tmodulemain.acttestmodeon.caption
+msgctxt "TMODULEMAIN.ACTTESTMODEON.CAPTION"
+msgid "Enable"
+msgstr "Вкл."
+
+#: tfrmmain.chenableschedule.caption
+msgid "Schedule enabled"
+msgstr "Расписание вкл."
+
+#: tmodulemain.actbtnsendcmd.caption
+msgctxt "tmodulemain.actbtnsendcmd.caption"
+msgid "Run"
+msgstr ">"
+
+#: tmodulemain.acttestmodeenabled.caption
+msgctxt "TMODULEMAIN.ACTTESTMODEENABLED.CAPTION"
+msgid "Test mode enabled"
+msgstr "TestMode включен"
+
+#: ustrres.errorcantopenportcom
+msgctxt "ustrres.errorcantopenportcom"
+msgid "Can't open port COM"
+msgstr "Не могу открыть COM порт"
+
+#: ustrres.errorcomportnotdetect
+msgctxt "ustrres.errorcomportnotdetect"
+msgid "COM port not detect"
+msgstr "Подходящий COM порт не найден"
+
+#: ustrres.errorinvalidcomportnumber
+msgctxt "ustrres.errorinvalidcomportnumber"
+msgid "invalid COM port number"
+msgstr "Неправильный номер COM порта"
+
+#: ustrres.friday
+msgctxt "ustrres.friday"
+msgid "Friday"
+msgstr "Пятница"
+
+#: ustrres.monday
+msgctxt "ustrres.monday"
+msgid "Monday"
+msgstr "Понедельник"
+
+#: ustrres.off
+msgctxt "ustrres.off"
+msgid "off"
+msgstr ""
+
+#: ustrres.runtimerinsecond
+msgid "in seconds"
+msgstr "в секундах"
+
+#: ustrres.saturday
+msgctxt "ustrres.saturday"
+msgid "Saturday"
+msgstr "Суббота"
+
+#: ustrres.sunday
+msgctxt "ustrres.sunday"
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: ustrres.textdisabled
+msgctxt "ustrres.textdisabled"
+msgid "Disabled"
+msgstr "Выкл"
+
+#: ustrres.textenabled
+msgctxt "ustrres.textenabled"
+msgid "Enabled"
+msgstr "Вкл"
+
+#: ustrres.thursda
+msgctxt "ustrres.thursda"
+msgid "Thursday"
+msgstr "Четверг"
+
+#: ustrres.tuesday
+msgctxt "ustrres.tuesday"
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: ustrres.wednesday
+msgctxt "ustrres.wednesday"
+msgid "Wednesday"
+msgstr "Среда"
 
